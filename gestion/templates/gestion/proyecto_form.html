@@ -1,0 +1,42 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}{{ titulo }} · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% if slug_volver %}{% url url_volver slug_volver as url_lista %}{% else %}{% url url_volver as url_lista %}{% endif %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_url=url_lista miga_texto=texto_volver miga_actual=titulo %}
+    <h1 class="pagina__titulo">{{ titulo }}</h1>
+</header>
+
+<section class="panel panel--formulario">
+    {# La única diferencia entre crear y editar es la URL a la que se envía (diapositiva 73) #}
+    <form method="post" class="formulario" novalidate
+          action="{% if proyecto %}{% url 'proyecto_editar' proyecto.pk %}{% else %}{% url 'proyecto_crear' slug_volver %}{% endif %}">
+        {% csrf_token %}
+
+        {% for error in formulario.non_field_errors %}
+            <div class="error-formulario" role="alert">{{ error }}</div>
+        {% endfor %}
+
+        {% include "gestion/campo.html" with campo=formulario.nombre %}
+
+        <div class="formulario__fila">
+            {% include "gestion/campo_widget.html" with campo=formulario.tipo %}
+            {% include "gestion/campo_widget.html" with campo=formulario.estado %}
+        </div>
+
+        <div class="formulario__fila">
+            {% include "gestion/campo_widget.html" with campo=formulario.fecha_inicio %}
+            {% include "gestion/campo_widget.html" with campo=formulario.fecha_fin %}
+        </div>
+
+        {% include "gestion/campo_widget.html" with campo=formulario.descripcion %}
+
+        <div class="formulario__botones">
+            <button type="submit" class="boton">{% if proyecto %}Guardar cambios{% else %}Crear{% endif %}</button>
+            <a class="boton boton--secundario" href="{% if proyecto %}{% url 'detalle_proyecto' proyecto.pk %}{% else %}{{ url_lista }}{% endif %}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

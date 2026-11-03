@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de URLs · Gregal Trace</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}?v=8">
+</head>
+<body>
+<main class="contenido prueba">
+    <header class="pagina">
+        <h1 class="pagina__titulo">Índice de pruebas</h1>
+        <p class="pagina__texto">
+            Página oculta para desarrollo con todas las URLs. Al crear una URL nueva, añádela aquí.
+            {% if user.is_authenticated %}Sesión iniciada como <strong>{{ user.username }}</strong> ({{ user.get_rol_display }}).{% else %}Sin sesión iniciada.{% endif %}
+        </p>
+    </header>
+
+    <section class="panel panel--lista">
+        <div class="tabla-contenedor">
+            <table class="tabla">
+                <thead>
+                    <tr><th scope="col">Página</th><th scope="col">Enlace</th><th scope="col">Quién</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row" colspan="3">Acceso</th></tr>
+                    <tr><td>Iniciar sesión</td><td><a href="{% url 'login' %}">{% url 'login' %}</a></td><td>Todos</td></tr>
+                    <tr><td>Crear cuenta</td><td><a href="{% url 'registrar_usuario' %}">{% url 'registrar_usuario' %}</a></td><td>Sin sesión</td></tr>
+                    <tr><td>Cambiar contraseña</td><td><a href="{% url 'password_change' %}">{% url 'password_change' %}</a></td><td>Con sesión</td></tr>
+                    <tr><td>Cerrar sesión</td><td><code>{% url 'logout' %}</code> (solo POST, botón del menú)</td><td>Con sesión</td></tr>
+                    <tr><td>Administración</td><td><a href="{% url 'admin:index' %}">{% url 'admin:index' %}</a></td><td>Superusuario</td></tr>
+
+                    <tr><th scope="row" colspan="3">Proyectos</th></tr>
+                    <tr><td>Inicio</td><td><a href="{% url 'index' %}">{% url 'index' %}</a></td><td>Todos</td></tr>
+                    <tr><td>Obras</td><td><a href="{% url 'lista_proyectos' 'obras' %}">{% url 'lista_proyectos' 'obras' %}</a></td><td>Todos</td></tr>
+                    <tr><td>Intervenciones</td><td><a href="{% url 'lista_proyectos' 'intervenciones' %}">{% url 'lista_proyectos' 'intervenciones' %}</a></td><td>Todos</td></tr>
+                    <tr><td>Mantenimientos</td><td><a href="{% url 'lista_proyectos' 'mantenimientos' %}">{% url 'lista_proyectos' 'mantenimientos' %}</a></td><td>Todos</td></tr>
+                    <tr><td>Urgencias</td><td><a href="{% url 'urgencias' %}">{% url 'urgencias' %}</a></td><td>Todos</td></tr>
+                    {% for proyecto in ejemplo %}
+                        <tr><td>Detalle de «{{ proyecto.nombre }}»</td><td><a href="{% url 'detalle_proyecto' proyecto.id %}">{% url 'detalle_proyecto' proyecto.id %}</a></td><td>Todos</td></tr>
+                    {% endfor %}
+
+                    <tr><th scope="row" colspan="3">Oficina</th></tr>
+                    <tr><td>Nueva obra</td><td><a href="{% url 'proyecto_crear' 'obras' %}">{% url 'proyecto_crear' 'obras' %}</a></td><td>Oficina</td></tr>
+                    <tr><td>Nueva intervención</td><td><a href="{% url 'proyecto_crear' 'intervenciones' %}">{% url 'proyecto_crear' 'intervenciones' %}</a></td><td>Oficina</td></tr>
+                    <tr><td>Nuevo mantenimiento</td><td><a href="{% url 'proyecto_crear' 'mantenimientos' %}">{% url 'proyecto_crear' 'mantenimientos' %}</a></td><td>Oficina</td></tr>
+                    {% for proyecto in ejemplo %}
+                        <tr><td>Editar «{{ proyecto.nombre }}»</td><td><a href="{% url 'proyecto_editar' proyecto.id %}">{% url 'proyecto_editar' proyecto.id %}</a></td><td>Oficina</td></tr>
+                        <tr><td>Cambiar estado</td><td><code>{% url 'cambiar_estado' proyecto.id %}</code> (solo POST, botón del detalle)</td><td>Oficina</td></tr>
+                        <tr><td>Eliminar</td><td><code>{% url 'proyecto_eliminar' proyecto.id %}</code> (solo POST, botón del detalle)</td><td>Oficina</td></tr>
+                    {% endfor %}
+
+                    {% for consumo in ejemplo_consumo %}
+                        <tr><td>Editar un apunte</td><td><a href="{% url 'consumo_editar' consumo.id %}">{% url 'consumo_editar' consumo.id %}</a></td><td>Su autor u Oficina</td></tr>
+                        <tr><td>Eliminar un apunte</td><td><code>{% url 'consumo_eliminar' consumo.id %}</code> (solo POST, botón de la tabla)</td><td>Su autor u Oficina</td></tr>
+                    {% endfor %}
+                    <tr><td>Materiales</td><td><a href="{% url 'lista_materiales' %}">{% url 'lista_materiales' %}</a></td><td>Oficina</td></tr>
+                    <tr><td>Nuevo material</td><td><a href="{% url 'material_crear' %}">{% url 'material_crear' %}</a></td><td>Oficina</td></tr>
+                    {% for material in ejemplo_material %}
+                        <tr><td>Editar «{{ material.nombre }}»</td><td><a href="{% url 'material_editar' material.id %}">{% url 'material_editar' material.id %}</a></td><td>Oficina</td></tr>
+                        <tr><td>Eliminar material</td><td><code>{% url 'material_eliminar' material.id %}</code> (solo POST, botón de la tabla)</td><td>Oficina</td></tr>
+                    {% endfor %}
+
+                    <tr><th scope="row" colspan="3">Páginas de error (diseño)</th></tr>
+                    <tr><td>400 Petición incorrecta</td><td><a href="{% url 'prueba_error' 400 %}">{% url 'prueba_error' 400 %}</a></td><td>Todos</td></tr>
+                    <tr><td>403 Sin permiso</td><td><a href="{% url 'prueba_error' 403 %}">{% url 'prueba_error' 403 %}</a></td><td>Todos</td></tr>
+                    <tr><td>404 No encontrada</td><td><a href="{% url 'prueba_error' 404 %}">{% url 'prueba_error' 404 %}</a></td><td>Todos</td></tr>
+                    <tr><td>500 Error del servidor</td><td><a href="{% url 'prueba_error' 500 %}">{% url 'prueba_error' 500 %}</a></td><td>Todos</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
+</html>

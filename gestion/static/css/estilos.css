@@ -278,7 +278,7 @@ img { display: block; max-width: 100%; }
 }
 
 .pagina__texto--descripcion { margin-top: 14px; color: var(--texto); }
-.pagina__acciones { display: flex; gap: 8px; }
+.pagina__acciones { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .datos {
     display: flex;
@@ -661,6 +661,14 @@ img { display: block; max-width: 100%; }
 
 .boton--ancho { width: 100%; }
 
+.boton--peligro { border-color: var(--rojo); background: var(--blanco); color: var(--rojo); }
+.boton--peligro:hover { background: var(--rojo-suave); }
+
+/* ---------- Formulario de proyecto ---------- */
+.panel--formulario { max-width: 720px; }
+.formulario__fila { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.formulario__botones { display: flex; flex-wrap: wrap; gap: 8px; }
+
 /* Botón de volver: al final de la página y centrado */
 .acciones-pie {
     display: flex;
@@ -719,6 +727,47 @@ img { display: block; max-width: 100%; }
 .tabla__fecha { color: var(--texto-suave); white-space: nowrap; }
 .tabla__material { font-weight: 600; }
 .tabla__persona { white-space: nowrap; }
+
+/* Botones pequeños de editar y eliminar dentro de una tabla */
+.tabla__acciones { text-align: right; white-space: nowrap; }
+.tabla__acciones form { display: inline-block; margin-left: 4px; vertical-align: middle; }
+.boton-tabla {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-control);
+    background: var(--blanco);
+    color: var(--verde-accion);
+    cursor: pointer;
+    vertical-align: middle;
+}
+.boton-tabla:hover { background: var(--verde-suave); }
+.boton-tabla--peligro { color: var(--rojo); }
+.boton-tabla--peligro:hover { background: var(--rojo-suave); }
+
+.barra-herramientas__total { color: var(--texto-suave); font-size: 14px; white-space: nowrap; }
+
+/* Solo para lectores de pantalla */
+.solo-lector {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.panel--oficina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
 
 /* ---------- Avisos ---------- */
 .avisos { margin: 0 0 20px; padding: 0; list-style: none; }
@@ -787,6 +836,99 @@ img { display: block; max-width: 100%; }
 .acceso__formulario h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
 .acceso__ayuda { margin: 6px 0 28px; color: var(--texto-suave); }
 .acceso .formulario .boton { margin-top: 6px; }
+.acceso__enlace { margin-top: 20px; color: var(--texto-suave); text-align: center; }
+.acceso__enlace a { color: var(--verde-accion); font-weight: 700; }
+
+.ayuda-campo { color: var(--texto-suave); font-size: 13px; }
+.ayuda-campo ul { margin: 4px 0 0; padding-left: 18px; }
+
+/* ---------- Páginas de error ---------- */
+.error {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+.error__marca {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 64px;
+    overflow: hidden;
+    background: var(--verde-noche);
+    color: #D7E6CB;
+}
+
+.error__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--blanco);
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.error__logo img { border-radius: 50%; background: var(--blanco); }
+
+.error__codigo {
+    color: var(--verde-marca);
+    font-size: clamp(120px, 18vw, 240px);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+}
+
+.error__lema { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.error__cuerpo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 48px 32px;
+}
+
+.error__icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: var(--ambar-suave);
+    color: var(--ambar);
+}
+
+.error__icono .icono { width: 24px; height: 24px; }
+
+.error__etiqueta {
+    color: var(--texto-suave);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.error__titulo {
+    margin-top: 6px;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.error__texto { margin-top: 12px; color: var(--texto-suave); }
+.error__botones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+
+/* Página de pruebas */
+.prueba { max-width: 960px; margin: 0 auto; }
+.prueba .tabla th[scope="row"] { background: var(--verde-suave); }
 
 /* ---------- Tablet ---------- */
 @media (max-width: 1024px) {
@@ -878,7 +1020,10 @@ img { display: block; max-width: 100%; }
 
     .pagina__titulo { font-size: 24px; }
     .pagina__acciones,
+    .pagina__acciones form,
     .pagina__acciones .boton { width: 100%; }
+    .formulario__fila { grid-template-columns: 1fr; }
+    .formulario__botones .boton { flex: 1; }
 
     .tipos { grid-template-columns: 1fr; gap: 14px; }
     .tipo__foto { height: 110px; }
@@ -915,10 +1060,16 @@ img { display: block; max-width: 100%; }
     .tabla tbody tr:hover td { background: none; }
     .tabla__material { grid-column: 1 / -1; order: -1; }
     .tabla .num { text-align: left; }
+    .tabla .tabla__acciones { grid-column: 1 / -1; margin-top: 6px; text-align: left; }
 
     .boton-volver { width: 100%; }
 
     .acceso { grid-template-columns: 1fr; }
+    .error { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+    .error__marca { gap: 16px; padding: 28px 24px; }
+    .error__codigo { font-size: 96px; }
+    .error__cuerpo { justify-content: flex-start; padding: 32px 20px 48px; }
+    .error__botones .boton { flex: 1; }
     .acceso__marca { padding: 40px 24px 32px; gap: 12px; }
     .acceso__marca h1 { font-size: 32px; }
     .acceso__marca p { font-size: 16px; }

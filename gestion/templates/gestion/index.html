@@ -40,4 +40,14 @@
         </span>
     </a>
 </div>
+
+{% if perms.gestion.change_material %}
+    <section class="panel panel--oficina">
+        <div>
+            <h2 class="panel__titulo">Oficina</h2>
+            <p class="pagina__texto">Gestiona el catálogo de materiales y horas con sus precios.</p>
+        </div>
+        <a class="boton boton--secundario" href="{% url 'lista_materiales' %}">{% include "gestion/icono.html" with nombre="materiales" %}Materiales</a>
+    </section>
+{% endif %}
 {% endblock %}

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="hoja" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#93C447"/>
+      <stop offset="0.55" stop-color="#6FA52A"/>
+      <stop offset="1" stop-color="#4F860B"/>
+    </linearGradient>
+    <linearGradient id="frente" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCA86C"/>
+      <stop offset="1" stop-color="#C48B4D"/>
+    </linearGradient>
+    <clipPath id="forma"><path d="M18 14 C152 12 240 108 236 258 C108 258 18 168 18 14 Z"/></clipPath>
+  </defs>
+
+  <!-- Solapas traseras (detrás de la hoja) -->
+  <path d="M120 270 L256 220 L206 160 L70 208 Z" fill="#E6BA84"/>
+  <path d="M392 270 L256 220 L306 160 L442 208 Z" fill="#CF9A5E"/>
+
+  <!-- Interior -->
+  <path d="M120 270 L256 220 L392 270 L256 320 Z" fill="#7E5025"/>
+
+  <!-- Hoja saliendo -->
+  <g transform="translate(266 304) rotate(30) scale(0.86) translate(-236 -258)">
+    <path d="M18 14 C152 12 240 108 236 258 C108 258 18 168 18 14 Z" fill="url(#hoja)"/>
+    <path d="M30 28 C110 96 172 168 228 248" stroke="#A9D466" stroke-width="3" fill="none" opacity="0.4"/>
+    <g clip-path="url(#forma)" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+      <!-- remolino -->
+      <path d="M118 154 C94 150 88 122 106 108 C124 94 154 104 154 128 C154 146 132 150 126 136" stroke-width="12"/>
+      <!-- ola principal -->
+      <path d="M0 170 C30 150 52 150 62 160 C70 152 90 160 100 168 C118 182 158 180 192 160 C212 150 236 136 260 124" stroke-width="12"/>
+      <!-- olas inferiores -->
+      <path d="M30 196 C80 214 150 216 260 166" stroke-width="11"/>
+      <path d="M80 236 C140 246 200 230 260 196" stroke-width="10"/>
+    </g>
+  </g>
+
+  <!-- Cuerpo -->
+  <path d="M120 270 L256 320 L256 470 L120 420 Z" fill="url(#frente)"/>
+  <path d="M392 270 L256 320 L256 470 L392 420 Z" fill="#AE773D"/>
+
+  <!-- Solapas delanteras -->
+  <path d="M120 270 L256 320 L212 362 L76 312 Z" fill="#EBC290"/>
+  <path d="M392 270 L256 320 L300 362 L436 312 Z" fill="#C8925A"/>
+
+  <!-- Cinta y aristas -->
+  <path d="M182 343 L182 443 L204 451 L204 351 Z" fill="#F4E2C6" opacity="0.9"/>
+  <path d="M256 320 L256 470" stroke="#8F5E2C" stroke-width="2" opacity="0.5"/>
+</svg>

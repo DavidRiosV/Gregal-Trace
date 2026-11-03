@@ -1,0 +1,7 @@
+{# Campo que pinta el propio widget de Django (select, fecha, textarea) con el mismo marco y errores que campo.html #}
+<div class="campo">
+    <label for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+    <div class="entrada{% if campo.errors %} entrada--error{% endif %}">{{ campo }}</div>
+    {% if campo.help_text %}<div class="ayuda-campo">{{ campo.help_text|safe }}</div>{% endif %}
+    {% for error in campo.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+</div>

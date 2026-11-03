@@ -114,8 +114,8 @@ Aplicación **monolítica** con el patrón **MTV** (Modelo, Plantilla, Vista) de
 
 | Entidad | Para qué sirve |
 | --- | --- |
-| **Usuario** | Modelo `User` de Django, que gestiona el inicio de sesión |
-| **Perfil** | Rol del usuario: Operario u Oficina (1:1 con Usuario) |
+| **Usuario** | Hereda de `AbstractUser` y guarda el rol; es el que inicia sesión |
+| **Operario / Oficina** | Tipo de usuario (1:1 con Usuario); los permisos van por los grupos Operarios y Oficina |
 | **Proyecto** | Obra, intervención, mantenimiento o urgencia, con su estado |
 | **Material** | Catálogo con unidad y precio; las horas son un material con unidad «hora» |
 | **Consumo** | Cada apunte: qué material, cuánto, a qué precio, en qué proyecto y quién lo apuntó |
@@ -142,7 +142,7 @@ pip install -r requirements.txt
 python manage.py migrate
 
 # 5. (Opcional) Cargar los datos de ejemplo: proyectos terminados y catálogo de materiales
-python manage.py loaddata datos_gregal
+python manage.py loaddata grupos usuarios datos_gregal
 
 # 6. Crear el superusuario
 python manage.py createsuperuser
@@ -153,7 +153,7 @@ python manage.py runserver
 
 Después, abre <http://127.0.0.1:8000> en el navegador.
 
-> **Nota:** para que un usuario entre como Operario u Oficina, créale un **Perfil** desde `/admin` y elige su rol.
+> **Nota:** `usuarios.json` no está en el repositorio porque lleva contraseñas. Sin él, carga solo `grupos` y crea los usuarios con el registro (`/registrar/`, operarios) o desde `/admin` (Oficina: rol Oficina, su fila en Oficinas y el grupo Oficina).
 
 ## Estructura del proyecto
 
@@ -165,7 +165,7 @@ Gregal-Trace-/
 │   ├── settings.py
 │   └── urls.py
 └── gestion/                 # Aplicación principal
-    ├── models.py            # Perfil, Proyecto, Material, Consumo, Albarán
+    ├── models.py            # Usuario, Operario, Oficina, Proyecto, Material, Consumo, Albarán
     ├── views.py             # Vistas y reglas de negocio
     ├── forms.py             # Formularios y validación
     ├── urls.py

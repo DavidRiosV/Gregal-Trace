@@ -1,0 +1,30 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}{{ titulo }} · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'lista_materiales' as url_lista %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_url=url_lista miga_texto="Materiales" miga_actual=titulo %}
+    <h1 class="pagina__titulo">{{ titulo }}</h1>
+</header>
+
+<section class="panel panel--formulario">
+    <form method="post" class="formulario" novalidate
+          action="{% if material %}{% url 'material_editar' material.pk %}{% else %}{% url 'material_crear' %}{% endif %}">
+        {% csrf_token %}
+
+        {% include "gestion/campo.html" with campo=formulario.nombre %}
+
+        <div class="formulario__fila">
+            {% include "gestion/campo_widget.html" with campo=formulario.unidad %}
+            {% include "gestion/campo_widget.html" with campo=formulario.precio %}
+        </div>
+
+        <div class="formulario__botones">
+            <button type="submit" class="boton">{% if material %}Guardar cambios{% else %}Crear material{% endif %}</button>
+            <a class="boton boton--secundario" href="{{ url_lista }}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

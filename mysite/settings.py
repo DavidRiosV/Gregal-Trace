@@ -46,7 +46,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -128,6 +127,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Login y logout
+# Modelo de usuario propio (diapositiva 10). Debe ir antes de la primera migración.
+AUTH_USER_MODEL = 'gestion.Usuario'
+
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'

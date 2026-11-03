@@ -19,15 +19,27 @@
                 {% if proyecto.creado_por %}<div><dt>Abierto por</dt><dd>{{ proyecto.creado_por.get_full_name|default:proyecto.creado_por.username }}</dd></div>{% endif %}
             </dl>
         </div>
-        {% if es_oficina %}
-            <form method="post" action="{% url 'cambiar_estado' proyecto.pk %}" class="pagina__acciones">
-                {% csrf_token %}
-                {% if proyecto.esta_terminado %}
-                    <button type="submit" class="boton boton--secundario">Volver a poner en proceso</button>
-                {% else %}
-                    <button type="submit" class="boton">Marcar como terminado</button>
+        {% if perms.gestion.change_proyecto or perms.gestion.delete_proyecto %}
+            <div class="pagina__acciones">
+                {% if perms.gestion.change_proyecto %}
+                    <a class="boton boton--secundario" href="{% url 'proyecto_editar' proyecto.pk %}">Editar</a>
+                    <form method="post" action="{% url 'cambiar_estado' proyecto.pk %}">
+                        {% csrf_token %}
+                        {% if proyecto.esta_terminado %}
+                            <button type="submit" class="boton boton--secundario">Volver a poner en proceso</button>
+                        {% else %}
+                            <button type="submit" class="boton">Marcar como terminado</button>
+                        {% endif %}
+                    </form>
                 {% endif %}
-            </form>
+                {% if perms.gestion.delete_proyecto %}
+                    {# Eliminar: formulario POST y confirmación en JavaScript (diapositivas 80-81) #}
+                    <form method="post" action="{% url 'proyecto_eliminar' proyecto.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="boton boton--peligro" onclick="return eliminar();">Eliminar</button>
+                    </form>
+                {% endif %}
+            </div>
         {% endif %}
     </div>
     {% if proyecto.descripcion %}<p class="pagina__texto pagina__texto--descripcion">{{ proyecto.descripcion }}</p>{% endif %}
@@ -42,7 +54,7 @@
         <span class="cifra__valor">{{ horas|floatformat:"-2g" }} h</span>
         <span class="cifra__nombre">Horas</span>
     </div>
-    {% if es_oficina %}
+    {% if perms.gestion.change_material %}
         <div class="cifra cifra--principal">
             <span class="cifra__valor">{{ coste_total|floatformat:"2g" }} €</span>
             <span class="cifra__nombre">Coste total</span>
@@ -50,7 +62,7 @@
     {% endif %}
 </div>
 
-{% if not proyecto.esta_terminado %}
+{% if puede_apuntar %}
 <section class="panel">
     <h2 class="panel__titulo">Apuntar material u horas</h2>
     <form method="post" class="formulario formulario--consumo" novalidate>
@@ -77,7 +89,7 @@
         <button type="submit" class="boton formulario__enviar">Añadir apunte</button>
     </form>
 </section>
-{% else %}
+{% elif proyecto.esta_terminado %}
     <p class="aviso aviso--info">Este proyecto está terminado, así que ya no admite apuntes nuevos.</p>
 {% endif %}
 
@@ -92,7 +104,8 @@
                         <th scope="col">Material</th>
                         <th scope="col" class="num">Cantidad</th>
                         <th scope="col">Añadido por</th>
-                        {% if es_oficina %}<th scope="col" class="num">Importe</th>{% endif %}
+                        {% if perms.gestion.change_material %}<th scope="col" class="num">Importe</th>{% endif %}
+                        {% if not proyecto.esta_terminado %}<th scope="col" class="num"><span class="solo-lector">Acciones</span></th>{% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -102,7 +115,23 @@
                             <td class="tabla__material">{{ consumo.material.nombre }}</td>
                             <td class="num">{{ consumo.cantidad|floatformat:"-2g" }} {{ consumo.material.abreviatura }}</td>
                             <td class="tabla__persona"><span class="avatar avatar--mini" aria-hidden="true">{{ consumo.trabajador.first_name|default:consumo.trabajador.username|slice:":1"|upper }}</span>{{ consumo.trabajador.get_full_name|default:consumo.trabajador.username }}</td>
-                            {% if es_oficina %}<td class="num">{{ consumo.total|floatformat:"2g" }} €</td>{% endif %}
+                            {% if perms.gestion.change_material %}<td class="num">{{ consumo.total|floatformat:"2g" }} €</td>{% endif %}
+                            {% if not proyecto.esta_terminado %}
+                                <td class="tabla__acciones">
+                                    {# Cada operario solo cambia sus apuntes; Oficina, todos #}
+                                    {% if consumo.trabajador == user or perms.gestion.change_proyecto %}
+                                        {% if perms.gestion.change_consumo %}
+                                            <a class="boton-tabla" href="{% url 'consumo_editar' consumo.pk %}" aria-label="Editar apunte" title="Editar">{% include "gestion/icono.html" with nombre="editar" %}</a>
+                                        {% endif %}
+                                        {% if perms.gestion.delete_consumo %}
+                                            <form method="post" action="{% url 'consumo_eliminar' consumo.pk %}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar apunte" title="Eliminar" onclick="return eliminar_apunte();">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+                                            </form>
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                            {% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>

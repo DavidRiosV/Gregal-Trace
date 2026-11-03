@@ -1,0 +1,53 @@
+{% extends "gestion/principal.html" %}
+{% load static %}
+
+{% block titulo %}Crear cuenta · Gregal Trace{% endblock %}
+
+{% block clase_body %}pagina-acceso{% endblock %}
+
+{% block cuerpo %}
+<main class="acceso" id="contenido">
+    <section class="acceso__marca">
+        <img src="{% static 'img/logo.png' %}" alt="Logo de Instalaciones Gregal" width="72" height="72">
+        <h1>Gregal Trace</h1>
+        <p>Crea tu cuenta de operario para apuntar el material y las horas de cada trabajo.</p>
+    </section>
+
+    <section class="acceso__formulario">
+        <h2>Crear cuenta</h2>
+        <p class="acceso__ayuda">Las cuentas de Oficina las da de alta la empresa.</p>
+
+        <form method="post" action="{% url 'registrar_usuario' %}" class="formulario" novalidate>
+            {% csrf_token %}
+
+            {% for error in formulario.non_field_errors %}
+                <div class="error-formulario" role="alert">{{ error }}</div>
+            {% endfor %}
+
+            {% include "gestion/campo.html" with campo=formulario.username autocompletar="username" %}
+            {% include "gestion/campo.html" with campo=formulario.first_name autocompletar="given-name" %}
+            {% include "gestion/campo.html" with campo=formulario.last_name autocompletar="family-name" %}
+            {% include "gestion/campo.html" with campo=formulario.email tipo="email" autocompletar="email" %}
+            {% include "gestion/campo.html" with campo=formulario.password1 tipo="password" autocompletar="new-password" %}
+            {% include "gestion/campo.html" with campo=formulario.password2 tipo="password" autocompletar="new-password" %}
+
+            {# Select recorriendo subwidgets (diapositiva 27) #}
+            <div class="campo">
+                <label for="{{ formulario.rol.id_for_label }}">{{ formulario.rol.label }}</label>
+                <div class="entrada{% if formulario.rol.errors %} entrada--error{% endif %}">
+                    <select name="{{ formulario.rol.html_name }}" id="{{ formulario.rol.id_for_label }}">
+                        {% for opcion in formulario.rol.subwidgets %}
+                            <option value="{{ opcion.data.value }}"{% if opcion.data.selected %} selected{% endif %}>{{ opcion.data.label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% for error in formulario.rol.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+            </div>
+
+            <button type="submit" class="boton boton--ancho">Crear cuenta</button>
+        </form>
+
+        <p class="acceso__enlace">¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
+    </section>
+</main>
+{% endblock %}

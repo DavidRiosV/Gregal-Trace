@@ -1,0 +1,31 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}Editar apunte · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% if slug_volver %}{% url url_volver slug_volver as url_lista %}{% else %}{% url url_volver as url_lista %}{% endif %}
+{% url 'detalle_proyecto' proyecto.pk as url_proyecto %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_url=url_proyecto miga_texto=proyecto.nombre miga_actual="Editar apunte" %}
+    <h1 class="pagina__titulo">Editar apunte</h1>
+    <p class="pagina__texto">{{ proyecto.nombre }} · apuntado por {{ consumo.trabajador.get_full_name|default:consumo.trabajador.username }}</p>
+</header>
+
+<section class="panel panel--formulario">
+    <form method="post" action="{% url 'consumo_editar' consumo.pk %}" class="formulario" novalidate>
+        {% csrf_token %}
+
+        {% include "gestion/campo_widget.html" with campo=formulario.material %}
+
+        <div class="formulario__fila">
+            {% include "gestion/campo_widget.html" with campo=formulario.cantidad %}
+            {% include "gestion/campo_widget.html" with campo=formulario.fecha %}
+        </div>
+
+        <div class="formulario__botones">
+            <button type="submit" class="boton">Guardar cambios</button>
+            <a class="boton boton--secundario" href="{{ url_proyecto }}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

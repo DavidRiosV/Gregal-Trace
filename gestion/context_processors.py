@@ -1,11 +1,11 @@
 from django.db.models import Count
 
 from .models import Proyecto
-from .views import TIPOS, es_oficina
+from .views import TIPOS
 
 
 def navegacion(request):
-    """Datos del menú que necesitan todas las páginas: contadores y sección activa."""
+    """Contadores del menú, que necesitan todas las páginas. La sección activa la pasa cada vista."""
     if not request.user.is_authenticated:
         return {}
 
@@ -15,22 +15,13 @@ def navegacion(request):
 
     nav_tipos = {}
     for slug, datos in TIPOS.items():
-        nav_tipos[slug] = {
-            **datos,
-            'en_proceso': conteo.get((datos['codigo'], 'PRO'), 0),
-            'terminados': conteo.get((datos['codigo'], 'TER'), 0),
-        }
-
-    seccion = 'inicio'
-    match = request.resolver_match
-    if match and match.url_name == 'lista_proyectos':
-        seccion = match.kwargs.get('tipo')
-    elif match and match.url_name == 'urgencias':
-        seccion = 'urgencias'
+        # Copia del diccionario para no modificar TIPOS
+        copia = datos.copy()
+        copia['en_proceso'] = conteo.get((datos['codigo'], 'PRO'), 0)
+        copia['terminados'] = conteo.get((datos['codigo'], 'TER'), 0)
+        nav_tipos[slug] = copia
 
     return {
         'nav_tipos': nav_tipos,
         'nav_urgencias': conteo.get(('URG', 'PRO'), 0),
-        'seccion': seccion,
-        'usuario_oficina': es_oficina(request.user),
     }

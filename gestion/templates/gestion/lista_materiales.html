@@ -1,0 +1,70 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}Materiales · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'index' as url_inicio %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_actual="Materiales" %}
+    <div class="pagina__fila">
+        <div>
+            <h1 class="pagina__titulo">Materiales</h1>
+            <p class="pagina__texto">Catálogo de materiales y horas que los operarios apuntan en cada proyecto.</p>
+        </div>
+        {% if perms.gestion.add_material %}
+            <div class="pagina__acciones">
+                <a class="boton" href="{% url 'material_crear' %}">{% include "gestion/icono.html" with nombre="mas" %}Nuevo material</a>
+            </div>
+        {% endif %}
+    </div>
+</header>
+
+<section class="panel panel--lista">
+    <div class="barra-herramientas">
+        {% include "gestion/buscador.html" with texto_buscador="Buscar material por nombre" %}
+        <span class="barra-herramientas__total">{{ materiales|length }} materiales</span>
+    </div>
+
+    {% if materiales %}
+        <div class="tabla-contenedor">
+            <table class="tabla tabla--materiales">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Unidad</th>
+                        <th scope="col" class="num">Precio</th>
+                        <th scope="col" class="num"><span class="solo-lector">Acciones</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for material in materiales %}
+                        <tr>
+                            <td class="tabla__material">{{ material.nombre }}</td>
+                            <td>{{ material.get_unidad_display }}</td>
+                            <td class="num">{{ material.precio|floatformat:"2g" }} €/{{ material.abreviatura }}</td>
+                            <td class="tabla__acciones">
+                                {% if perms.gestion.change_material %}
+                                    <a class="boton-tabla" href="{% url 'material_editar' material.pk %}" aria-label="Editar {{ material.nombre }}" title="Editar">{% include "gestion/icono.html" with nombre="editar" %}</a>
+                                {% endif %}
+                                {% if perms.gestion.delete_material %}
+                                    <form method="post" action="{% url 'material_eliminar' material.pk %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar {{ material.nombre }}" title="Eliminar" onclick="return eliminar_material();">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="vacio">
+            <p>No hay materiales que coincidan con «{{ busqueda }}».</p>
+            <a href="{% url 'lista_materiales' %}">Quitar la búsqueda</a>
+        </div>
+    {% endif %}
+</section>
+
+{% include "gestion/volver.html" with volver_url=url_inicio volver_texto="Volver al inicio" %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{# Campo de texto de un formulario de Django, maquetado a mano (diapositivas 23-24 y 49-51) #}
+<div class="campo">
+    <label for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+    <div class="entrada{% if campo.errors %} entrada--error{% endif %}">
+        <input type="{{ tipo|default:'text' }}" name="{{ campo.html_name }}" id="{{ campo.id_for_label }}"
+               {% if tipo != 'password' %}value="{{ campo.value|default_if_none:'' }}"{% endif %}
+               {% if campo.field.max_length %}maxlength="{{ campo.field.max_length }}"{% endif %}
+               {% if autocompletar %}autocomplete="{{ autocompletar }}"{% endif %}
+               {% if campo.field.required %}required{% endif %}>
+    </div>
+    {% if campo.help_text %}<div class="ayuda-campo">{{ campo.help_text|safe }}</div>{% endif %}
+    {% for error in campo.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+</div>

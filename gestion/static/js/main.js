@@ -10,3 +10,17 @@ document.querySelectorAll("[data-mostrar-contrasena]").forEach(function (boton) 
         boton.setAttribute("aria-label", mostrar ? "Ocultar contraseña" : "Mostrar contraseña");
     });
 });
+
+// Pide confirmación antes de eliminar (diapositiva 81).
+// Si se pulsa Cancelar devuelve false y el formulario no se envía.
+function eliminar() {
+    return confirm("¿Seguro que quieres eliminar este proyecto? Se borrarán también todos sus apuntes.");
+}
+
+function eliminar_apunte() {
+    return confirm("¿Seguro que quieres eliminar este apunte?");
+}
+
+function eliminar_material() {
+    return confirm("¿Seguro que quieres eliminar este material?");
+}

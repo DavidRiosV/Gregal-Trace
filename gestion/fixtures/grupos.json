@@ -1,0 +1,143 @@
+[
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "Operarios",
+        "permissions": [
+            [
+                "add_albaran",
+                "gestion",
+                "albaran"
+            ],
+            [
+                "view_albaran",
+                "gestion",
+                "albaran"
+            ],
+            [
+                "add_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "change_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "delete_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "view_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "view_material",
+                "gestion",
+                "material"
+            ],
+            [
+                "add_proyecto",
+                "gestion",
+                "proyecto"
+            ],
+            [
+                "view_proyecto",
+                "gestion",
+                "proyecto"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "Oficina",
+        "permissions": [
+            [
+                "add_albaran",
+                "gestion",
+                "albaran"
+            ],
+            [
+                "change_albaran",
+                "gestion",
+                "albaran"
+            ],
+            [
+                "delete_albaran",
+                "gestion",
+                "albaran"
+            ],
+            [
+                "view_albaran",
+                "gestion",
+                "albaran"
+            ],
+            [
+                "add_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "change_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "delete_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "view_consumo",
+                "gestion",
+                "consumo"
+            ],
+            [
+                "add_material",
+                "gestion",
+                "material"
+            ],
+            [
+                "change_material",
+                "gestion",
+                "material"
+            ],
+            [
+                "delete_material",
+                "gestion",
+                "material"
+            ],
+            [
+                "view_material",
+                "gestion",
+                "material"
+            ],
+            [
+                "add_proyecto",
+                "gestion",
+                "proyecto"
+            ],
+            [
+                "change_proyecto",
+                "gestion",
+                "proyecto"
+            ],
+            [
+                "delete_proyecto",
+                "gestion",
+                "proyecto"
+            ],
+            [
+                "view_proyecto",
+                "gestion",
+                "proyecto"
+            ]
+        ]
+    }
+}
+]

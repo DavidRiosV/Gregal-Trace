@@ -1,9 +1,20 @@
 from django.contrib import admin
-from .models import Perfil,Proyecto,Material,Consumo,Albaran
+from django.contrib.auth.admin import UserAdmin
 
-# Register your models here.
+from .models import Albaran, Consumo, Material, Oficina, Operario, Proyecto, Usuario
 
-admin.site.register(Perfil)
+
+class UsuarioAdmin(UserAdmin):
+    """Admin de usuarios de Django con el campo rol añadido.
+    Se usa UserAdmin para que la contraseña se guarde cifrada al crear usuarios."""
+    fieldsets = UserAdmin.fieldsets + (('Rol en Gregal Trace', {'fields': ('rol',)}),)
+    add_fieldsets = UserAdmin.add_fieldsets + (('Rol en Gregal Trace', {'fields': ('rol',)}),)
+    list_display = ('username', 'first_name', 'last_name', 'rol', 'is_active')
+
+
+admin.site.register(Usuario, UsuarioAdmin)
+admin.site.register(Operario)
+admin.site.register(Oficina)
 admin.site.register(Proyecto)
 admin.site.register(Material)
 admin.site.register(Consumo)

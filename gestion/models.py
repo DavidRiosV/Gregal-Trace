@@ -1,18 +1,36 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.utils import timezone
 
 
-class Perfil(models.Model):
-    ROLES = [
-        ('OPE', 'Operario'),
-        ('OFI', 'Oficina'),
-    ]
-    usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    rol = models.CharField(max_length=3, choices=ROLES, default='OPE')
+class Usuario(AbstractUser):
+    """Usuario que inicia sesión. Hereda nombre, apellidos, email y contraseña de AbstractUser."""
+    OPERARIO = 1
+    OFICINA = 2
+    ROLES = (
+        (OPERARIO, 'Operario'),
+        (OFICINA, 'Oficina'),
+    )
+    # Por defecto Operario: es el rol con menos permisos (el más seguro)
+    rol = models.PositiveSmallIntegerField(choices=ROLES, default=OPERARIO)
 
     def __str__(self):
-        return f"{self.usuario.username} ({self.get_rol_display()})"
+        return f"{self.username} ({self.get_rol_display()})"
+
+
+class Operario(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario.get_full_name() or self.usuario.username
+
+
+class Oficina(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario.get_full_name() or self.usuario.username
 
 
 class Proyecto(models.Model):
@@ -32,7 +50,6 @@ class Proyecto(models.Model):
         ('TER', 'Terminado'),
     ]
     estado = models.CharField(max_length=3, choices=ESTADOS, default='PRO')
-    notion_id = models.CharField(max_length=100, unique=True, blank=True, null=True)
     tipo_destino = models.CharField(max_length=3, choices=TIPOS, blank=True)
     creado_por = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,

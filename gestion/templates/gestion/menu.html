@@ -5,10 +5,12 @@
         <span>Gregal Trace</span>
     </a>
 
+    {% if perms.gestion.add_proyecto %}
     <a class="menu__urgencia" href="{% url 'urgencias' %}">
         {% include "gestion/icono.html" with nombre="mas" %}
         <span>Nueva urgencia</span>
     </a>
+    {% endif %}
 
     <nav class="menu__lista">
         <a class="menu__enlace{% if seccion == 'inicio' %} menu__enlace--activo{% endif %}" href="{% url 'index' %}"{% if seccion == 'inicio' %} aria-current="page"{% endif %}>
@@ -27,13 +29,19 @@
             <span>Urgencias</span>
             {% if nav_urgencias %}<span class="menu__contador menu__contador--aviso" title="Abiertas">{{ nav_urgencias }}</span>{% endif %}
         </a>
+        {% if perms.gestion.change_material %}
+            <a class="menu__enlace{% if seccion == 'materiales' %} menu__enlace--activo{% endif %}" href="{% url 'lista_materiales' %}"{% if seccion == 'materiales' %} aria-current="page"{% endif %}>
+                {% include "gestion/icono.html" with nombre="materiales" %}
+                <span>Materiales</span>
+            </a>
+        {% endif %}
     </nav>
 
     <div class="menu__usuario">
         <span class="avatar" aria-hidden="true">{{ user.first_name|default:user.username|slice:":1"|upper }}</span>
         <span class="menu__persona">
             <strong>{{ user.get_full_name|default:user.username }}</strong>
-            <span>{% if usuario_oficina %}Oficina{% else %}Operario{% endif %}</span>
+            <span>{% if user.is_superuser %}Administrador{% else %}{{ user.get_rol_display }}{% endif %}</span>
         </span>
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}

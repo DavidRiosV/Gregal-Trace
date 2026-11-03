@@ -4,3 +4,5 @@ __pycache__/
 db.sqlite3
 .vscode/
 /static/
+# Usuarios con contraseñas: no se suben a Git (Modelos, diapositiva 36)
+gestion/fixtures/usuarios.json
