@@ -9,6 +9,13 @@
         <div>
             <h1 class="pagina__titulo">Hola, {{ user.first_name|default:user.username }}</h1>
             <p class="pagina__texto">Elige dónde vas a apuntar hoy el material y las horas.</p>
+            {# Último proyecto abierto, guardado en la sesión desde detalle_proyecto #}
+            {% if request.session.ultimo_proyecto %}
+                <p class="pagina__texto">
+                    Seguir con
+                    <a href="{% url 'detalle_proyecto' request.session.ultimo_proyecto %}">{{ request.session.ultimo_nombre }}</a>
+                </p>
+            {% endif %}
         </div>
     </div>
 </header>

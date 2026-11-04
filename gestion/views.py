@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 
 from django.contrib import messages
 from django.contrib.auth import login
@@ -31,6 +31,9 @@ def pagina_del_tipo(proyecto):
 
 @permission_required('gestion.view_proyecto')
 def index(request):
+    # Guarda en la sesión la hora en que entró por primera vez (Sesiones, diapositiva 5)
+    if not 'fecha_inicio' in request.session:
+        request.session['fecha_inicio'] = datetime.now().strftime('%d/%m/%Y %H:%M')
     return render(request, 'gestion/index.html', {'tipos': TIPOS, 'seccion': 'inicio'})
 
 
@@ -96,6 +99,10 @@ def urgencias(request):
 @permission_required('gestion.view_proyecto')
 def detalle_proyecto(request, pk):
     proyecto = get_object_or_404(Proyecto.objects.select_related('creado_por'), pk=pk)
+
+    # Recuerda en la sesión el último proyecto que ha abierto (Sesiones, diapositiva 5)
+    request.session['ultimo_proyecto'] = proyecto.pk
+    request.session['ultimo_nombre'] = proyecto.nombre
 
     # Solo quien tiene permiso para añadir apuntes puede enviar el formulario
     puede_apuntar = request.user.has_perm('gestion.add_consumo') and not proyecto.esta_terminado()
@@ -233,6 +240,10 @@ def proyecto_eliminar(request, pk):
 
     url_volver, slug, texto_volver = pagina_del_tipo(proyecto)
     nombre = proyecto.nombre
+    # Si era el último visitado, se borra de la sesión (Sesiones, diapositiva 7)
+    if 'ultimo_proyecto' in request.session and request.session['ultimo_proyecto'] == proyecto.pk:
+        del request.session['ultimo_proyecto']
+        del request.session['ultimo_nombre']
     # Borra también sus apuntes y albaranes (on_delete=CASCADE)
     proyecto.delete()
     messages.success(request, f'«{nombre}» eliminado de {texto_volver}.')
@@ -408,10 +419,10 @@ def registrar_usuario(request):
 
 
 # ---------------------------------------------------------------------------
-# Página oculta de pruebas: enlaces a todas las URLs para abrirlas rápido
-# mientras se desarrolla (URLs, diapositivas 5 y 12). No está en ningún menú.
-# Cada URL nueva hay que añadirla a mano en gestion/prueba.html.
+# Página oculta de pruebas: enlaces a todas las URLs para abrirlas rápido mientras se desarrolla 
 # ---------------------------------------------------------------------------
+# Solo Oficina puede verla 
+@permission_required('gestion.change_proyecto')
 def prueba(request):
     # Un ejemplo de cada para las URLs que piden un id (diapositiva 31: [:1])
     ejemplo = Proyecto.objects.order_by('id')[:1]
@@ -424,6 +435,7 @@ def prueba(request):
     })
 
 
+@permission_required('gestion.change_proyecto')
 def prueba_error(request, codigo):
     """Muestra el diseño de una página de error aunque DEBUG sea True."""
     if codigo == 400:
@@ -436,8 +448,7 @@ def prueba_error(request, codigo):
 
 
 # ---------------------------------------------------------------------------
-# Páginas de error (URLs, diapositivas 50-55). Solo se usan con DEBUG = False.
-# El quinto parámetro de render es el código de estado de la respuesta.
+# Páginas de error 
 # ---------------------------------------------------------------------------
 def mi_error_400(request, exception=None):
     return render(request, 'errores/400.html', None, None, 400)
