@@ -7,6 +7,7 @@ from django.contrib.auth.models import Group
 from django.db.models import Q, Sum
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 
 from .forms import ConsumoForm, MaterialForm, ProyectoForm, RegistroForm, UrgenciaForm
 from .models import Consumo, Material, Oficina, Operario, Proyecto, Usuario
@@ -18,6 +19,15 @@ TIPOS = {
     'intervenciones': {'codigo': 'INT', 'titulo': 'Intervenciones', 'nuevo': 'Nueva intervención', 'imagen': 'img/categorias/intervenciones.jpg'},
     'mantenimientos': {'codigo': 'MAN', 'titulo': 'Mantenimientos', 'nuevo': 'Nuevo mantenimiento', 'imagen': 'img/categorias/mantenimientos.jpg'},
 }
+
+
+def familia_elegida(request, por_defecto=''):
+    """Familia de material que llega en la URL (?categoria=FON) o en el formulario.
+    Si no es una de las del modelo, se ignora."""
+    categoria = request.POST.get('categoria') or request.GET.get('categoria') or por_defecto
+    if categoria in dict(Material.CATEGORIAS):
+        return categoria
+    return ''
 
 
 def pagina_del_tipo(proyecto):
@@ -107,8 +117,11 @@ def detalle_proyecto(request, pk):
     # Solo quien tiene permiso para añadir apuntes puede enviar el formulario
     puede_apuntar = request.user.has_perm('gestion.add_consumo') and not proyecto.esta_terminado()
 
+    # Primero se elige la familia y el desplegable solo muestra sus materiales
+    categoria = familia_elegida(request)
+
     if request.method == 'POST' and puede_apuntar:
-        formulario = ConsumoForm(request.POST)
+        formulario = ConsumoForm(request.POST, categoria=categoria)
         if formulario.is_valid():
             consumo = formulario.save(commit=False)
             consumo.proyecto = proyecto
@@ -119,9 +132,11 @@ def detalle_proyecto(request, pk):
                 request,
                 f'Apuntado: {consumo.cantidad:g} {consumo.material.abreviatura()} de {consumo.material.nombre}.'
             )
-            return redirect('detalle_proyecto', pk=proyecto.pk)
+            # Vuelve con la misma familia abierta, para seguir apuntando de ella
+            url = reverse('detalle_proyecto', args=[proyecto.pk])
+            return redirect(f'{url}?categoria={categoria}#apuntar')
     else:
-        formulario = ConsumoForm()
+        formulario = ConsumoForm(categoria=categoria)
 
     consumos = proyecto.consumos.select_related('material', 'trabajador').order_by('-fecha', '-id')
     horas = consumos.filter(material__unidad='H').aggregate(total=Sum('cantidad'))['total'] or 0
@@ -138,6 +153,8 @@ def detalle_proyecto(request, pk):
         'slug_volver': slug,
         'texto_volver': texto_volver,
         'horas': horas,
+        'categorias': Material.CATEGORIAS,
+        'categoria_actual': categoria,
         # Marca en el menú el apartado al que pertenece el proyecto
         'seccion': slug or 'urgencias',
     }
@@ -165,7 +182,11 @@ def cambiar_estado(request, pk):
         else:
             proyecto.estado = 'TER'
             proyecto.fecha_fin = date.today()
-            messages.success(request, f'«{proyecto.nombre}» marcado como terminado.')
+            # Una urgencia terminada pasa a su sección (obra, intervención o mantenimiento)
+            if proyecto.oficializar_urgencia():
+                messages.success(request, f'Urgencia «{proyecto.nombre}» terminada. Ahora está en {proyecto.get_tipo_display()} con todos sus apuntes.')
+            else:
+                messages.success(request, f'«{proyecto.nombre}» marcado como terminado.')
         proyecto.save()
     return redirect('detalle_proyecto', pk=proyecto.pk)
 
@@ -213,8 +234,13 @@ def proyecto_editar(request, pk):
         # Mismo formulario que crear, pero con el proyecto que se edita (diapositiva 72)
         formulario = ProyectoForm(request.POST, instance=proyecto)
         if formulario.is_valid():
-            formulario.save()
-            messages.success(request, f'«{proyecto.nombre}» actualizado.')
+            proyecto = formulario.save(commit=False)
+            # Si se edita una urgencia y se marca como terminada, también pasa a su sección
+            if proyecto.esta_terminado() and proyecto.oficializar_urgencia():
+                messages.success(request, f'Urgencia «{proyecto.nombre}» terminada. Ahora está en {proyecto.get_tipo_display()}.')
+            else:
+                messages.success(request, f'«{proyecto.nombre}» actualizado.')
+            proyecto.save()
             return redirect('detalle_proyecto', pk=proyecto.pk)
     else:
         formulario = ProyectoForm(instance=proyecto)
@@ -271,9 +297,11 @@ def consumo_editar(request, pk):
         return redirect('detalle_proyecto', pk=consumo.proyecto.pk)
 
     material_antes = consumo.material
+    # Por defecto se abre la familia del material que ya tiene el apunte
+    categoria = familia_elegida(request, consumo.material.categoria)
 
     if request.method == 'POST':
-        formulario = ConsumoForm(request.POST, instance=consumo)
+        formulario = ConsumoForm(request.POST, instance=consumo, categoria=categoria)
         if formulario.is_valid():
             consumo = formulario.save(commit=False)
             # Si cambia el material se toma el precio de hoy; si no, se mantiene el congelado
@@ -283,13 +311,15 @@ def consumo_editar(request, pk):
             messages.success(request, f'Apunte de {consumo.material.nombre} actualizado.')
             return redirect('detalle_proyecto', pk=consumo.proyecto.pk)
     else:
-        formulario = ConsumoForm(instance=consumo)
+        formulario = ConsumoForm(instance=consumo, categoria=categoria)
 
     url_volver, slug, texto_volver = pagina_del_tipo(consumo.proyecto)
     return render(request, 'gestion/consumo_form.html', {
         'formulario': formulario,
         'consumo': consumo,
         'proyecto': consumo.proyecto,
+        'categorias': Material.CATEGORIAS,
+        'categoria_actual': categoria,
         'url_volver': url_volver,
         'slug_volver': slug,
         'texto_volver': texto_volver,
@@ -317,7 +347,12 @@ def consumo_eliminar(request, pk):
 # ---------------------------------------------------------------------------
 @permission_required('gestion.change_material')
 def lista_materiales(request):
-    materiales = Material.objects.order_by('nombre')
+    materiales = Material.objects.order_by('categoria', 'nombre')
+
+    # Filtro por familia (?categoria=FON); sin filtro se ven todas
+    categoria = familia_elegida(request)
+    if categoria:
+        materiales = materiales.filter(categoria=categoria)
 
     busqueda = request.GET.get('q', '').strip()
     if busqueda:
@@ -326,6 +361,8 @@ def lista_materiales(request):
     return render(request, 'gestion/lista_materiales.html', {
         'materiales': materiales,
         'busqueda': busqueda,
+        'categorias': Material.CATEGORIAS,
+        'categoria_actual': categoria,
         'seccion': 'materiales',
     })
 
@@ -336,13 +373,23 @@ def material_crear(request):
         formulario = MaterialForm(request.POST)
         if formulario.is_valid():
             material = formulario.save()
-            messages.success(request, f'Material «{material.nombre}» creado.')
-            return redirect('lista_materiales')
+            messages.success(request, f'Material «{material.nombre}» creado en {material.get_categoria_display()}.')
+            # «Guardar y añadir otro»: vuelve al formulario con la misma familia y unidad
+            if 'otro' in request.POST:
+                url = reverse('material_crear')
+                return redirect(f'{url}?categoria={material.categoria}&unidad={material.unidad}')
+            url = reverse('lista_materiales')
+            return redirect(f'{url}?categoria={material.categoria}')
     else:
-        formulario = MaterialForm()
+        # Si se entra desde una familia filtrada, el formulario ya viene con ella marcada
+        formulario = MaterialForm(initial={
+            'categoria': familia_elegida(request, 'OTR'),
+            'unidad': request.GET.get('unidad', 'UD'),
+        })
 
     return render(request, 'gestion/material_form.html', {
         'formulario': formulario,
+        'categoria_actual': familia_elegida(request),
         'titulo': 'Nuevo material',
         'seccion': 'materiales',
     })
@@ -357,7 +404,9 @@ def material_editar(request, pk):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, f'Material «{material.nombre}» actualizado.')
-            return redirect('lista_materiales')
+            # Vuelve a la lista con la familia del material abierta
+            url = reverse('lista_materiales')
+            return redirect(f'{url}?categoria={material.categoria}')
     else:
         formulario = MaterialForm(instance=material)
 
@@ -382,7 +431,8 @@ def material_eliminar(request, pk):
             nombre = material.nombre
             material.delete()
             messages.success(request, f'Material «{nombre}» eliminado.')
-    return redirect('lista_materiales')
+    url = reverse('lista_materiales')
+    return redirect(f'{url}?categoria={material.categoria}')
 
 
 def registrar_usuario(request):

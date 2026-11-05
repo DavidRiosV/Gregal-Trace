@@ -59,6 +59,15 @@ class Proyecto(models.Model):
     def esta_terminado(self):
         return self.estado == 'TER'
 
+    def oficializar_urgencia(self):
+        """Una urgencia pasa al tipo que se eligió al abrirla (obra, intervención o mantenimiento).
+        Conserva su id, así que sus apuntes, fechas y autor siguen con ella.
+        Devuelve True si ha cambiado de tipo."""
+        if self.tipo == 'URG' and self.tipo_destino:
+            self.tipo = self.tipo_destino
+            return True
+        return False
+
     def __str__(self):
         return f"{self.nombre} ({self.get_tipo_display()})"
 
@@ -72,7 +81,20 @@ class Material(models.Model):
         ('L', 'Litro'),
         ('H', 'Hora'),
     ]
+    # Familias del catálogo: el operario elige primero la familia y luego el material
+    CATEGORIAS = [
+        ('FON', 'Fontanería y saneamiento'),
+        ('CAL', 'Calefacción y ACS'),
+        ('CLI', 'Climatización y ventilación'),
+        ('ELE', 'Electricidad'),
+        ('SOL', 'Solar fotovoltaica'),
+        ('DOM', 'Domótica y control'),
+        ('PIS', 'Piscina y tratamiento de agua'),
+        ('MOB', 'Mano de obra y servicios'),
+        ('OTR', 'Otros'),
+    ]
     nombre = models.CharField(max_length=100, unique=True)
+    categoria = models.CharField(max_length=3, choices=CATEGORIAS, default='OTR')
     unidad = models.CharField(max_length=2, choices=UNIDADES, default='UD')
     precio = models.DecimalField(max_digits=10, decimal_places=2)
 

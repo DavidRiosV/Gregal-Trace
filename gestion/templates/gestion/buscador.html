@@ -1,5 +1,6 @@
 <form class="buscador" method="get" role="search">
     {% if estado_actual %}<input type="hidden" name="estado" value="{{ estado_actual }}">{% endif %}
+    {% if categoria_actual %}<input type="hidden" name="categoria" value="{{ categoria_actual }}">{% endif %}
     {% include "gestion/icono.html" with nombre="buscar" %}
     <input type="search" name="q" value="{{ busqueda }}" placeholder="{{ texto_buscador|default:'Buscar' }}" aria-label="{{ texto_buscador|default:'Buscar' }}">
     <button type="submit" class="buscador__boton">Buscar</button>

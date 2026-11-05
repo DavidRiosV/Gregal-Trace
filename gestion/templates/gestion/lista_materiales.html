@@ -13,13 +13,16 @@
         </div>
         {% if perms.gestion.add_material %}
             <div class="pagina__acciones">
-                <a class="boton" href="{% url 'material_crear' %}">{% include "gestion/icono.html" with nombre="mas" %}Nuevo material</a>
+                <a class="boton" href="{% url 'material_crear' %}{% if categoria_actual %}?categoria={{ categoria_actual }}{% endif %}">{% include "gestion/icono.html" with nombre="mas" %}Nuevo material</a>
             </div>
         {% endif %}
     </div>
 </header>
 
 <section class="panel panel--lista">
+    <div class="barra-herramientas barra-herramientas--familias">
+        {% include "gestion/familias.html" with con_todas=True %}
+    </div>
     <div class="barra-herramientas">
         {% include "gestion/buscador.html" with texto_buscador="Buscar material por nombre" %}
         <span class="barra-herramientas__total">{{ materiales|length }} materiales</span>
@@ -31,6 +34,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
+                        <th scope="col">Familia</th>
                         <th scope="col">Unidad</th>
                         <th scope="col" class="num">Precio</th>
                         <th scope="col" class="num"><span class="solo-lector">Acciones</span></th>
@@ -40,6 +44,7 @@
                     {% for material in materiales %}
                         <tr>
                             <td class="tabla__material">{{ material.nombre }}</td>
+                            <td>{{ material.get_categoria_display }}</td>
                             <td>{{ material.get_unidad_display }}</td>
                             <td class="num">{{ material.precio|floatformat:"2g" }} €/{{ material.abreviatura }}</td>
                             <td class="tabla__acciones">
@@ -60,8 +65,12 @@
         </div>
     {% else %}
         <div class="vacio">
-            <p>No hay materiales que coincidan con «{{ busqueda }}».</p>
-            <a href="{% url 'lista_materiales' %}">Quitar la búsqueda</a>
+            {% if busqueda %}
+                <p>No hay materiales que coincidan con «{{ busqueda }}».</p>
+                <a href="{% url 'lista_materiales' %}{% if categoria_actual %}?categoria={{ categoria_actual }}{% endif %}">Quitar la búsqueda</a>
+            {% else %}
+                <p>Todavía no hay materiales en esta familia.</p>
+            {% endif %}
         </div>
     {% endif %}
 </section>

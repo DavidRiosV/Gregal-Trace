@@ -28,7 +28,11 @@
                         {% if proyecto.esta_terminado %}
                             <button type="submit" class="boton boton--secundario">Volver a poner en proceso</button>
                         {% else %}
-                            <button type="submit" class="boton">Marcar como terminado</button>
+                            {% if proyecto.tipo == 'URG' and proyecto.tipo_destino %}
+                                <button type="submit" class="boton">Terminar y pasar a {{ proyecto.get_tipo_destino_display|lower }}</button>
+                            {% else %}
+                                <button type="submit" class="boton">Marcar como terminado</button>
+                            {% endif %}
                         {% endif %}
                     </form>
                 {% endif %}
@@ -63,10 +67,15 @@
 </div>
 
 {% if puede_apuntar %}
-<section class="panel">
+<section class="panel" id="apuntar">
     <h2 class="panel__titulo">Apuntar material u horas</h2>
+    <p class="pagina__texto">1. Elige la familia · 2. Elige el material y la cantidad</p>
+    {% include "gestion/familias.html" with ancla="apuntar" %}
+
     <form method="post" class="formulario formulario--consumo" novalidate>
         {% csrf_token %}
+        {# La familia elegida viaja con el formulario para volver a filtrar si hay errores #}
+        <input type="hidden" name="categoria" value="{{ categoria_actual }}">
 
         <div class="campo campo--material">
             <label for="{{ formulario.material.id_for_label }}">{{ formulario.material.label }}</label>

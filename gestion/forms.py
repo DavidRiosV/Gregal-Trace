@@ -68,9 +68,18 @@ class ConsumoForm(forms.ModelForm):
             'fecha': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
         }
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, categoria=None, **kwargs):
+        # Igual que el formulario que recibe el request (Sesiones, diapositivas 26-27):
+        # se le pasa un dato extra, la familia elegida, y con él se filtran los materiales.
         super().__init__(*args, **kwargs)
-        self.fields['material'].empty_label = 'Elige material u horas'
+        materiales = Material.objects.order_by('nombre')
+        if categoria:
+            self.fields['material'].queryset = materiales.filter(categoria=categoria)
+            self.fields['material'].empty_label = 'Elige material u horas'
+        else:
+            # Sin familia no se ofrece nada: primero se elige la familia
+            self.fields['material'].queryset = materiales.none()
+            self.fields['material'].empty_label = 'Elige primero una familia'
 
     def clean(self):
         super().clean()
@@ -123,9 +132,10 @@ class MaterialForm(forms.ModelForm):
     """Catálogo de materiales y horas (Oficina)."""
     class Meta:
         model = Material
-        fields = ['nombre', 'unidad', 'precio']
+        fields = ['nombre', 'categoria', 'unidad', 'precio']
         labels = {
             'nombre': 'Nombre',
+            'categoria': 'Familia',
             'unidad': 'Unidad',
             'precio': 'Precio por unidad (€)',
         }

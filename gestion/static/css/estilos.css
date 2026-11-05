@@ -748,6 +748,40 @@ img { display: block; max-width: 100%; }
 .boton-tabla--peligro { color: var(--rojo); }
 .boton-tabla--peligro:hover { background: var(--rojo-suave); }
 
+/* ---------- Familias de material (botones de filtro) ---------- */
+.familias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 16px;
+}
+
+.familia {
+    padding: 7px 14px;
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    background: var(--blanco);
+    color: var(--texto-suave);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.familia:hover { color: var(--texto); border-color: var(--verde-marca); }
+.familia:focus-visible { outline: none; box-shadow: var(--foco); }
+.familia--activa,
+.familia--activa:hover { background: var(--verde-accion); border-color: var(--verde-accion); color: var(--blanco); }
+
+.barra-herramientas--familias .familias { margin: 0; }
+.campo__titulo { font-size: 14px; font-weight: 600; }
+
+@media (max-width: 760px) {
+    /* En el móvil las familias se desplazan en una sola fila */
+    .familias { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+    .familia { flex: none; }
+}
+
 .barra-herramientas__total { color: var(--texto-suave); font-size: 14px; white-space: nowrap; }
 
 /* Solo para lectores de pantalla */
