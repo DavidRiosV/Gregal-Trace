@@ -1,0 +1,26 @@
+{% comment %}
+Lista de materiales para elegir con un toque (botones de opción), agrupada por tipo.
+Más cómoda que un desplegable en el móvil. Se pinta a mano, como el select recorrido
+de Formularios (diapositiva 27): cada opción es un <input type="radio" name="material">.
+Recibe: formulario (ConsumoForm), que trae los materiales en formulario.agrupados.
+{% endcomment %}
+<div class="campo">
+    <span class="campo__titulo">{{ formulario.material.label }}</span>
+    <div class="lista-materiales{% if formulario.material.errors %} lista-materiales--error{% endif %}" role="radiogroup" aria-label="Material">
+        {% for tipo, materiales in formulario.agrupados.items %}
+            <p class="lista-materiales__grupo">{{ tipo }}</p>
+            {% for material in materiales %}
+                <label class="opcion-material">
+                    <input type="radio" name="{{ formulario.material.html_name }}" value="{{ material.pk }}" data-unidad="{{ material.abreviatura }}"{% if formulario.material.value|stringformat:"s" == material.pk|stringformat:"s" %} checked{% endif %}>
+                    <span class="opcion-material__nombre">{{ material.nombre }}</span>
+                    <span class="opcion-material__unidad">{{ material.get_unidad_display|lower }}</span>
+                </label>
+            {% endfor %}
+        {% empty %}
+            <p class="lista-materiales__vacio">
+                {% if busqueda_material %}No hay ningún material con «{{ busqueda_material }}». Prueba con otra palabra.{% else %}Elige una familia o busca un material para ver la lista.{% endif %}
+            </p>
+        {% endfor %}
+    </div>
+    {% for error in formulario.material.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+</div>

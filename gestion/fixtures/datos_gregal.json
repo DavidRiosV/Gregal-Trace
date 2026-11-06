@@ -5,6 +5,7 @@
     "fields": {
         "nombre": "Hora Oficial",
         "categoria": "MOB",
+        "grupo": "Horas",
         "unidad": "H",
         "precio": "32.00"
     }
@@ -15,6 +16,7 @@
     "fields": {
         "nombre": "Hora Pareja",
         "categoria": "MOB",
+        "grupo": "Horas",
         "unidad": "H",
         "precio": "55.00"
     }
@@ -25,6 +27,7 @@
     "fields": {
         "nombre": "Enfriadora-Bomba de calor AroTherm básico Plus 15 400V. Vaillant",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "11195.57"
     }
@@ -35,6 +38,7 @@
     "fields": {
         "nombre": "Tubería Climatherm Faser ø50 x 4.6 mm Fusiotherm, forrado con ai",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "46.83"
     }
@@ -45,6 +49,7 @@
     "fields": {
         "nombre": "Manguito antivibratorio 1 1/2\"",
         "categoria": "FON",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "115.38"
     }
@@ -55,6 +60,7 @@
     "fields": {
         "nombre": "Válvula esfera 1 1/2\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "111.25"
     }
@@ -65,6 +71,7 @@
     "fields": {
         "nombre": "Filtro de latón en Y 1 1/2\"",
         "categoria": "FON",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "102.19"
     }
@@ -75,6 +82,7 @@
     "fields": {
         "nombre": "Manómetro esfera 0-6kg/cm2",
         "categoria": "CAL",
+        "grupo": "Instrumentos de medida",
         "unidad": "UD",
         "precio": "21.15"
     }
@@ -85,6 +93,7 @@
     "fields": {
         "nombre": "Interruptor de flujo 1\" montaje roscado",
         "categoria": "CAL",
+        "grupo": "Instrumentos de medida",
         "unidad": "UD",
         "precio": "102.62"
     }
@@ -95,6 +104,7 @@
     "fields": {
         "nombre": "Termómetro de esfera ø80 0-120ºC con vaina de 100mm",
         "categoria": "CAL",
+        "grupo": "Instrumentos de medida",
         "unidad": "UD",
         "precio": "21.65"
     }
@@ -105,6 +115,7 @@
     "fields": {
         "nombre": "Purgador rápido automático Spirotop 1/2\". AB050",
         "categoria": "CAL",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "105.10"
     }
@@ -115,6 +126,7 @@
     "fields": {
         "nombre": "Acumulador multienergía Vaillant allSTOR plus VPS 300/3-5",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "1659.83"
     }
@@ -125,6 +137,7 @@
     "fields": {
         "nombre": "Válvula de seguridad 3/4\" 6kg",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "39.98"
     }
@@ -135,6 +148,7 @@
     "fields": {
         "nombre": "Vaso de expansión para calefacción CMF 50L. S.Escoda",
         "categoria": "CAL",
+        "grupo": "Vasos de expansión",
         "unidad": "UD",
         "precio": "154.78"
     }
@@ -145,6 +159,7 @@
     "fields": {
         "nombre": "Conjunto de elementos de llenado para circuitos cerrados",
         "categoria": "CAL",
+        "grupo": "Llenado y vaciado",
         "unidad": "UD",
         "precio": "506.75"
     }
@@ -155,6 +170,7 @@
     "fields": {
         "nombre": "Conjunto de elementos de vaciado",
         "categoria": "CAL",
+        "grupo": "Llenado y vaciado",
         "unidad": "UD",
         "precio": "113.82"
     }
@@ -165,6 +181,7 @@
     "fields": {
         "nombre": "Bomba circuladora roscada Magna3 25-80. Grundfos",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1496.88"
     }
@@ -175,6 +192,7 @@
     "fields": {
         "nombre": "Bomba circuladora roscada Magna3 32-120. Grundfos",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1944.00"
     }
@@ -185,6 +203,7 @@
     "fields": {
         "nombre": "Puente manométrico para bomba circuladora",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "158.78"
     }
@@ -195,6 +214,7 @@
     "fields": {
         "nombre": "Filtro de latón en Y 2\"",
         "categoria": "FON",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "121.82"
     }
@@ -205,6 +225,7 @@
     "fields": {
         "nombre": "Válvula de retención 1 1/2\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "91.05"
     }
@@ -215,6 +236,7 @@
     "fields": {
         "nombre": "Válvula de retención 2\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "106.46"
     }
@@ -225,6 +247,7 @@
     "fields": {
         "nombre": "Válvula esfera 2\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "138.06"
     }
@@ -235,6 +258,7 @@
     "fields": {
         "nombre": "Tubería Climatherm Faser ø63 x 5.8 mm Fusiotherm, forrado con ai",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "59.00"
     }
@@ -245,6 +269,7 @@
     "fields": {
         "nombre": "Tubería Climatherm Faser ø40 x 3.7 mm Fusiotherm, forrado con ai",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "33.93"
     }
@@ -255,6 +280,7 @@
     "fields": {
         "nombre": "Tubería Climatherm Faser ø32 x 4.4 mm Fusiotherm, forrado con ai",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "25.06"
     }
@@ -265,6 +291,7 @@
     "fields": {
         "nombre": "Tubería Climatherm Faser ø25 x 3.5 mm Fusiotherm, forrado con ai",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "34.12"
     }
@@ -275,6 +302,7 @@
     "fields": {
         "nombre": "Fan coil de conductos 2 tubos, modelo 42NX422M-L",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "1164.69"
     }
@@ -285,6 +313,7 @@
     "fields": {
         "nombre": "Fan coil de conductos 2 tubos, modelo 42NX423H-L",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "1249.59"
     }
@@ -295,6 +324,7 @@
     "fields": {
         "nombre": "Conducto de Climaver NETO",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "M2",
         "precio": "48.36"
     }
@@ -305,6 +335,7 @@
     "fields": {
         "nombre": "Rejilla Madel Linkin 25x2200",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "353.07"
     }
@@ -315,6 +346,7 @@
     "fields": {
         "nombre": "Rejilla Madel Linkin 30x2500",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "372.16"
     }
@@ -325,6 +357,7 @@
     "fields": {
         "nombre": "Rejilla Madel Linkin 40x1200",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "307.82"
     }
@@ -335,6 +368,7 @@
     "fields": {
         "nombre": "Colector de suelo radiante con caudalímetro de 12 salidas",
         "categoria": "CAL",
+        "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
         "precio": "576.18"
     }
@@ -345,6 +379,7 @@
     "fields": {
         "nombre": "Colector de suelo radiante con caudalímetro de 5 salidas",
         "categoria": "CAL",
+        "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
         "precio": "462.57"
     }
@@ -355,6 +390,7 @@
     "fields": {
         "nombre": "Colector de suelo radiante con caudalímetro de 6 salidas",
         "categoria": "CAL",
+        "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
         "precio": "488.24"
     }
@@ -365,6 +401,7 @@
     "fields": {
         "nombre": "Suelo radiante con panel aislante con tetones de espesor de aisl",
         "categoria": "CAL",
+        "grupo": "Colectores y suelo radiante",
         "unidad": "M2",
         "precio": "45.96"
     }
@@ -375,6 +412,7 @@
     "fields": {
         "nombre": "Cabezal termoelectrico 230v contacto cerrado",
         "categoria": "CAL",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "39.72"
     }
@@ -385,6 +423,7 @@
     "fields": {
         "nombre": "Vitovent 300-W, Typ H32S A600 (L)",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "8003.09"
     }
@@ -395,6 +434,7 @@
     "fields": {
         "nombre": "Panel de control de ventilación LB1",
         "categoria": "CLI",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "546.46"
     }
@@ -405,6 +445,7 @@
     "fields": {
         "nombre": "Tubo EPP (DN 180) 3M + accesorios",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "M",
         "precio": "155.32"
     }
@@ -415,6 +456,7 @@
     "fields": {
         "nombre": "Rejilla de protección exterior",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "229.88"
     }
@@ -425,6 +467,7 @@
     "fields": {
         "nombre": "Tubo flexible",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "18.78"
     }
@@ -435,6 +478,7 @@
     "fields": {
         "nombre": "Caja de distribución de aire compacta XS",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "404.93"
     }
@@ -445,6 +489,7 @@
     "fields": {
         "nombre": "Placa de conexión de 4 vías R90 XS",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "308.79"
     }
@@ -455,6 +500,7 @@
     "fields": {
         "nombre": "Caja de distribución de aire compacta S",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "459.25"
     }
@@ -465,6 +511,7 @@
     "fields": {
         "nombre": "Placa de conexión de 6 vías R90 S",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "350.59"
     }
@@ -475,6 +522,7 @@
     "fields": {
         "nombre": "Vitoair DN90 conducto redondo",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "M",
         "precio": "27.78"
     }
@@ -485,6 +533,7 @@
     "fields": {
         "nombre": "Caja difusora de aire R90 L",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "144.37"
     }
@@ -495,6 +544,7 @@
     "fields": {
         "nombre": "Válvula de impulsión y escape",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "110.74"
     }
@@ -505,6 +555,7 @@
     "fields": {
         "nombre": "Bomba de calor ACS suelo monobloc 240 HC. Ariston",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "2954.06"
     }
@@ -515,6 +566,7 @@
     "fields": {
         "nombre": "Tubería PVC S.B ø160mm. Instalado en formato colgado",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "33.23"
     }
@@ -525,6 +577,7 @@
     "fields": {
         "nombre": "Vaso de expansión para ACS CMR 35L. Ibaiondo",
         "categoria": "CAL",
+        "grupo": "Vasos de expansión",
         "unidad": "UD",
         "precio": "199.22"
     }
@@ -535,6 +588,7 @@
     "fields": {
         "nombre": "Válvula esfera 1 1/4\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "83.35"
     }
@@ -545,6 +599,7 @@
     "fields": {
         "nombre": "Válvula de retención 1 1/4\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "71.57"
     }
@@ -555,6 +610,7 @@
     "fields": {
         "nombre": "Válvula termostática 1 1/4\"",
         "categoria": "CAL",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "267.12"
     }
@@ -565,6 +621,7 @@
     "fields": {
         "nombre": "Tubería SDR 7.4 PN-16 ø40 mm. Fusiotherm",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "25.97"
     }
@@ -575,6 +632,7 @@
     "fields": {
         "nombre": "Tubería Faser SDR 9 ø40mm. Fusiotherm con aislamiento térmico de",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "43.26"
     }
@@ -585,6 +643,7 @@
     "fields": {
         "nombre": "Bomba ALPHA1 25-60 N para ACS. 99199593. Grundfos",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "696.18"
     }
@@ -595,6 +654,7 @@
     "fields": {
         "nombre": "Válvula esfera 1\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "54.26"
     }
@@ -605,6 +665,7 @@
     "fields": {
         "nombre": "Válvula de retención 1\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "48.04"
     }
@@ -615,6 +676,7 @@
     "fields": {
         "nombre": "Filtro de latón en Y 1\"",
         "categoria": "FON",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "72.52"
     }
@@ -625,6 +687,7 @@
     "fields": {
         "nombre": "Vaso exp.ACS de 18l en inox Thermowave. TWB 18X. AC04704. S.Esco",
         "categoria": "CAL",
+        "grupo": "Vasos de expansión",
         "unidad": "UD",
         "precio": "109.24"
     }
@@ -635,6 +698,7 @@
     "fields": {
         "nombre": "Tubería Faser ø20 mm. SDR 7.4 Fusiotherm forrado con aislamiento",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "29.16"
     }
@@ -645,6 +709,7 @@
     "fields": {
         "nombre": "Tubería Faser ø25mm SDR 7.4 Fusiotherm con aislamiento térmico",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "30.48"
     }
@@ -655,6 +720,7 @@
     "fields": {
         "nombre": "Módulo contador DN25-1\"",
         "categoria": "CAL",
+        "grupo": "Instrumentos de medida",
         "unidad": "UD",
         "precio": "325.98"
     }
@@ -665,6 +731,7 @@
     "fields": {
         "nombre": "Tubería de polietileno de alta densidad 16 Atm ø32mm. Instalado",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "4.68"
     }
@@ -675,6 +742,7 @@
     "fields": {
         "nombre": "Descalcificador automático volumétrico Compact-700/030/V. Constr",
         "categoria": "PIS",
+        "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
         "precio": "1419.21"
     }
@@ -685,6 +753,7 @@
     "fields": {
         "nombre": "Filtro de 3 piezas 1\"",
         "categoria": "FON",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "92.75"
     }
@@ -695,6 +764,7 @@
     "fields": {
         "nombre": "Sal torremar de 25 kg pastilla",
         "categoria": "PIS",
+        "grupo": "Ósmosis y descalcificadores",
         "unidad": "KG",
         "precio": "0.41"
     }
@@ -705,6 +775,7 @@
     "fields": {
         "nombre": "Tubería SDR 7,4 PN-16 ø32 mm. Fusiotherm",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "19.03"
     }
@@ -715,6 +786,7 @@
     "fields": {
         "nombre": "Depósito Aquabloc de 3000l de capacidad. 1725 x 1150 x 1850 mm",
         "categoria": "FON",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "1281.37"
     }
@@ -725,6 +797,7 @@
     "fields": {
         "nombre": "Bomba de Trasvase",
         "categoria": "FON",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "738.67"
     }
@@ -735,6 +808,7 @@
     "fields": {
         "nombre": "Sistema de llenado automático y control de nivel de agua",
         "categoria": "CAL",
+        "grupo": "Llenado y vaciado",
         "unidad": "UD",
         "precio": "595.42"
     }
@@ -745,6 +819,7 @@
     "fields": {
         "nombre": "Tubería PVC S.B ø110mm. Instalado en formato colgado",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "28.59"
     }
@@ -755,6 +830,7 @@
     "fields": {
         "nombre": "Tubería PVC S.B ø90mm. Instalado en formato colgado",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "44.76"
     }
@@ -765,6 +841,7 @@
     "fields": {
         "nombre": "Localizar y limpiar tubería fecales en fregaderos",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "343.20"
     }
@@ -775,6 +852,7 @@
     "fields": {
         "nombre": "Conjunto 5 Filtros osmosis Genius ATH",
         "categoria": "PIS",
+        "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
         "precio": "112.95"
     }
@@ -785,6 +863,7 @@
     "fields": {
         "nombre": "Saco para descalcificador 25 kg",
         "categoria": "PIS",
+        "grupo": "Ósmosis y descalcificadores",
         "unidad": "KG",
         "precio": "15.00"
     }
@@ -795,6 +874,7 @@
     "fields": {
         "nombre": "Instalacion y reposición de sal",
         "categoria": "MOB",
+        "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
         "precio": "50.00"
     }
@@ -805,6 +885,7 @@
     "fields": {
         "nombre": "Kit Cartucho Reemplazo Descalcificador",
         "categoria": "PIS",
+        "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
         "precio": "95.00"
     }
@@ -815,6 +896,7 @@
     "fields": {
         "nombre": "Quooker Fusion Round en acabado negro",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "3521.61"
     }
@@ -825,6 +907,7 @@
     "fields": {
         "nombre": "Atlantis 25l",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "836.72"
     }
@@ -835,6 +918,7 @@
     "fields": {
         "nombre": "Tubería climatización ø20mm",
         "categoria": "CLI",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "23.52"
     }
@@ -845,6 +929,7 @@
     "fields": {
         "nombre": "Tubería de polietileno de alta densidad 16 Atm ø25mm. Instalado",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "6.49"
     }
@@ -855,6 +940,7 @@
     "fields": {
         "nombre": "Kit Nebulizacion con 20 puntos de nebulizacion",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "1868.42"
     }
@@ -865,6 +951,7 @@
     "fields": {
         "nombre": "Válvula esfera 1/2\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "32.17"
     }
@@ -875,6 +962,7 @@
     "fields": {
         "nombre": "Válvula de retención 1/2\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "31.91"
     }
@@ -885,6 +973,7 @@
     "fields": {
         "nombre": "Armario estanco poliester Superficie",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "660.16"
     }
@@ -895,6 +984,7 @@
     "fields": {
         "nombre": "Tubería de PVC de presión ø25 PN16, instalado en formato enterra",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "12.77"
     }
@@ -905,6 +995,7 @@
     "fields": {
         "nombre": "Tubería de cobre, en formato barra, ø15mm",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "17.24"
     }
@@ -915,6 +1006,7 @@
     "fields": {
         "nombre": "Línea alimentación cobre 5x6 mm2 K-Flex 1kV bajo tubo superficie",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "24.74"
     }
@@ -925,6 +1017,7 @@
     "fields": {
         "nombre": "Juego de Mensulas Aire Acondicionado",
         "categoria": "CLI",
+        "grupo": "Soportes y fijaciones",
         "unidad": "UD",
         "precio": "22.40"
     }
@@ -935,6 +1028,7 @@
     "fields": {
         "nombre": "Silenblocks para Aire Acondicionado",
         "categoria": "CLI",
+        "grupo": "Soportes y fijaciones",
         "unidad": "UD",
         "precio": "2.83"
     }
@@ -945,6 +1039,7 @@
     "fields": {
         "nombre": "Línea alimentación 6x1,5 mm² control equipos",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "18.96"
     }
@@ -955,6 +1050,7 @@
     "fields": {
         "nombre": "Interconexionado de equipos",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "300.00"
     }
@@ -965,6 +1061,7 @@
     "fields": {
         "nombre": "Tubería SDR 7.4 PN-16 ø63 mm. Fusiotherm",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "42.79"
     }
@@ -975,6 +1072,7 @@
     "fields": {
         "nombre": "Tubería SDR 7.4 PN-16 ø50 mm. Fusiotherm",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "33.25"
     }
@@ -985,6 +1083,7 @@
     "fields": {
         "nombre": "Tubería SDR 7,4 PN-16 ø25 mm. Fusiotherm",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "23.23"
     }
@@ -995,6 +1094,7 @@
     "fields": {
         "nombre": "Filtro de latón en Y 1/2\"",
         "categoria": "FON",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "49.95"
     }
@@ -1005,6 +1105,7 @@
     "fields": {
         "nombre": "Limpiar del sistema de calefacción y refrigeración con líquidos preventivo",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "950.00"
     }
@@ -1015,6 +1116,7 @@
     "fields": {
         "nombre": "Liquido preventivo Sentinel X100",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "222.75"
     }
@@ -1025,6 +1127,7 @@
     "fields": {
         "nombre": "Liquido limpiador X800",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "55.00"
     }
@@ -1035,6 +1138,7 @@
     "fields": {
         "nombre": "Programación MODUWEB",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "1987.50"
     }
@@ -1045,6 +1149,7 @@
     "fields": {
         "nombre": "Cuadro eléctrico para control",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "525.00"
     }
@@ -1055,6 +1160,7 @@
     "fields": {
         "nombre": "Termostato Sauter MODBUS",
         "categoria": "DOM",
+        "grupo": "Termostatos",
         "unidad": "UD",
         "precio": "49.00"
     }
@@ -1065,6 +1171,7 @@
     "fields": {
         "nombre": "Electrolisis salina Hidroquimic EVO Basic 35 gr./h",
         "categoria": "PIS",
+        "grupo": "Cloración y electrólisis",
         "unidad": "UD",
         "precio": "1804.16"
     }
@@ -1075,6 +1182,7 @@
     "fields": {
         "nombre": "Kit auto PH (PH automatico para clorador salino EVO Basic)",
         "categoria": "PIS",
+        "grupo": "Cloración y electrólisis",
         "unidad": "UD",
         "precio": "402.70"
     }
@@ -1085,6 +1193,7 @@
     "fields": {
         "nombre": "Interruptor flujo equipos BSSALT",
         "categoria": "PIS",
+        "grupo": "Cloración y electrólisis",
         "unidad": "UD",
         "precio": "139.21"
     }
@@ -1095,6 +1204,7 @@
     "fields": {
         "nombre": "Electrodo redox BNC ProMinent",
         "categoria": "PIS",
+        "grupo": "Cloración y electrólisis",
         "unidad": "UD",
         "precio": "236.25"
     }
@@ -1105,6 +1215,7 @@
     "fields": {
         "nombre": "Interconexión equipos",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "300.00"
     }
@@ -1115,6 +1226,7 @@
     "fields": {
         "nombre": "Desplazamiento",
         "categoria": "MOB",
+        "grupo": "Desplazamientos",
         "unidad": "UD",
         "precio": "40.00"
     }
@@ -1125,6 +1237,7 @@
     "fields": {
         "nombre": "Mano de obra",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "590.00"
     }
@@ -1135,6 +1248,7 @@
     "fields": {
         "nombre": "Controller Board - S70E97315H",
         "categoria": "CLI",
+        "grupo": "Repuestos",
         "unidad": "UD",
         "precio": "425.38"
     }
@@ -1145,6 +1259,7 @@
     "fields": {
         "nombre": "Fan Motor Mitsubishi PUHZZRP200/250",
         "categoria": "CLI",
+        "grupo": "Repuestos",
         "unidad": "UD",
         "precio": "438.59"
     }
@@ -1155,6 +1270,7 @@
     "fields": {
         "nombre": "Pantalla táctil Z70V2 marco policarbonato color blanco",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "1320.84"
     }
@@ -1165,6 +1281,7 @@
     "fields": {
         "nombre": "Panel táctil capacitivo Z35 color blanco",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "378.92"
     }
@@ -1175,6 +1292,7 @@
     "fields": {
         "nombre": "Pulsador táctil FLAT DISPLAY con display y sensor de humedad",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "308.19"
     }
@@ -1185,6 +1303,7 @@
     "fields": {
         "nombre": "Gateway ISE Smart Connect KNX Remote Access",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "1071.45"
     }
@@ -1195,6 +1314,7 @@
     "fields": {
         "nombre": "Programación Y Puesta En Marcha KNX",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "6548.12"
     }
@@ -1205,6 +1325,7 @@
     "fields": {
         "nombre": "Programación Pantallas KNX",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "3049.66"
     }
@@ -1215,6 +1336,7 @@
     "fields": {
         "nombre": "Conexionado y Puesta en Marcha del Sistema",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "5317.46"
     }
@@ -1225,6 +1347,7 @@
     "fields": {
         "nombre": "** NOTA **",
         "categoria": "MOB",
+        "grupo": "Ajustes de presupuesto",
         "unidad": "UD",
         "precio": "0.00"
     }
@@ -1235,6 +1358,7 @@
     "fields": {
         "nombre": "Desmontaje Sistema Climatizacion existente",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "451.02"
     }
@@ -1245,6 +1369,7 @@
     "fields": {
         "nombre": "Mitsubishi Electric Mr. Slim conjunto split aire acondicionado c",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "2025.00"
     }
@@ -1255,6 +1380,7 @@
     "fields": {
         "nombre": "Conexionado y adecuación instalación existente",
         "categoria": "MOB",
+        "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
         "precio": "482.77"
     }
@@ -1265,6 +1391,7 @@
     "fields": {
         "nombre": "Reparación de Fuga de Agua en Aseo",
         "categoria": "MOB",
+        "grupo": "Reparaciones",
         "unidad": "UD",
         "precio": "301.75"
     }
@@ -1275,6 +1402,7 @@
     "fields": {
         "nombre": "Placa base quemada, modelo R61651280 - PCA BOARD ASSY",
         "categoria": "CLI",
+        "grupo": "Repuestos",
         "unidad": "UD",
         "precio": "535.00"
     }
@@ -1285,6 +1413,7 @@
     "fields": {
         "nombre": "Recambio cartuchos osmosis",
         "categoria": "PIS",
+        "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
         "precio": "120.00"
     }
@@ -1295,6 +1424,7 @@
     "fields": {
         "nombre": "Fancoil de conductos para instalación horizontal KFCI-400CD30",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "797.67"
     }
@@ -1305,6 +1435,7 @@
     "fields": {
         "nombre": "Reparación Bomba de Calor Piscina",
         "categoria": "MOB",
+        "grupo": "Reparaciones",
         "unidad": "UD",
         "precio": "358.79"
     }
@@ -1315,6 +1446,7 @@
     "fields": {
         "nombre": "Alimentación de planchas industriales",
         "categoria": "MOB",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "0.00"
     }
@@ -1325,6 +1457,7 @@
     "fields": {
         "nombre": "Línea alimentación cobre 3x6 mm2 Afumex 750V bajo tubo empotrado",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "11.62"
     }
@@ -1335,6 +1468,7 @@
     "fields": {
         "nombre": "Interruptor magnetotérmico; Acti9 iC60N; 2P; 16 A; curva C; 6000",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "32.13"
     }
@@ -1345,6 +1479,7 @@
     "fields": {
         "nombre": "Interruptor magnetotérmico; Acti9 iC60N; 2P; 20 A; curva C; 6000",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "32.48"
     }
@@ -1355,6 +1490,7 @@
     "fields": {
         "nombre": "Interruptor Diferencial IID 2P 40A 30mA CLASE-AC residencial. SE",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "99.50"
     }
@@ -1365,6 +1501,7 @@
     "fields": {
         "nombre": "Mano de obra - Rebaja",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "100.00"
     }
@@ -1375,6 +1512,7 @@
     "fields": {
         "nombre": "Válvula seguridad 1/2\" de 6bar",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "10.17"
     }
@@ -1385,6 +1523,7 @@
     "fields": {
         "nombre": "Módulo fotovoltaico 460 Wp monocristalino",
         "categoria": "SOL",
+        "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
         "precio": "177.68"
     }
@@ -1395,6 +1534,7 @@
     "fields": {
         "nombre": "Estructura de paneles fotovoltaicos sobre porche",
         "categoria": "SOL",
+        "grupo": "Estructuras solares",
         "unidad": "UD",
         "precio": "1186.65"
     }
@@ -1405,6 +1545,7 @@
     "fields": {
         "nombre": "Daikin Sensira TXF-F conjunto split pared R-32",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "1821.42"
     }
@@ -1415,6 +1556,7 @@
     "fields": {
         "nombre": "Línea alimentación cobre 3x2,5 mm2 Afumex 750V bajo tubo empotra",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "5.42"
     }
@@ -1425,6 +1567,7 @@
     "fields": {
         "nombre": "Desmontaje cuadro existente",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "329.40"
     }
@@ -1435,6 +1578,7 @@
     "fields": {
         "nombre": "Adecuación Cuadro eléctrico Principal",
         "categoria": "MOB",
+        "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
         "precio": "646.65"
     }
@@ -1445,6 +1589,7 @@
     "fields": {
         "nombre": "Adecuación Instalación eléctrica del Local",
         "categoria": "MOB",
+        "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
         "precio": "564.03"
     }
@@ -1455,6 +1600,7 @@
     "fields": {
         "nombre": "Desmontaje y adecuación sala de máquinas",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "800.00"
     }
@@ -1465,6 +1611,7 @@
     "fields": {
         "nombre": "Sistema de llenado automático de circuito cerrado",
         "categoria": "CAL",
+        "grupo": "Llenado y vaciado",
         "unidad": "UD",
         "precio": "350.00"
     }
@@ -1475,6 +1622,7 @@
     "fields": {
         "nombre": "Bomba de calor Inverter aroTHERM plus 155/6",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "13320.00"
     }
@@ -1485,6 +1633,7 @@
     "fields": {
         "nombre": "Kit soporte vaso expansion",
         "categoria": "CAL",
+        "grupo": "Soportes y fijaciones",
         "unidad": "UD",
         "precio": "126.72"
     }
@@ -1495,6 +1644,7 @@
     "fields": {
         "nombre": "Vaso de expansión para ACS 30L",
         "categoria": "CAL",
+        "grupo": "Vasos de expansión",
         "unidad": "UD",
         "precio": "116.40"
     }
@@ -1505,6 +1655,7 @@
     "fields": {
         "nombre": "Deposito Inercia HeatSun ACR150lts",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "985.00"
     }
@@ -1515,6 +1666,7 @@
     "fields": {
         "nombre": "Válvula de 3 vías 1 1/4\". Sauter",
         "categoria": "CAL",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "794.20"
     }
@@ -1525,6 +1677,7 @@
     "fields": {
         "nombre": "Conjunto de distribución para circuito ACS",
         "categoria": "CAL",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "927.00"
     }
@@ -1535,6 +1688,7 @@
     "fields": {
         "nombre": "Conjunto de distribución para circuito de calefacción",
         "categoria": "CAL",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "1011.00"
     }
@@ -1545,6 +1699,7 @@
     "fields": {
         "nombre": "Colector partido para 2 conjuntos",
         "categoria": "CAL",
+        "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
         "precio": "419.16"
     }
@@ -1555,6 +1710,7 @@
     "fields": {
         "nombre": "SE-2 Interacumulador de ACS en acero. 300L",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "2865.12"
     }
@@ -1565,6 +1721,7 @@
     "fields": {
         "nombre": "Unidad de mando BM-2",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "403.85"
     }
@@ -1575,6 +1732,7 @@
     "fields": {
         "nombre": "Módulo mezclador MM-2",
         "categoria": "CAL",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "454.30"
     }
@@ -1585,6 +1743,7 @@
     "fields": {
         "nombre": "Sonda ACS y accesorios",
         "categoria": "CAL",
+        "grupo": "Instrumentos de medida",
         "unidad": "UD",
         "precio": "132.02"
     }
@@ -1595,6 +1754,7 @@
     "fields": {
         "nombre": "Apoyo eléctrico",
         "categoria": "MOB",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "522.00"
     }
@@ -1605,6 +1765,7 @@
     "fields": {
         "nombre": "Desconector hidráulico",
         "categoria": "CAL",
+        "grupo": "Llenado y vaciado",
         "unidad": "UD",
         "precio": "155.26"
     }
@@ -1615,6 +1776,7 @@
     "fields": {
         "nombre": "Interconexión equipos dentro de Sala de Máquinas",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "800.00"
     }
@@ -1625,6 +1787,7 @@
     "fields": {
         "nombre": "Subcuadro Sala de Maquinas",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "725.00"
     }
@@ -1635,6 +1798,7 @@
     "fields": {
         "nombre": "Instalación Electrica Sala de Maquinas",
         "categoria": "ELE",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "650.00"
     }
@@ -1645,6 +1809,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de filtro antilodos",
         "categoria": "CAL",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "218.00"
     }
@@ -1655,6 +1820,7 @@
     "fields": {
         "nombre": "Filtro de latón en Y 1 1/4\"",
         "categoria": "FON",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "93.02"
     }
@@ -1665,6 +1831,7 @@
     "fields": {
         "nombre": "Limpiar y colocar líquidos en instalaciones",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "291.50"
     }
@@ -1675,6 +1842,7 @@
     "fields": {
         "nombre": "Deposito Inercia Colgado 50lts",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "691.60"
     }
@@ -1685,6 +1853,7 @@
     "fields": {
         "nombre": "Vaso de expansión 10L",
         "categoria": "CAL",
+        "grupo": "Vasos de expansión",
         "unidad": "UD",
         "precio": "95.20"
     }
@@ -1695,6 +1864,7 @@
     "fields": {
         "nombre": "Bomba rotor húmedo para calefacción Grundfos",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "576.00"
     }
@@ -1705,6 +1875,7 @@
     "fields": {
         "nombre": "Válvula esfera 3/4\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "42.44"
     }
@@ -1715,6 +1886,7 @@
     "fields": {
         "nombre": "Válvula de retención 3/4\"",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "38.49"
     }
@@ -1725,6 +1897,7 @@
     "fields": {
         "nombre": "Clorador salino Evo Low Salt 15g/h BSV",
         "categoria": "PIS",
+        "grupo": "Cloración y electrólisis",
         "unidad": "UD",
         "precio": "1385.00"
     }
@@ -1735,6 +1908,7 @@
     "fields": {
         "nombre": "Liquido Minorizador pH",
         "categoria": "PIS",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "22.00"
     }
@@ -1745,6 +1919,7 @@
     "fields": {
         "nombre": "Material",
         "categoria": "OTR",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "280.00"
     }
@@ -1755,6 +1930,7 @@
     "fields": {
         "nombre": "Descuento comercial 10%",
         "categoria": "MOB",
+        "grupo": "Ajustes de presupuesto",
         "unidad": "UD",
         "precio": "240.00"
     }
@@ -1765,6 +1941,7 @@
     "fields": {
         "nombre": "Anular y conectar desagües canal pergona piscina exterior",
         "categoria": "MOB",
+        "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
         "precio": "127.34"
     }
@@ -1775,6 +1952,7 @@
     "fields": {
         "nombre": "Tubería Climatherm Faser ø90 x 8.2 mm Fusiotherm, forrado con ai",
         "categoria": "CAL",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "151.93"
     }
@@ -1785,6 +1963,7 @@
     "fields": {
         "nombre": "Trabajos varios",
         "categoria": "MOB",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "588.00"
     }
@@ -1795,6 +1974,7 @@
     "fields": {
         "nombre": "Servicio de urgencias",
         "categoria": "MOB",
+        "grupo": "Urgencias",
         "unidad": "UD",
         "precio": "150.00"
     }
@@ -1805,6 +1985,7 @@
     "fields": {
         "nombre": "Revisión de caldera",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "337.50"
     }
@@ -1815,6 +1996,7 @@
     "fields": {
         "nombre": "Desmontaje Acumulador a gas y anulación suministro de gas",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "81.00"
     }
@@ -1825,6 +2007,7 @@
     "fields": {
         "nombre": "Suministro y montaje de termo eléctrico litros",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "432.00"
     }
@@ -1835,6 +2018,7 @@
     "fields": {
         "nombre": "Inversor Deye 8KW",
         "categoria": "SOL",
+        "grupo": "Inversores",
         "unidad": "UD",
         "precio": "1336.04"
     }
@@ -1845,6 +2029,7 @@
     "fields": {
         "nombre": "Módulo solar Hi-MO X10 HPBC 540 Wp 25/30Y 1990x1134x30 mm",
         "categoria": "SOL",
+        "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
         "precio": "1800.63"
     }
@@ -1855,6 +2040,7 @@
     "fields": {
         "nombre": "11V2-30-C soporte inclinado, cerrado, vertical, crudo",
         "categoria": "SOL",
+        "grupo": "Estructuras solares",
         "unidad": "UD",
         "precio": "330.60"
     }
@@ -1865,6 +2051,7 @@
     "fields": {
         "nombre": "Kit est.coplanar teja 3M",
         "categoria": "SOL",
+        "grupo": "Estructuras solares",
         "unidad": "UD",
         "precio": "184.30"
     }
@@ -1875,6 +2062,7 @@
     "fields": {
         "nombre": "Kit est.coplanar teja 4M",
         "categoria": "SOL",
+        "grupo": "Estructuras solares",
         "unidad": "UD",
         "precio": "214.70"
     }
@@ -1885,6 +2073,7 @@
     "fields": {
         "nombre": "Union doble perfil 50X26",
         "categoria": "SOL",
+        "grupo": "Estructuras solares",
         "unidad": "UD",
         "precio": "4.33"
     }
@@ -1895,6 +2084,7 @@
     "fields": {
         "nombre": "Bateria Lithium Series Pro 51,2VDC 5,1kWh",
         "categoria": "SOL",
+        "grupo": "Baterías",
         "unidad": "UD",
         "precio": "4436.50"
     }
@@ -1905,6 +2095,7 @@
     "fields": {
         "nombre": "Cable kit TE 2,4 / 3,6",
         "categoria": "SOL",
+        "grupo": "Cables y líneas",
         "unidad": "UD",
         "precio": "20.81"
     }
@@ -1915,6 +2106,7 @@
     "fields": {
         "nombre": "Armario 19\" S 18U F600 A600 + acc. Global GTLAN",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "372.06"
     }
@@ -1925,6 +2117,7 @@
     "fields": {
         "nombre": "Prysolar E-Sens H1Z2Z2-K 1X6 BK 1.5KV",
         "categoria": "SOL",
+        "grupo": "Cables y líneas",
         "unidad": "UD",
         "precio": "125.40"
     }
@@ -1935,6 +2128,7 @@
     "fields": {
         "nombre": "Prysolar E-Sens H1Z2Z2-K 1X6 RD 1.5KV",
         "categoria": "SOL",
+        "grupo": "Cables y líneas",
         "unidad": "UD",
         "precio": "125.40"
     }
@@ -1945,6 +2139,7 @@
     "fields": {
         "nombre": "Fotovoltaica para 4 entradas de string's 1000 VDC con proteccion",
         "categoria": "SOL",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "399.95"
     }
@@ -1955,6 +2150,7 @@
     "fields": {
         "nombre": "Monofásica de 40 A con diferencial tipo A de 30 mA",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "108.19"
     }
@@ -1965,6 +2161,7 @@
     "fields": {
         "nombre": "GENERGY Creta sol, 7200w, (apoyo",
         "categoria": "SOL",
+        "grupo": "Otros",
         "unidad": "UD",
         "precio": "1480.86"
     }
@@ -1975,6 +2172,7 @@
     "fields": {
         "nombre": "Bajo consumo en sal con control",
         "categoria": "PIS",
+        "grupo": "Cloración y electrólisis",
         "unidad": "UD",
         "precio": "1112.63"
     }
@@ -1985,6 +2183,7 @@
     "fields": {
         "nombre": "Sumergida con variador 230V con 1,5HP de potencia",
         "categoria": "FON",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1795.73"
     }
@@ -1995,6 +2194,7 @@
     "fields": {
         "nombre": "Interconexión equipos hidráulicos sala de máquinas",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "828.00"
     }
@@ -2005,6 +2205,7 @@
     "fields": {
         "nombre": "Calor Vaillant aroTHERM plus es",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "16104.60"
     }
@@ -2015,6 +2216,7 @@
     "fields": {
         "nombre": "VR 71. Módulo eBUS para gestionar 3",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "398.48"
     }
@@ -2025,6 +2227,7 @@
     "fields": {
         "nombre": "Suministro e instalación de depósito ACS Vaillant 300 l",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "2639.25"
     }
@@ -2035,6 +2238,7 @@
     "fields": {
         "nombre": "Res. 2,5kW inox. 1-1/2\" c/termostato",
         "categoria": "CAL",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "771.08"
     }
@@ -2045,6 +2249,7 @@
     "fields": {
         "nombre": "Suministro e instalación de depósito de inercia 150 l",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "1355.85"
     }
@@ -2055,6 +2260,7 @@
     "fields": {
         "nombre": "Bomba circulacion Magna Grundfos 32-80-180",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1966.50"
     }
@@ -2065,6 +2271,7 @@
     "fields": {
         "nombre": "Bomba Magna3 N inox 25-40-180",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "2028.60"
     }
@@ -2075,6 +2282,7 @@
     "fields": {
         "nombre": "Tuberías interconexión de equipo con sala técnica existente",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "3275.78"
     }
@@ -2085,6 +2293,7 @@
     "fields": {
         "nombre": "Electrica para alimentar nuevo",
         "categoria": "ELE",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "358.20"
     }
@@ -2095,6 +2304,7 @@
     "fields": {
         "nombre": "Subcuadro sala técnica",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "1407.60"
     }
@@ -2105,6 +2315,7 @@
     "fields": {
         "nombre": "Filtro de 11/4 malla",
         "categoria": "FON",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "1066.05"
     }
@@ -2115,6 +2326,7 @@
     "fields": {
         "nombre": "Liquido Sentinel X100",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "2134.80"
     }
@@ -2125,6 +2337,7 @@
     "fields": {
         "nombre": "Suministro de Mueble lavabo, grifería lavabo y Espejo 80cm x 46cm",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "346.50"
     }
@@ -2135,6 +2348,7 @@
     "fields": {
         "nombre": "Suministro de Mueble lavabo, grifería lavabo y Espejo 60cm x 35cm",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "265.50"
     }
@@ -2145,6 +2359,7 @@
     "fields": {
         "nombre": "Desmontaje de Muebles y espejos viejos",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "58.50"
     }
@@ -2155,6 +2370,7 @@
     "fields": {
         "nombre": "Revisar y reparar Toma de llenado Lavadora",
         "categoria": "MOB",
+        "grupo": "Reparaciones",
         "unidad": "UD",
         "precio": "40.50"
     }
@@ -2165,6 +2381,7 @@
     "fields": {
         "nombre": "Mano de obra Montaje Muebles Lavabo",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "445.50"
     }
@@ -2175,6 +2392,7 @@
     "fields": {
         "nombre": "Sistema hidráulico Aquarea WH-WXG20ME8",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "17048.21"
     }
@@ -2185,6 +2403,7 @@
     "fields": {
         "nombre": "Desmontaje unidad exterior existente",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "302.40"
     }
@@ -2195,6 +2414,7 @@
     "fields": {
         "nombre": "Trabajos referentes al conexionado eléctrico",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "302.40"
     }
@@ -2205,6 +2425,7 @@
     "fields": {
         "nombre": "Termostatos All in One - Gregal",
         "categoria": "DOM",
+        "grupo": "Termostatos",
         "unidad": "UD",
         "precio": "160.00"
     }
@@ -2215,6 +2436,7 @@
     "fields": {
         "nombre": "Desmontaje de los termostatos antiguos",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "30.00"
     }
@@ -2225,6 +2447,7 @@
     "fields": {
         "nombre": "Limpieza y desinfección de los filtros de los Fancoil's",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "200.00"
     }
@@ -2235,6 +2458,7 @@
     "fields": {
         "nombre": "Limpieza de sistema Calefacción y Refrigeración con liquido preventivo Sentinel",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "1250.00"
     }
@@ -2245,6 +2469,7 @@
     "fields": {
         "nombre": "Colocar separador de Lodos Sentinel Vortex e 1 1/4",
         "categoria": "CAL",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "365.00"
     }
@@ -2255,6 +2480,7 @@
     "fields": {
         "nombre": "Líquido Sentinel X100 preventivo",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "65.00"
     }
@@ -2265,6 +2491,7 @@
     "fields": {
         "nombre": "Líquido Sentinel X800 Limpieza",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "65.00"
     }
@@ -2275,6 +2502,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de Válvula tres Vías 1 1/4 para Bomba Calefacción/Radiadores",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "465.00"
     }
@@ -2285,6 +2513,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de Bomba de Circulacion Baxi Quantum Maxi 1045",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "435.00"
     }
@@ -2295,6 +2524,7 @@
     "fields": {
         "nombre": "Calefacción y puesta en servicio sistema incluyendo",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "1735.00"
     }
@@ -2305,6 +2535,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de Deposito Inercia de HeatSun 100lts para Exterior",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "656.00"
     }
@@ -2315,6 +2546,7 @@
     "fields": {
         "nombre": "Modificación de Equipos Sala Tecnica Existente a Colector suelo Radiante y Radiadores",
         "categoria": "MOB",
+        "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
         "precio": "797.00"
     }
@@ -2325,6 +2557,7 @@
     "fields": {
         "nombre": "Desmontaje unidades Aire Acondicionado de conductos antiguas",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "360.00"
     }
@@ -2335,6 +2568,7 @@
     "fields": {
         "nombre": "Conjunto 1x1 A/A conductos Kosner, R- KSTI-12/35 CD NOVA EVO wifi",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "2880.00"
     }
@@ -2345,6 +2579,7 @@
     "fields": {
         "nombre": "Tuberías frigoríficas de dimensiones (1/4)\"- (3/8)\"",
         "categoria": "CLI",
+        "grupo": "Tuberías",
         "unidad": "UD",
         "precio": "729.00"
     }
@@ -2355,6 +2590,7 @@
     "fields": {
         "nombre": "Embocadura a unidad interior de conductos",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "99.00"
     }
@@ -2365,6 +2601,7 @@
     "fields": {
         "nombre": "Filtro antilodos Sentinel Vortex 200",
         "categoria": "CAL",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "220.50"
     }
@@ -2375,6 +2612,7 @@
     "fields": {
         "nombre": "Limpiar y colocar líquidos en circuito cerrado",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "300.00"
     }
@@ -2385,6 +2623,7 @@
     "fields": {
         "nombre": "Forro de armaflex para tubo Ø32",
         "categoria": "CAL",
+        "grupo": "Aislamientos",
         "unidad": "M",
         "precio": "12.00"
     }
@@ -2395,6 +2634,7 @@
     "fields": {
         "nombre": "Válvulas de aireación Jimtem de lavabo",
         "categoria": "FON",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "8.00"
     }
@@ -2405,6 +2645,7 @@
     "fields": {
         "nombre": "Glicol para Placas Solares Termicas",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "L",
         "precio": "4.00"
     }
@@ -2415,6 +2656,7 @@
     "fields": {
         "nombre": "Reparar fugas en placas solares",
         "categoria": "MOB",
+        "grupo": "Reparaciones",
         "unidad": "UD",
         "precio": "115.00"
     }
@@ -2425,6 +2667,7 @@
     "fields": {
         "nombre": "Patas para Bomba Calor Acs",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "11.00"
     }
@@ -2435,6 +2678,7 @@
     "fields": {
         "nombre": "Mano de obra y Desplazamiento",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "240.00"
     }
@@ -2445,6 +2689,7 @@
     "fields": {
         "nombre": "Desmontaje y limpieza de Filtro antilodos Sentinel Vortex 200",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "218.00"
     }
@@ -2455,6 +2700,7 @@
     "fields": {
         "nombre": "Adecuación para la instalación del Descalcificador",
         "categoria": "MOB",
+        "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
         "precio": "400.00"
     }
@@ -2465,6 +2711,7 @@
     "fields": {
         "nombre": "Instalación de Aire Acondicionado. Sin suministro de material",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "450.00"
     }
@@ -2475,6 +2722,7 @@
     "fields": {
         "nombre": "Prueba de estanqueidad con Nitrógeno. 4bar",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "100.00"
     }
@@ -2485,6 +2733,7 @@
     "fields": {
         "nombre": "Tramitación y Legalización ante la UDIT",
         "categoria": "MOB",
+        "grupo": "Legalizaciones",
         "unidad": "UD",
         "precio": "500.00"
     }
@@ -2495,6 +2744,7 @@
     "fields": {
         "nombre": "Suministro y Montaje de Bomba Fancoil Magna3 25-100-180",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "1706.00"
     }
@@ -2505,6 +2755,7 @@
     "fields": {
         "nombre": "Suministro y Montaje de Bomba Suelo Radiante Magna3 25-60-180",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1365.00"
     }
@@ -2515,6 +2766,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de Válvula tres Vías 1 1/4 para Bomba carga Acs",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "685.00"
     }
@@ -2525,6 +2777,7 @@
     "fields": {
         "nombre": "Modificación en Conexiones Deposito a Inercia y Adecuación de Climatización y Calefacción",
         "categoria": "MOB",
+        "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
         "precio": "765.00"
     }
@@ -2535,6 +2788,7 @@
     "fields": {
         "nombre": "Suministro de Deposito Inercia de HeatSun 200lts para Exterior/Interior",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "875.00"
     }
@@ -2545,6 +2799,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de Fancoil 5,5kw Daikin modelo FWE11D con Motor 3 Velocidades",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "890.00"
     }
@@ -2555,6 +2810,7 @@
     "fields": {
         "nombre": "Mano de obra para la limpieza de la instalacion",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "300.00"
     }
@@ -2565,6 +2821,7 @@
     "fields": {
         "nombre": "Mantenimiento preventivo de unidades terminales tipo Fancoil",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "105.00"
     }
@@ -2575,6 +2832,7 @@
     "fields": {
         "nombre": "Desmontaje de termostatos existentes",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "110.00"
     }
@@ -2585,6 +2843,7 @@
     "fields": {
         "nombre": "Termostato All in One. Modelo Gregal SENSE mediante cableado Modbus",
         "categoria": "DOM",
+        "grupo": "Termostatos",
         "unidad": "UD",
         "precio": "1587.60"
     }
@@ -2595,6 +2854,7 @@
     "fields": {
         "nombre": "Pasarela de comunicación Modbus",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "495.00"
     }
@@ -2605,6 +2865,7 @@
     "fields": {
         "nombre": "Fuente de alimentación 24VDC 0.75A (out)/ 110-230VAC (in). 1 unidad DIN",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "40.50"
     }
@@ -2615,6 +2876,7 @@
     "fields": {
         "nombre": "Fuente de alimentación universal KNX 160mA con 29VDC auxiliar",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "121.50"
     }
@@ -2625,6 +2887,7 @@
     "fields": {
         "nombre": "Z50. Pantalla táctil color capacitiva con display 5\" - Blanca",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "355.50"
     }
@@ -2635,6 +2898,7 @@
     "fields": {
         "nombre": "Licencia de control remoto para Z50, Z70 & Z100. Caja de licencia",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "97.20"
     }
@@ -2645,6 +2909,7 @@
     "fields": {
         "nombre": "MINiBOX 25 v3. Actuador multifunción con KNX Secure - 2 salidas 16A / 5 entradas A/D",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "135.00"
     }
@@ -2655,6 +2920,7 @@
     "fields": {
         "nombre": "MINiBOX 20 v2. Actuador multifunción con KNX Secure - 2 salidas 16A",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "103.50"
     }
@@ -2665,6 +2931,7 @@
     "fields": {
         "nombre": "Pasarela Intesis Modbus RTU a KNX TP ( puntos)",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "395.00"
     }
@@ -2675,6 +2942,7 @@
     "fields": {
         "nombre": "Cuadro de conexión KNX",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "270.00"
     }
@@ -2685,6 +2953,7 @@
     "fields": {
         "nombre": "Programación y puesta en marcha del Sistema KNX",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "585.00"
     }
@@ -2695,6 +2964,7 @@
     "fields": {
         "nombre": "Intervenciones de urgencia en Hotel The Hype",
         "categoria": "MOB",
+        "grupo": "Urgencias",
         "unidad": "UD",
         "precio": "150.00"
     }
@@ -2705,6 +2975,7 @@
     "fields": {
         "nombre": "Suministro y Montaje de Pantalla Z50, marca Zennio",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "650.00"
     }
@@ -2715,6 +2986,7 @@
     "fields": {
         "nombre": "Suministro y Montaje de Actuador Max Zennio con 8 entradas y 8 Salidas de rieles",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "350.00"
     }
@@ -2725,6 +2997,7 @@
     "fields": {
         "nombre": "Suministro y Montaje Fuente alimentación Zennio 160 mA",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "217.00"
     }
@@ -2735,6 +3008,7 @@
     "fields": {
         "nombre": "Suministro y Montaje de sonda Cableada KNX Epoxi",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "75.00"
     }
@@ -2745,6 +3019,7 @@
     "fields": {
         "nombre": "Suministro Sonda Sensato Zennio",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "275.00"
     }
@@ -2755,6 +3030,7 @@
     "fields": {
         "nombre": "Cable UTP para conexión Remota pantalla Zennio",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "13.50"
     }
@@ -2765,6 +3041,7 @@
     "fields": {
         "nombre": "Local Rituals, incluyendo Gráficas de",
         "categoria": "MOB",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "1275.00"
     }
@@ -2775,6 +3052,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de MiniRele 230v",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "25.80"
     }
@@ -2785,6 +3063,7 @@
     "fields": {
         "nombre": "Intervención de Urgencia en sistema de climatizacion. Tienda 'Rituals' Centro Comercial FAN",
         "categoria": "MOB",
+        "grupo": "Urgencias",
         "unidad": "UD",
         "precio": "550.00"
     }
@@ -2795,6 +3074,7 @@
     "fields": {
         "nombre": "Pasarela de comunicación Modbus Daikin RTD-W",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "443.70"
     }
@@ -2805,6 +3085,7 @@
     "fields": {
         "nombre": "KNX Secure - 2 salidas 16A / 5 entradas",
         "categoria": "DOM",
+        "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
         "precio": "121.50"
     }
@@ -2815,6 +3096,7 @@
     "fields": {
         "nombre": "Pasarela Intesis Modbus RTU a KNX TP (100 puntos)",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "355.50"
     }
@@ -2825,6 +3107,7 @@
     "fields": {
         "nombre": "Suministro e instalacion de Interfono. Marca Zennio, modelo ZVP-CAM",
         "categoria": "DOM",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "1620.00"
     }
@@ -2835,6 +3118,7 @@
     "fields": {
         "nombre": "Programación y puesta en marcha",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "540.00"
     }
@@ -2845,6 +3129,7 @@
     "fields": {
         "nombre": "Mano de obra y conexionado",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "270.00"
     }
@@ -2855,6 +3140,7 @@
     "fields": {
         "nombre": "Montaje de Aire Acondicionado 1x1",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "400.00"
     }
@@ -2865,6 +3151,7 @@
     "fields": {
         "nombre": "Material Sala de Maquinas Piscina",
         "categoria": "PIS",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "395.00"
     }
@@ -2875,6 +3162,7 @@
     "fields": {
         "nombre": "Bomba calor aerotermia Kosner Ht R Monoblock 16kw Monofásica",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "5425.00"
     }
@@ -2885,6 +3173,7 @@
     "fields": {
         "nombre": "Depósito de inercia 150 litros",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "875.00"
     }
@@ -2895,6 +3184,7 @@
     "fields": {
         "nombre": "Zone manager 2.0",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "211.00"
     }
@@ -2905,6 +3195,7 @@
     "fields": {
         "nombre": "Kit Exogel (obligatorio en la gama monobloc)",
         "categoria": "CAL",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "190.00"
     }
@@ -2915,6 +3206,7 @@
     "fields": {
         "nombre": "Kit válvulas y filtros (obligatorio instalar este kit o kit compatible)",
         "categoria": "CAL",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "90.00"
     }
@@ -2925,6 +3217,7 @@
     "fields": {
         "nombre": "Bomba de circulación, modelo Magna3 32-80- 180 de la marca GRUNDFOS",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1195.00"
     }
@@ -2935,6 +3228,7 @@
     "fields": {
         "nombre": "Suministro y montaje de Termostato GREGAL SENSE",
         "categoria": "DOM",
+        "grupo": "Termostatos",
         "unidad": "UD",
         "precio": "120.00"
     }
@@ -2945,6 +3239,7 @@
     "fields": {
         "nombre": "Interconexión de equipos y mano de obra",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "1900.00"
     }
@@ -2955,6 +3250,7 @@
     "fields": {
         "nombre": "Magna3 32-80 180",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1080.00"
     }
@@ -2965,6 +3261,7 @@
     "fields": {
         "nombre": "Aislamiento tubería Armaflex 42x19mm",
         "categoria": "CAL",
+        "grupo": "Aislamientos",
         "unidad": "UD",
         "precio": "61.20"
     }
@@ -2975,6 +3272,7 @@
     "fields": {
         "nombre": "Pintura para protección tubería exterior",
         "categoria": "FON",
+        "grupo": "Aislamientos",
         "unidad": "UD",
         "precio": "32.40"
     }
@@ -2985,6 +3283,7 @@
     "fields": {
         "nombre": "Fancoil FWM35DTN de la marca DAIKIN",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "738.00"
     }
@@ -2995,6 +3294,7 @@
     "fields": {
         "nombre": "Mano de obra para el montaje y desmontaje de los equipos",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "270.00"
     }
@@ -3005,6 +3305,7 @@
     "fields": {
         "nombre": "Vaso expansión 18l",
         "categoria": "CAL",
+        "grupo": "Vasos de expansión",
         "unidad": "UD",
         "precio": "58.50"
     }
@@ -3015,6 +3316,7 @@
     "fields": {
         "nombre": "Suministro y montaje de Termostato GREGAL SENSE. Incluyendo cableado",
         "categoria": "DOM",
+        "grupo": "Termostatos",
         "unidad": "UD",
         "precio": "180.00"
     }
@@ -3025,6 +3327,7 @@
     "fields": {
         "nombre": "Fancoil 42NX223H-R de la marca CARRIER, motor DC 0-10V",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "495.00"
     }
@@ -3035,6 +3338,7 @@
     "fields": {
         "nombre": "Mano de obra para el montaje del equipo",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "180.00"
     }
@@ -3045,6 +3349,7 @@
     "fields": {
         "nombre": "HTW-C9T3-160ADM2R32W 16,0 A++ // A+ 3/8\" - 5/8\" Trifasica refrigerante",
         "categoria": "CLI",
+        "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
         "precio": "5059.75"
     }
@@ -3055,6 +3360,7 @@
     "fields": {
         "nombre": "Cable Bus Comunicación",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "180.00"
     }
@@ -3065,6 +3371,7 @@
     "fields": {
         "nombre": "Cable RZ1-k 5G6",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "UD",
         "precio": "562.50"
     }
@@ -3075,6 +3382,7 @@
     "fields": {
         "nombre": "Cuadro Proteccion Máquina Exterior",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "162.00"
     }
@@ -3085,6 +3393,7 @@
     "fields": {
         "nombre": "Magnetotermico 4P",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "171.00"
     }
@@ -3095,6 +3404,7 @@
     "fields": {
         "nombre": "Diferencial 4P",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "130.50"
     }
@@ -3105,6 +3415,7 @@
     "fields": {
         "nombre": "Seccionador Unidad Clima Exterior",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "117.00"
     }
@@ -3115,6 +3426,7 @@
     "fields": {
         "nombre": "Tubo PVC Desagues",
         "categoria": "FON",
+        "grupo": "Desagües y saneamiento",
         "unidad": "UD",
         "precio": "112.50"
     }
@@ -3125,6 +3437,7 @@
     "fields": {
         "nombre": "Soportes y Fijaciones",
         "categoria": "FON",
+        "grupo": "Soportes y fijaciones",
         "unidad": "UD",
         "precio": "171.00"
     }
@@ -3135,6 +3448,7 @@
     "fields": {
         "nombre": "Nitrógeno y Vacio",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "162.00"
     }
@@ -3145,6 +3459,7 @@
     "fields": {
         "nombre": "Mano de Obra Completa",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "1497.60"
     }
@@ -3155,6 +3470,7 @@
     "fields": {
         "nombre": "Montajes de radiadores fundicion y puesta en marcha calefaccion",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "650.00"
     }
@@ -3165,6 +3481,7 @@
     "fields": {
         "nombre": "Revisión, limpieza y puesta a punto de caldera de Gasoil, marca ROCA",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "450.00"
     }
@@ -3175,6 +3492,7 @@
     "fields": {
         "nombre": "Trabajos varios en grupo de presión y Luz UV",
         "categoria": "MOB",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "245.00"
     }
@@ -3185,6 +3503,7 @@
     "fields": {
         "nombre": "Suministro y Montaje de Caldera Ariston Condensación 35kw",
         "categoria": "CAL",
+        "grupo": "Calderas",
         "unidad": "UD",
         "precio": "2438.00"
     }
@@ -3195,6 +3514,7 @@
     "fields": {
         "nombre": "Suministro y Montaje de Intercambiador placas 40kw Inoxidable",
         "categoria": "CAL",
+        "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
         "precio": "1146.00"
     }
@@ -3205,6 +3525,7 @@
     "fields": {
         "nombre": "Suministro y Montaje Bomba Circulación Magna3 25-80-180",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1349.00"
     }
@@ -3215,6 +3536,7 @@
     "fields": {
         "nombre": "Termómetros Llaves de paso",
         "categoria": "CAL",
+        "grupo": "Válvulas",
         "unidad": "UD",
         "precio": "675.00"
     }
@@ -3225,6 +3547,7 @@
     "fields": {
         "nombre": "Suministro y Instalación de llenado automático",
         "categoria": "CAL",
+        "grupo": "Llenado y vaciado",
         "unidad": "UD",
         "precio": "265.00"
     }
@@ -3235,6 +3558,7 @@
     "fields": {
         "nombre": "Desmontaje caldera Existente wolf",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "235.00"
     }
@@ -3245,6 +3569,7 @@
     "fields": {
         "nombre": "Liquido limpiador Sentinel X800",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "54.00"
     }
@@ -3255,6 +3580,7 @@
     "fields": {
         "nombre": "Limpieza circuito Calefacción por Radiadores con Bomba Centrífuga Sentinel",
         "categoria": "MOB",
+        "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
         "precio": "1135.00"
     }
@@ -3265,6 +3591,7 @@
     "fields": {
         "nombre": "Grundfos Magna3 32-80 1x230V, PN10",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1598.40"
     }
@@ -3275,6 +3602,7 @@
     "fields": {
         "nombre": "Cable exterior UTP cat.6 sin halogenuros bajo tubo",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "270.00"
     }
@@ -3285,6 +3613,7 @@
     "fields": {
         "nombre": "Línea alimentación cobre 3x1.5 mm Afumex 1KV bajo tubo de superficie",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "UD",
         "precio": "277.50"
     }
@@ -3295,6 +3624,7 @@
     "fields": {
         "nombre": "Enchufe de superficie con tapa basculante montaje en superficie estanco (IP55)",
         "categoria": "ELE",
+        "grupo": "Enchufes",
         "unidad": "UD",
         "precio": "18.50"
     }
@@ -3305,6 +3635,7 @@
     "fields": {
         "nombre": "Repetidor WiFi",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "32.00"
     }
@@ -3315,6 +3646,7 @@
     "fields": {
         "nombre": "Desplazamiento, mano de obra y pequeño material",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "123.75"
     }
@@ -3325,6 +3657,7 @@
     "fields": {
         "nombre": "Línea alimentación cobre 3x6 mm2 Afumex 1KV bajo tubo de superficie",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "UD",
         "precio": "290.25"
     }
@@ -3335,6 +3668,7 @@
     "fields": {
         "nombre": "Magnetotermico 32A. C32 1P+N",
         "categoria": "ELE",
+        "grupo": "Protecciones eléctricas",
         "unidad": "UD",
         "precio": "18.00"
     }
@@ -3345,6 +3679,7 @@
     "fields": {
         "nombre": "Suministro Termostato GREGAL SENSE",
         "categoria": "DOM",
+        "grupo": "Termostatos",
         "unidad": "UD",
         "precio": "360.00"
     }
@@ -3355,6 +3690,7 @@
     "fields": {
         "nombre": "Bomba sumergible aguas fecales",
         "categoria": "FON",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "250.00"
     }
@@ -3365,6 +3701,7 @@
     "fields": {
         "nombre": "Pequeño material para conexionado hidráulico y eléctrico",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "200.00"
     }
@@ -3375,6 +3712,7 @@
     "fields": {
         "nombre": "Eliminator Vortex 250",
         "categoria": "CAL",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "230.00"
     }
@@ -3385,6 +3723,7 @@
     "fields": {
         "nombre": "Mano de obra, pequeño material y desplazamiento",
         "categoria": "MOB",
+        "grupo": "Mano de obra",
         "unidad": "UD",
         "precio": "300.00"
     }
@@ -3395,6 +3734,7 @@
     "fields": {
         "nombre": "Estación de recarga trifásica ZCS Azzurro 22kW para vehículos el",
         "categoria": "ELE",
+        "grupo": "Cargadores de vehículo eléctrico",
         "unidad": "UD",
         "precio": "1367.67"
     }
@@ -3405,6 +3745,7 @@
     "fields": {
         "nombre": "Modulo AZZURRO HUB; conexion Ethernet/WiFi, RS485 y CAN",
         "categoria": "SOL",
+        "grupo": "Medidores de energía",
         "unidad": "UD",
         "precio": "707.23"
     }
@@ -3415,6 +3756,7 @@
     "fields": {
         "nombre": "Medidor trifásico para inversor híbrido (opcional si no hay FV)",
         "categoria": "SOL",
+        "grupo": "Medidores de energía",
         "unidad": "UD",
         "precio": "219.71"
     }
@@ -3425,6 +3767,7 @@
     "fields": {
         "nombre": "Cuadro de mando y proteccion ECO-VE-COMB-4P32T15",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "565.52"
     }
@@ -3435,6 +3778,7 @@
     "fields": {
         "nombre": "Línea alimentación 5x10 mm² 1kV sin halogenuros",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "33.72"
     }
@@ -3445,6 +3789,7 @@
     "fields": {
         "nombre": "Cable UTP cat.6 sin halogenuros",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "M",
         "precio": "16.84"
     }
@@ -3455,6 +3800,7 @@
     "fields": {
         "nombre": "Legalización de instalacion cargador electrico",
         "categoria": "MOB",
+        "grupo": "Legalizaciones",
         "unidad": "UD",
         "precio": "650.00"
     }
@@ -3465,6 +3811,7 @@
     "fields": {
         "nombre": "Módulo fotovoltaico 510 Wp monocristalino",
         "categoria": "SOL",
+        "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
         "precio": "137.99"
     }
@@ -3475,6 +3822,7 @@
     "fields": {
         "nombre": "Estructura sobre cubierta",
         "categoria": "SOL",
+        "grupo": "Estructuras solares",
         "unidad": "UD",
         "precio": "7840.68"
     }
@@ -3485,6 +3833,7 @@
     "fields": {
         "nombre": "Inversor de red AZZURRO TL-V3 - Trifásico 25.000W",
         "categoria": "SOL",
+        "grupo": "Inversores",
         "unidad": "UD",
         "precio": "2042.86"
     }
@@ -3495,6 +3844,7 @@
     "fields": {
         "nombre": "Medidor de energia Smart Meter para optimización y visualizacion",
         "categoria": "SOL",
+        "grupo": "Medidores de energía",
         "unidad": "UD",
         "precio": "314.37"
     }
@@ -3505,6 +3855,7 @@
     "fields": {
         "nombre": "Puesta a tierra paneles FV mediante cable de cobre desnudo 16 mm",
         "categoria": "SOL",
+        "grupo": "Cables y líneas",
         "unidad": "UD",
         "precio": "418.99"
     }
@@ -3515,6 +3866,7 @@
     "fields": {
         "nombre": "Cuadro eléctrico DC con protecciones sobretensiones y fusibles",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "523.49"
     }
@@ -3525,6 +3877,7 @@
     "fields": {
         "nombre": "Cuadro eléctrico AC con protecciones diferenciales y magnetotérm",
         "categoria": "ELE",
+        "grupo": "Cuadros eléctricos",
         "unidad": "UD",
         "precio": "469.13"
     }
@@ -3535,6 +3888,7 @@
     "fields": {
         "nombre": "Punto de datos RJ45 / ModBus simple (desde cuadro inversores)",
         "categoria": "SOL",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "201.90"
     }
@@ -3545,6 +3899,7 @@
     "fields": {
         "nombre": "Linea electrica Cobre afumex de 2x6 mm2 aplicación solar",
         "categoria": "SOL",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "4.16"
     }
@@ -3555,6 +3910,7 @@
     "fields": {
         "nombre": "Puesta en Marcha de la instalación",
         "categoria": "MOB",
+        "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
         "precio": "300.02"
     }
@@ -3565,6 +3921,7 @@
     "fields": {
         "nombre": "Elaboración de boletín eléctrico para puesta en servicio de foto",
         "categoria": "MOB",
+        "grupo": "Legalizaciones",
         "unidad": "UD",
         "precio": "600.00"
     }
@@ -3575,6 +3932,7 @@
     "fields": {
         "nombre": "Fancoil inverter sin envolvente FWB11CT DAIKIN",
         "categoria": "CLI",
+        "grupo": "Fancoils",
         "unidad": "UD",
         "precio": "1424.28"
     }
@@ -3585,6 +3943,7 @@
     "fields": {
         "nombre": "Tubería multicapa (PEx/Al/PEx) ø25mm forrado con aisla",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "36.96"
     }
@@ -3595,6 +3954,7 @@
     "fields": {
         "nombre": "Conexionado a instalacion existente",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "371.67"
     }
@@ -3605,6 +3965,7 @@
     "fields": {
         "nombre": "Colectores y red de distribución con tubería de polietileno reti",
         "categoria": "CAL",
+        "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
         "precio": "571.36"
     }
@@ -3615,6 +3976,7 @@
     "fields": {
         "nombre": "Pequeños desagües con tuberia insonorizada Polokal ø50 mm., para",
         "categoria": "FON",
+        "grupo": "Desagües y saneamiento",
         "unidad": "UD",
         "precio": "334.56"
     }
@@ -3625,6 +3987,7 @@
     "fields": {
         "nombre": "Tubería PVC ø110 mm. S.B. Instalado en formato enterrado",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "23.16"
     }
@@ -3635,6 +3998,7 @@
     "fields": {
         "nombre": "Tubería multicapa (PERT/Al/PERT) ø25 forrado con aislamie",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "32.92"
     }
@@ -3645,6 +4009,7 @@
     "fields": {
         "nombre": "Tubería multicapa (PERT/Al/PERT) ø16 forrado con aislamie",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "27.93"
     }
@@ -3655,6 +4020,7 @@
     "fields": {
         "nombre": "Punto de alimentación agua caliente ø16 mm desde colector",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "UD",
         "precio": "121.71"
     }
@@ -3665,6 +4031,7 @@
     "fields": {
         "nombre": "Grupo de bombeo triturador Sanifos 110. Monofasico",
         "categoria": "FON",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "1930.50"
     }
@@ -3675,6 +4042,7 @@
     "fields": {
         "nombre": "Tubería de PVC de presión ø63 PN16, instalado en formato enterra",
         "categoria": "FON",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "23.68"
     }
@@ -3685,6 +4053,7 @@
     "fields": {
         "nombre": "Montaje de lavabo en cuarto de baño",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "130.91"
     }
@@ -3695,6 +4064,7 @@
     "fields": {
         "nombre": "Montaje de grifería empotrada para lavabo",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "95.25"
     }
@@ -3705,6 +4075,7 @@
     "fields": {
         "nombre": "Montaje de grifería empotrada para ducha",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "167.75"
     }
@@ -3715,6 +4086,7 @@
     "fields": {
         "nombre": "Montaje de plato de ducha",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "147.98"
     }
@@ -3725,6 +4097,7 @@
     "fields": {
         "nombre": "Montaje de inodoro WC",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "126.19"
     }
@@ -3735,6 +4108,7 @@
     "fields": {
         "nombre": "Montaje de cisterna empotrada para WC",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "66.11"
     }
@@ -3745,6 +4119,7 @@
     "fields": {
         "nombre": "Montaje de canaleta de ducha",
         "categoria": "FON",
+        "grupo": "Sanitarios y grifería",
         "unidad": "UD",
         "precio": "83.81"
     }
@@ -3755,6 +4130,7 @@
     "fields": {
         "nombre": "Desmontaje de desconexionado de deposito existente",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "1026.72"
     }
@@ -3765,6 +4141,7 @@
     "fields": {
         "nombre": "Deposito de inercia con serpentin de 370L",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "1788.56"
     }
@@ -3775,6 +4152,7 @@
     "fields": {
         "nombre": "Interconexión de inercia y serpentín solar",
         "categoria": "MOB",
+        "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
         "precio": "810.34"
     }
@@ -3785,6 +4163,7 @@
     "fields": {
         "nombre": "Unidad exterior, Panasonic modelo U-36PZ3E5",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "1089.28"
     }
@@ -3795,6 +4174,7 @@
     "fields": {
         "nombre": "Unidad interior tipo split pared, Panasonic modelo S-2545PK4E",
         "categoria": "CLI",
+        "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
         "precio": "1183.54"
     }
@@ -3805,6 +4185,7 @@
     "fields": {
         "nombre": "Control remoto con pantalla LCD, Panasonic modelo CZ-RTC5B",
         "categoria": "CLI",
+        "grupo": "Pantallas y mandos",
         "unidad": "UD",
         "precio": "268.86"
     }
@@ -3815,6 +4196,7 @@
     "fields": {
         "nombre": "Tuberías frigoríficas de dimensiones (1/4)\"-(1/2)\"",
         "categoria": "CLI",
+        "grupo": "Tuberías",
         "unidad": "M",
         "precio": "39.73"
     }
@@ -3825,6 +4207,7 @@
     "fields": {
         "nombre": "Alimentación eléctrica y maniobra",
         "categoria": "MOB",
+        "grupo": "Material vario",
         "unidad": "UD",
         "precio": "9.86"
     }
@@ -3835,6 +4218,7 @@
     "fields": {
         "nombre": "Ménsulas unidad exterior y caja de preinstalación",
         "categoria": "CLI",
+        "grupo": "Soportes y fijaciones",
         "unidad": "UD",
         "precio": "175.50"
     }
@@ -3845,6 +4229,7 @@
     "fields": {
         "nombre": "Extractor de conducto TD 250/100 S&P",
         "categoria": "CLI",
+        "grupo": "Ventilación y conductos",
         "unidad": "UD",
         "precio": "397.92"
     }
@@ -3855,6 +4240,7 @@
     "fields": {
         "nombre": "Desmontaje de Interacumulador Sala de Máquinas",
         "categoria": "MOB",
+        "grupo": "Desmontajes",
         "unidad": "UD",
         "precio": "265.20"
     }
@@ -3865,6 +4251,7 @@
     "fields": {
         "nombre": "Interacumulador TML SFV 200",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "1764.14"
     }
@@ -3875,6 +4262,7 @@
     "fields": {
         "nombre": "Depósito Inercia 100lts",
         "categoria": "CAL",
+        "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
         "precio": "933.72"
     }
@@ -3885,6 +4273,7 @@
     "fields": {
         "nombre": "Bomba circulación ACS",
         "categoria": "CAL",
+        "grupo": "Bombas",
         "unidad": "UD",
         "precio": "572.21"
     }
@@ -3895,6 +4284,7 @@
     "fields": {
         "nombre": "Líquido Preventivo Sentinel X800",
         "categoria": "CAL",
+        "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
         "precio": "36.31"
     }
@@ -3905,6 +4295,7 @@
     "fields": {
         "nombre": "Separador Lodo Sentinel",
         "categoria": "CAL",
+        "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
         "precio": "290.87"
     }
@@ -3915,6 +4306,7 @@
     "fields": {
         "nombre": "Módulo fotovoltaico 450 Wp monocristalino",
         "categoria": "SOL",
+        "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
         "precio": "66.29"
     }
@@ -3925,6 +4317,7 @@
     "fields": {
         "nombre": "Inversor de red Monofásico 6kW",
         "categoria": "SOL",
+        "grupo": "Inversores",
         "unidad": "UD",
         "precio": "247.59"
     }
@@ -3935,6 +4328,7 @@
     "fields": {
         "nombre": "Linea electrica Cobre solfex de 2x6 mm2 aplicación solar",
         "categoria": "SOL",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "8.13"
     }
@@ -3945,6 +4339,7 @@
     "fields": {
         "nombre": "Medidor de energia Smart Meter",
         "categoria": "SOL",
+        "grupo": "Medidores de energía",
         "unidad": "UD",
         "precio": "413.76"
     }
@@ -3955,6 +4350,7 @@
     "fields": {
         "nombre": "Punto de datos RJ45 / ModBus simple",
         "categoria": "DOM",
+        "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
         "precio": "218.74"
     }
@@ -3965,6 +4361,7 @@
     "fields": {
         "nombre": "Línea alimentación 2x6 mm² 1kV sin halogenuros",
         "categoria": "ELE",
+        "grupo": "Cables y líneas",
         "unidad": "M",
         "precio": "6.34"
     }

@@ -1,0 +1,23 @@
+{% comment %} Cómo encontrar el material antes de apuntar: buscador, familias y tipos (todo por GET).
+   Va fuera del formulario de apuntar porque un formulario no puede ir dentro de otro. {% endcomment %}
+<div class="elegir-material">
+    <form class="buscador buscador--material" method="get" action="{% if ancla %}#{{ ancla }}{% endif %}" role="search">
+        {% include "gestion/icono.html" with nombre="buscar" %}
+        <input type="search" name="buscar" value="{{ busqueda_material }}" placeholder="Buscar en todo el catálogo: tubo, válvula, hora…" aria-label="Buscar material">
+        <button type="submit" class="buscador__boton">Buscar</button>
+    </form>
+
+    {% if busqueda_material %}
+        <p class="elegir-material__aviso">
+            Resultados para «{{ busqueda_material }}» en todas las familias.
+            <a href="?{% if ancla %}#{{ ancla }}{% endif %}">Quitar la búsqueda</a>
+        </p>
+    {% else %}
+        <p class="elegir-material__paso">Familia</p>
+        {% include "gestion/familias.html" %}
+        {% if grupos %}
+            <p class="elegir-material__paso">Tipo</p>
+            {% include "gestion/grupos.html" %}
+        {% endif %}
+    {% endif %}
+</div>

@@ -1,0 +1,10 @@
+{% comment %} Tipos de material de la familia elegida (Tuberías, Válvulas...), como botones de filtro.
+   Recibe: grupos, categoria_actual, grupo_actual y, opcionalmente, ancla. {% endcomment %}
+{% if grupos %}
+<nav class="familias familias--tipos" aria-label="Tipos de material">
+    <a href="?categoria={{ categoria_actual }}{% if ancla %}#{{ ancla }}{% endif %}" class="familia familia--tipo{% if not grupo_actual %} familia--activa{% endif %}"{% if not grupo_actual %} aria-current="true"{% endif %}>Todos</a>
+    {% for tipo in grupos %}
+        <a href="?categoria={{ categoria_actual }}&grupo={{ tipo.grupo|urlencode }}{% if ancla %}#{{ ancla }}{% endif %}" class="familia familia--tipo{% if tipo.grupo == grupo_actual %} familia--activa{% endif %}"{% if tipo.grupo == grupo_actual %} aria-current="true"{% endif %}>{{ tipo.grupo|default:"Otros" }} <span class="familia__numero">{{ tipo.n }}</span></a>
+    {% endfor %}
+</nav>
+{% endif %}

@@ -55,7 +55,7 @@
         <span class="cifra__nombre">Apuntes</span>
     </div>
     <div class="cifra">
-        <span class="cifra__valor">{{ horas|floatformat:"-2g" }} h</span>
+        <span class="cifra__valor">{{ horas_texto }}</span>
         <span class="cifra__nombre">Horas</span>
     </div>
     {% if perms.gestion.change_material %}
@@ -67,35 +67,31 @@
 </div>
 
 {% if puede_apuntar %}
-<section class="panel" id="apuntar">
-    <h2 class="panel__titulo">Apuntar material u horas</h2>
-    <p class="pagina__texto">1. Elige la familia · 2. Elige el material y la cantidad</p>
-    {% include "gestion/familias.html" with ancla="apuntar" %}
-
-    <form method="post" class="formulario formulario--consumo" novalidate>
+<section class="panel" id="horas">
+    <h2 class="panel__titulo">Horas de trabajo</h2>
+    <form method="post" class="formulario" novalidate>
         {% csrf_token %}
-        {# La familia elegida viaja con el formulario para volver a filtrar si hay errores #}
-        <input type="hidden" name="categoria" value="{{ categoria_actual }}">
+        <input type="hidden" name="apunte" value="horas">
+        {% include "gestion/selector_horas.html" with formulario=formulario_horas %}
+        <button type="submit" class="boton">Apuntar horas</button>
+    </form>
+</section>
 
-        <div class="campo campo--material">
-            <label for="{{ formulario.material.id_for_label }}">{{ formulario.material.label }}</label>
-            <div class="entrada{% if formulario.material.errors %} entrada--error{% endif %}">{{ formulario.material }}</div>
-            {% for error in formulario.material.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+<section class="panel" id="apuntar">
+    <h2 class="panel__titulo">Material</h2>
+    {% include "gestion/elegir_material.html" with ancla="apuntar" %}
+
+    <form method="post" class="formulario" novalidate data-opciones-material>
+        {% csrf_token %}
+        <input type="hidden" name="apunte" value="material">
+        {% include "gestion/filtros_ocultos.html" %}
+        {% include "gestion/opciones_material.html" %}
+
+        <div class="formulario--consumo">
+            {% include "gestion/campo_cantidad.html" %}
+            {% include "gestion/campo_widget.html" with campo=formulario.fecha %}
+            <button type="submit" class="boton formulario__enviar">Apuntar material</button>
         </div>
-
-        <div class="campo">
-            <label for="{{ formulario.cantidad.id_for_label }}">{{ formulario.cantidad.label }}</label>
-            <div class="entrada{% if formulario.cantidad.errors %} entrada--error{% endif %}">{{ formulario.cantidad }}</div>
-            {% for error in formulario.cantidad.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
-        </div>
-
-        <div class="campo">
-            <label for="{{ formulario.fecha.id_for_label }}">{{ formulario.fecha.label }}</label>
-            <div class="entrada{% if formulario.fecha.errors %} entrada--error{% endif %}">{{ formulario.fecha }}</div>
-            {% for error in formulario.fecha.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
-        </div>
-
-        <button type="submit" class="boton formulario__enviar">Añadir apunte</button>
     </form>
 </section>
 {% elif proyecto.esta_terminado %}
@@ -122,7 +118,7 @@
                         <tr>
                             <td class="tabla__fecha">{{ consumo.fecha|date:"d/m/Y" }}</td>
                             <td class="tabla__material">{{ consumo.material.nombre }}</td>
-                            <td class="num">{{ consumo.cantidad|floatformat:"-2g" }} {{ consumo.material.abreviatura }}</td>
+                            <td class="num">{{ consumo.cantidad_texto }}</td>
                             <td class="tabla__persona"><span class="avatar avatar--mini" aria-hidden="true">{{ consumo.trabajador.first_name|default:consumo.trabajador.username|slice:":1"|upper }}</span>{{ consumo.trabajador.get_full_name|default:consumo.trabajador.username }}</td>
                             {% if perms.gestion.change_material %}<td class="num">{{ consumo.total|floatformat:"2g" }} €</td>{% endif %}
                             {% if not proyecto.esta_terminado %}

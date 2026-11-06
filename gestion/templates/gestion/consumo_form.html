@@ -12,26 +12,33 @@
 </header>
 
 <section class="panel panel--formulario">
-    <form method="post" action="{% url 'consumo_editar' consumo.pk %}" class="formulario" novalidate>
-        {% csrf_token %}
-        <input type="hidden" name="categoria" value="{{ categoria_actual }}">
+    {% if es_horas %}
+        <form method="post" action="{% url 'consumo_editar' consumo.pk %}" class="formulario" novalidate>
+            {% csrf_token %}
+            {% include "gestion/selector_horas.html" %}
+            <div class="formulario__botones">
+                <button type="submit" class="boton">Guardar cambios</button>
+                <a class="boton boton--secundario" href="{{ url_proyecto }}">Cancelar</a>
+            </div>
+        </form>
+    {% else %}
+        {% include "gestion/elegir_material.html" %}
 
-        <div class="campo">
-            <span class="campo__titulo">Familia</span>
-            {% include "gestion/familias.html" %}
-        </div>
+        <form method="post" action="{% url 'consumo_editar' consumo.pk %}" class="formulario" novalidate data-opciones-material>
+            {% csrf_token %}
+            {% include "gestion/filtros_ocultos.html" %}
+            {% include "gestion/opciones_material.html" %}
 
-        {% include "gestion/campo_widget.html" with campo=formulario.material %}
+            <div class="formulario__fila">
+                {% include "gestion/campo_cantidad.html" %}
+                {% include "gestion/campo_widget.html" with campo=formulario.fecha %}
+            </div>
 
-        <div class="formulario__fila">
-            {% include "gestion/campo_widget.html" with campo=formulario.cantidad %}
-            {% include "gestion/campo_widget.html" with campo=formulario.fecha %}
-        </div>
-
-        <div class="formulario__botones">
-            <button type="submit" class="boton">Guardar cambios</button>
-            <a class="boton boton--secundario" href="{{ url_proyecto }}">Cancelar</a>
-        </div>
-    </form>
+            <div class="formulario__botones">
+                <button type="submit" class="boton">Guardar cambios</button>
+                <a class="boton boton--secundario" href="{{ url_proyecto }}">Cancelar</a>
+            </div>
+        </form>
+    {% endif %}
 </section>
 {% endblock %}

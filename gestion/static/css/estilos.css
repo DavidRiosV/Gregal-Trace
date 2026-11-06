@@ -556,7 +556,7 @@ img { display: block; max-width: 100%; }
 
 .formulario--consumo {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1.3fr) auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
     align-items: end;
     gap: 14px;
 }
@@ -747,6 +747,137 @@ img { display: block; max-width: 100%; }
 .boton-tabla:hover { background: var(--verde-suave); }
 .boton-tabla--peligro { color: var(--rojo); }
 .boton-tabla--peligro:hover { background: var(--rojo-suave); }
+
+/* ---------- Elegir material: buscador, familias y tipos ---------- */
+.elegir-material { margin-bottom: 18px; }
+.buscador--material { max-width: none; margin-bottom: 14px; }
+.elegir-material__paso { margin: 0 0 6px; font-size: 13px; font-weight: 700; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.03em; }
+.elegir-material__aviso { margin: 0; color: var(--texto-suave); }
+.familias--tipos .familia { font-weight: 500; }
+.familia__numero { margin-left: 4px; font-size: 12px; opacity: 0.7; }
+
+/* ---------- Lista de materiales para elegir con un toque ---------- */
+.lista-materiales {
+    max-height: 340px;
+    overflow-y: auto;
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-control);
+    background: var(--blanco);
+    overscroll-behavior: contain;
+}
+.lista-materiales--error { border-color: var(--rojo); }
+
+.lista-materiales__grupo {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 6px 14px;
+    background: #F3F7EF;
+    border-bottom: 1px solid var(--linea);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+}
+
+.opcion-material {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--linea);
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+.opcion-material:last-child { border-bottom: 0; }
+.opcion-material:hover { background: #F8FBF5; }
+.opcion-material input { flex: none; width: 18px; height: 18px; margin: 0; accent-color: var(--verde-accion); }
+.opcion-material:has(input:checked) { background: var(--verde-suave); }
+.opcion-material:has(input:checked) .opcion-material__nombre { font-weight: 600; }
+.opcion-material:has(input:focus-visible) { box-shadow: inset var(--foco); }
+.opcion-material__nombre { flex: 1; min-width: 0; }
+.opcion-material__unidad { flex: none; font-size: 13px; color: var(--texto-suave); }
+.lista-materiales__vacio { margin: 0; padding: 28px 16px; text-align: center; color: var(--texto-suave); }
+
+/* Cantidad con su unidad al lado */
+.entrada--unidad { display: flex; align-items: center; }
+.entrada--unidad input { flex: 1; min-width: 0; }
+.entrada__unidad { padding: 0 12px 0 4px; color: var(--texto-suave); font-weight: 600; }
+.entrada__unidad:empty { display: none; }
+
+/* Tipo de hora (Oficial / Pareja) como botones */
+.familia--opcion { display: inline-flex; align-items: center; cursor: pointer; }
+.familia--opcion input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.familia--opcion:has(input:checked) { background: var(--verde-accion); border-color: var(--verde-accion); color: var(--blanco); }
+.familia--opcion:has(input:focus-visible) { box-shadow: var(--foco); }
+.formulario__fila--horas { align-items: end; }
+
+/* ---------- Selector deslizable de horas y minutos ---------- */
+.reloj { display: flex; align-items: center; gap: 8px; }
+.reloj[hidden], [data-cantidad-numero][hidden] { display: none; }
+
+.reloj__marco {
+    position: relative;
+    width: 72px;
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-control);
+    background: var(--blanco);
+    overflow: hidden;
+}
+
+/* Franja central: marca el número elegido */
+.reloj__marco::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    top: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: var(--verde-suave);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.reloj__rueda {
+    position: relative;
+    z-index: 1;
+    height: 120px;               /* 3 números a la vista */
+    padding: 40px 0;             /* deja centrar el primero y el último */
+    box-sizing: border-box;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    /* Los números de arriba y abajo se difuminan */
+    -webkit-mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+    mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+}
+.reloj__rueda::-webkit-scrollbar { display: none; }
+.reloj__rueda:focus-visible { outline: none; }
+.reloj__marco:focus-within { border-color: var(--verde-marca); box-shadow: var(--foco); }
+
+.reloj__opcion {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    scroll-snap-align: center;
+    font-size: 17px;
+    font-variant-numeric: tabular-nums;
+    color: var(--texto-suave);
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s, font-size 0.15s;
+}
+.reloj__opcion--elegida { color: var(--verde-accion); font-size: 22px; font-weight: 700; }
+.reloj__unidad { font-weight: 600; color: var(--texto-suave); }
+
+@media (prefers-reduced-motion: reduce) {
+    .reloj__opcion { transition: none; }
+}
 
 /* ---------- Familias de material (botones de filtro) ---------- */
 .familias {

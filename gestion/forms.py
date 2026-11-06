@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Consumo, Material, Proyecto, Usuario
+from .models import Consumo, Material, Proyecto, Usuario, buscar_materiales
 
 
 class RegistroForm(UserCreationForm):
@@ -54,12 +54,13 @@ class UrgenciaForm(forms.ModelForm):
         self.fields['tipo_destino'].required = True
 
 
-class ConsumoForm(forms.ModelForm):
+class ApunteForm(forms.ModelForm):
+    """Base de los dos formularios de apuntar: mismos campos y misma validación."""
     class Meta:
         model = Consumo
         fields = ['material', 'cantidad', 'fecha']
         labels = {
-            'material': 'Material u horas',
+            'material': 'Material',
             'cantidad': 'Cantidad',
             'fecha': 'Fecha',
         }
@@ -68,25 +69,69 @@ class ConsumoForm(forms.ModelForm):
             'fecha': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
         }
 
-    def __init__(self, *args, categoria=None, **kwargs):
-        # Igual que el formulario que recibe el request (Sesiones, diapositivas 26-27):
-        # se le pasa un dato extra, la familia elegida, y con él se filtran los materiales.
-        super().__init__(*args, **kwargs)
-        materiales = Material.objects.order_by('nombre')
-        if categoria:
-            self.fields['material'].queryset = materiales.filter(categoria=categoria)
-            self.fields['material'].empty_label = 'Elige material u horas'
-        else:
-            # Sin familia no se ofrece nada: primero se elige la familia
-            self.fields['material'].queryset = materiales.none()
-            self.fields['material'].empty_label = 'Elige primero una familia'
-
     def clean(self):
         super().clean()
         cantidad = self.cleaned_data.get('cantidad')
+        material = self.cleaned_data.get('material')
         if cantidad is not None and cantidad <= 0:
             self.add_error('cantidad', 'La cantidad tiene que ser mayor que 0.')
+        elif cantidad is not None and material and material.unidad == 'H':
+            # Horas: de 15 en 15 minutos y como mucho una jornada de 24 h
+            if cantidad > 24:
+                self.add_error('cantidad', 'No se pueden apuntar más de 24 horas en un apunte.')
+            elif (cantidad * 4) % 1 != 0:
+                self.add_error('cantidad', 'Las horas se apuntan en tramos de 15 minutos (00, 15, 30 o 45).')
         return self.cleaned_data
+
+
+class ConsumoForm(ApunteForm):
+    """Apuntar material. Las horas tienen su propio formulario (HorasForm)."""
+
+    def __init__(self, *args, categoria=None, grupo=None, busqueda=None, **kwargs):
+        # Igual que el formulario que recibe el request (Sesiones, diapositivas 26-27):
+        # se le pasan datos extra (familia, tipo y búsqueda) y con ellos se filtran los materiales.
+        super().__init__(*args, **kwargs)
+        materiales = Material.objects.exclude(unidad='H').order_by('grupo', 'nombre')
+        if busqueda:
+            # El buscador mira en todo el catálogo, sin importar la familia
+            materiales = buscar_materiales(materiales, busqueda)
+        elif categoria:
+            materiales = materiales.filter(categoria=categoria)
+            if grupo:
+                materiales = materiales.filter(grupo=grupo)
+        else:
+            # Sin familia ni búsqueda todavía no se ofrece nada
+            materiales = materiales.none()
+        self.fields['material'].queryset = materiales
+
+        # Lista para la plantilla: los materiales agrupados por tipo (Tuberías, Válvulas...)
+        self.agrupados = {}
+        for material in materiales:
+            self.agrupados.setdefault(material.grupo or 'Otros', []).append(material)
+        # Si solo hay un material posible, se deja marcado
+        if len(materiales) == 1 and not self.is_bound and not self.instance.pk:
+            self.initial['material'] = materiales[0].pk
+
+
+class HorasForm(ApunteForm):
+    """Apuntar horas de trabajo: tipo de hora (Oficial o Pareja) y cuánto tiempo."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        horas = Material.objects.filter(unidad='H').order_by('nombre')
+        # Botones de opción en vez de desplegable, sin la opción vacía «---------»
+        self.fields['material'].widget = forms.RadioSelect()
+        self.fields['material'].empty_label = None
+        # En los botones sale «Oficial» y «Pareja» en vez de «Hora Oficial (Hora)»
+        self.fields['material'].label_from_instance = lambda material: material.nombre.replace('Hora ', '')
+        self.fields['material'].queryset = horas
+        self.fields['material'].label = 'Tipo de hora'
+        # La cantidad la escribe el selector de horas y minutos (main.js)
+        self.fields['cantidad'].widget = forms.HiddenInput()
+        if not self.is_bound and not self.instance.pk:
+            self.initial['cantidad'] = 1
+            if horas:
+                self.initial['material'] = horas[0].pk
 
 
 class ProyectoForm(forms.ModelForm):
@@ -132,10 +177,11 @@ class MaterialForm(forms.ModelForm):
     """Catálogo de materiales y horas (Oficina)."""
     class Meta:
         model = Material
-        fields = ['nombre', 'categoria', 'unidad', 'precio']
+        fields = ['nombre', 'categoria', 'grupo', 'unidad', 'precio']
         labels = {
             'nombre': 'Nombre',
             'categoria': 'Familia',
+            'grupo': 'Tipo',
             'unidad': 'Unidad',
             'precio': 'Precio por unidad (€)',
         }
@@ -143,14 +189,22 @@ class MaterialForm(forms.ModelForm):
             'nombre': {'unique': 'Ya hay un material con ese nombre.'},
         }
         help_texts = {
+            'grupo': 'Por ejemplo Tuberías, Válvulas o Bombas. Elige uno de la lista o escribe uno nuevo.',
             'precio': 'Cambiar el precio no modifica los apuntes ya hechos: cada apunte guarda el precio de su día.',
         }
         widgets = {
+            # list= enlaza el campo con el <datalist> de tipos que ya existen (sugerencias al escribir)
+            'grupo': forms.TextInput(attrs={'list': 'tipos-material', 'autocomplete': 'off'}),
             'precio': forms.NumberInput(attrs={'step': '0.01', 'min': '0', 'inputmode': 'decimal'}),
         }
 
     def clean(self):
         super().clean()
+        # El tipo empieza siempre en mayúscula para que «tuberías» y «Tuberías» sean el mismo
+        grupo = self.cleaned_data.get('grupo')
+        if grupo:
+            grupo = ' '.join(grupo.split())
+            self.cleaned_data['grupo'] = grupo[:1].upper() + grupo[1:]
         precio = self.cleaned_data.get('precio')
         if precio is not None and precio < 0:
             self.add_error('precio', 'El precio no puede ser negativo.')

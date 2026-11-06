@@ -1,0 +1,29 @@
+{% comment %}
+Apartado de horas de trabajo: tipo de hora (Oficial o Pareja), tiempo con las ruedas
+deslizables (main.js escribe el resultado en el campo oculto «cantidad») y fecha.
+Recibe: formulario (HorasForm).
+{% endcomment %}
+<div class="campo">
+    <span class="campo__titulo">{{ formulario.material.label }}</span>
+    <div class="familias" role="radiogroup" aria-label="{{ formulario.material.label }}">
+        {% for opcion in formulario.material %}
+            <label class="familia familia--opcion">{{ opcion.tag }} {{ opcion.choice_label }}</label>
+        {% endfor %}
+    </div>
+    {% for error in formulario.material.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+</div>
+
+<div class="formulario__fila formulario__fila--horas">
+    <div class="campo">
+        <span class="campo__titulo">Tiempo</span>
+        {{ formulario.cantidad }}
+        <div class="reloj" data-reloj>
+            <div class="reloj__marco"><div class="reloj__rueda" data-reloj-horas tabindex="0" role="listbox" aria-label="Horas"></div></div>
+            <span class="reloj__unidad">h</span>
+            <div class="reloj__marco"><div class="reloj__rueda" data-reloj-minutos tabindex="0" role="listbox" aria-label="Minutos"></div></div>
+            <span class="reloj__unidad">min</span>
+        </div>
+        {% for error in formulario.cantidad.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+    </div>
+    {% include "gestion/campo_widget.html" with campo=formulario.fecha %}
+</div>

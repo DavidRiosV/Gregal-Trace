@@ -1,3 +1,5 @@
+import unicodedata
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
@@ -72,6 +74,30 @@ class Proyecto(models.Model):
         return f"{self.nombre} ({self.get_tipo_display()})"
 
 
+def sin_tildes(texto):
+    """«Válvula» -> «valvula». Para que el buscador encuentre igual con o sin tildes."""
+    return ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn').lower()
+
+
+def buscar_materiales(materiales, texto):
+    """Materiales cuyo nombre contiene todas las palabras buscadas, sin importar tildes ni mayúsculas.
+    («valvula 1/2» encuentra «Válvula esfera 1/2"»)."""
+    palabras = sin_tildes(texto).split()
+    encontrados = [m.pk for m in materiales if all(p in sin_tildes(m.nombre) for p in palabras)]
+    return materiales.filter(pk__in=encontrados)
+
+
+def horas_texto(horas):
+    """Convierte horas en decimal (2.5) en texto (2 h 30 min)."""
+    minutos = int(round(horas * 60))
+    h, m = divmod(minutos, 60)
+    if h and m:
+        return f'{h} h {m} min'
+    if m:
+        return f'{m} min'
+    return f'{h} h'
+
+
 class Material(models.Model):
     UNIDADES = [
         ('UD', 'Unidad'),
@@ -95,6 +121,9 @@ class Material(models.Model):
     ]
     nombre = models.CharField(max_length=100, unique=True)
     categoria = models.CharField(max_length=3, choices=CATEGORIAS, default='OTR')
+    # Tipo de material dentro de la familia (Tuberías, Válvulas, Bombas...). Texto libre
+    # para que Oficina pueda crear tipos nuevos sin tocar el código.
+    grupo = models.CharField(max_length=60, blank=True)
     unidad = models.CharField(max_length=2, choices=UNIDADES, default='UD')
     precio = models.DecimalField(max_digits=10, decimal_places=2)
 
@@ -115,6 +144,12 @@ class Consumo(models.Model):
 
     def total(self):
         return self.cantidad * self.precio_unitario
+
+    def cantidad_texto(self):
+        """Cantidad para mostrar: las horas como «2 h 30 min»; el resto como «3 ud», «12,5 m»."""
+        if self.material.unidad == 'H':
+            return horas_texto(self.cantidad)
+        return f'{self.cantidad.normalize():f}'.replace('.', ',') + ' ' + self.material.abreviatura()
 
     def __str__(self):
         return f"{self.cantidad} {self.material.nombre} - {self.proyecto.nombre}"

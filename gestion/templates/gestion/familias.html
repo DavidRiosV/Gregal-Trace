@@ -1,5 +1,5 @@
-{# Familias de material en forma de botones. Cada una es un enlace ?categoria=XXX (filtro por GET).
-   Recibe: categorias, categoria_actual y, opcionalmente, con_todas y ancla. #}
+{% comment %} Familias de material en forma de botones. Cada una es un enlace ?categoria=XXX (filtro por GET).
+   Recibe: categorias, categoria_actual y, opcionalmente, con_todas y ancla. {% endcomment %}
 <nav class="familias" aria-label="Familias de material">
     {% if con_todas %}
         <a href="?{% if ancla %}#{{ ancla }}{% endif %}" class="familia{% if not categoria_actual %} familia--activa{% endif %}"{% if not categoria_actual %} aria-current="true"{% endif %}>Todas</a>

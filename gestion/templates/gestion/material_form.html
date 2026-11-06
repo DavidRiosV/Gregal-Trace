@@ -16,7 +16,14 @@
 
         {% include "gestion/campo.html" with campo=formulario.nombre %}
 
-        {% include "gestion/campo_widget.html" with campo=formulario.categoria %}
+        <div class="formulario__fila">
+            {% include "gestion/campo_widget.html" with campo=formulario.categoria %}
+            {% include "gestion/campo_widget.html" with campo=formulario.grupo %}
+        </div>
+        {# Sugerencias para el campo Tipo: los tipos que ya existen #}
+        <datalist id="tipos-material">
+            {% for tipo in tipos %}<option value="{{ tipo }}">{% endfor %}
+        </datalist>
 
         <div class="formulario__fila">
             {% include "gestion/campo_widget.html" with campo=formulario.unidad %}
