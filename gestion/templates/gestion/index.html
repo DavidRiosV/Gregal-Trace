@@ -52,9 +52,12 @@
     <section class="panel panel--oficina">
         <div>
             <h2 class="panel__titulo">Oficina</h2>
-            <p class="pagina__texto">Gestiona el catálogo de materiales y horas con sus precios.</p>
+            <p class="pagina__texto">Gestiona el catálogo de materiales y horas con sus precios, y monta presupuestos en PDF.</p>
         </div>
-        <a class="boton boton--secundario" href="{% url 'lista_materiales' %}">{% include "gestion/icono.html" with nombre="materiales" %}Materiales</a>
+        <div class="pagina__acciones">
+            <a class="boton boton--secundario" href="{% url 'lista_materiales' %}">{% include "gestion/icono.html" with nombre="materiales" %}Materiales</a>
+            <a class="boton boton--secundario" href="{% url 'generador_presupuesto' %}">{% include "gestion/icono.html" with nombre="presupuesto" %}Generador de presupuesto</a>
+        </div>
     </section>
 {% endif %}
 {% endblock %}

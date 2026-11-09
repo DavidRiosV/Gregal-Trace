@@ -56,6 +56,7 @@
                         <tr><td>Eliminar un apunte</td><td><code>{% url 'consumo_eliminar' consumo.id %}</code> (solo POST, botón de la tabla)</td><td>Su autor u Oficina</td></tr>
                     {% endfor %}
                     <tr><td>Materiales</td><td><a href="{% url 'lista_materiales' %}">{% url 'lista_materiales' %}</a></td><td>Oficina</td></tr>
+                    <tr><td>Generador de presupuesto</td><td><a href="{% url 'generador_presupuesto' %}">{% url 'generador_presupuesto' %}</a></td><td>Oficina</td></tr>
                     <tr><td>Nuevo material</td><td><a href="{% url 'material_crear' %}">{% url 'material_crear' %}</a></td><td>Oficina</td></tr>
                     {% for material in ejemplo_material %}
                         <tr><td>Editar «{{ material.nombre }}»</td><td><a href="{% url 'material_editar' material.id %}">{% url 'material_editar' material.id %}</a></td><td>Oficina</td></tr>

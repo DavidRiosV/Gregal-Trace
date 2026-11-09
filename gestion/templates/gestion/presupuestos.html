@@ -1,0 +1,81 @@
+{% extends "gestion/principal.html" %}
+{% load static %}
+
+{% block titulo %}Generador de presupuesto · Gregal Trace{% endblock %}
+
+{% block estilos %}<link rel="stylesheet" href="{% static 'presupuestos/presupuestos.css' %}?v=1">{% endblock %}
+
+{% block contenido %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_actual="Generador de presupuesto" %}
+    <h1 class="pagina__titulo">Generador de presupuesto</h1>
+    <p class="pagina__texto">Monta el PDF final: portada de Gregal + resumen + notas, delante del presupuesto de Presto. Todo se hace en tu navegador: los PDF no se suben al servidor.</p>
+</header>
+
+{% comment %}
+Herramienta de montaje de presupuestos (versión futura). Funciona entera en el navegador con JavaScript:
+pdf-lib monta el PDF y pdf.js dibuja la vista previa. Django solo sirve la página y controla que sea de Oficina.
+{% endcomment %}
+<div class="presupuestos">
+    <div class="presupuestos__rejilla">
+      <section>
+        <div class="card">
+          <h2><span class="step">1</span>PDF de Presto</h2>
+          <div class="drops">
+            <label class="drop" id="dropPresto">
+              <b>Presupuesto completo</b><small>Arrastra o pulsa (ej. prueba.pdf)</small>
+              <input type="file" accept="application/pdf,.pdf" id="filePresto">
+            </label>
+            <label class="drop" id="dropResumen">
+              <b>Resumen de presupuesto</b><small>Arrastra o pulsa (ej. prueba2.pdf)</small>
+              <input type="file" accept="application/pdf,.pdf" id="fileResumen">
+            </label>
+          </div>
+          <div class="row row--separada">
+            <label>Resumen en portada hasta
+              <select id="stop">
+                <option value="pem">Presupuesto de ejecución material</option>
+                <option value="total" selected>Total presupuesto general</option>
+                <option value="asciende">«Asciende el presupuesto…» (incluido)</option>
+                <option value="firmas">Con firmas (promotor / dirección)</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2><span class="step">2</span>Datos del presupuesto</h2>
+          <div class="grid">
+            <label class="full">Nombre del presupuesto<input type="text" data-k="titulo" placeholder="Presupuesto instalaciones Mecánicas - Obra"></label>
+            <label>N.I.F.<input type="text" data-k="nifCliente"></label>
+            <label>Número<input type="text" data-k="numero" placeholder="OB26008"></label>
+            <label>Agente<input type="text" data-k="agente" data-remember="1"></label>
+            <label>Forma de pago<input type="text" data-k="formaPago" data-remember="1"></label>
+            <label>Fecha<input type="date" id="fecha"></label>
+          </div>
+          <p class="hint">El recuadro gris de la portada lleva siempre los datos de Gregal. El nombre se rellena solo con la obra del resumen; agente y forma de pago se recuerdan.</p>
+        </div>
+
+        <div class="card">
+          <h2><span class="step">3</span>Notas <button type="button" id="regen" class="presupuestos__regenerar">Volver a generar</button></h2>
+          <textarea data-k="notas" id="notas" placeholder="Se generan solas al subir el resumen"></textarea>
+          <p class="hint" id="notasHint">Se generan automáticamente con los datos del resumen. Puedes editarlas; si las editas, se respetan tus cambios.</p>
+        </div>
+
+        <button class="boton boton--ancho" id="go" disabled>Descargar PDF final</button>
+        <div class="msg" id="msg"></div>
+      </section>
+
+      <section class="preview">
+        <div class="card">
+          <h2>Vista previa de la portada</h2>
+          <div class="frame" id="frame"><div class="empty">Sube el resumen de presupuesto para ver la portada.</div></div>
+          <div class="meta" id="meta"></div>
+        </div>
+      </section>
+    </div>
+</div>
+
+<script src="{% static 'presupuestos/pdf-lib.min.js' %}"></script>
+<script type="module" src="{% static 'presupuestos/presupuestos.js' %}?v=1"></script>
+{% endblock %}

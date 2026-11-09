@@ -1,0 +1,141 @@
+/* Generador de presupuesto: estilos propios, todos dentro de .presupuestos para no tocar el resto de la web.
+   Mismos colores, bordes y sombras que el resto de Gregal Trace (variables de estilos.css). */
+.presupuestos__rejilla {
+    display: grid;
+    grid-template-columns: minmax(340px, 520px) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.presupuestos .card {
+    margin-bottom: 20px;
+    padding: 22px 24px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-panel);
+    box-shadow: var(--sombra-panel);
+}
+
+.presupuestos .card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 16px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.presupuestos .step {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--verde-accion);
+    color: var(--blanco);
+    font-size: 13px;
+}
+
+/* Zonas para soltar los PDF */
+.presupuestos .drops { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.presupuestos .drop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    min-height: 100px;
+    padding: 14px 12px;
+    border: 1.5px dashed #C7D3BC;
+    border-radius: var(--radio-control);
+    background: #FAFCF8;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+.presupuestos .drop:hover,
+.presupuestos .drop.over { border-color: var(--verde-marca); background: var(--verde-suave); }
+.presupuestos .drop.ok { border-style: solid; border-color: var(--verde-accion); background: var(--verde-suave); }
+.presupuestos .drop b { color: var(--texto); font-size: 14px; }
+.presupuestos .drop small { color: var(--texto-suave); font-size: 12px; word-break: break-word; }
+.presupuestos .drop input { display: none; }
+
+/* Campos */
+.presupuestos .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 14px; }
+.presupuestos .full { grid-column: 1 / -1; }
+.presupuestos label:not(.drop) {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto);
+}
+.presupuestos input[type=text],
+.presupuestos input[type=date],
+.presupuestos input[type=email],
+.presupuestos select,
+.presupuestos textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 9px 12px;
+    border: 1px solid #C7D3BC;
+    border-radius: var(--radio-control);
+    background: var(--blanco);
+    color: var(--texto);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 400;
+}
+.presupuestos input:focus,
+.presupuestos select:focus,
+.presupuestos textarea:focus { outline: none; border-color: var(--verde-marca); box-shadow: var(--foco); }
+.presupuestos textarea { min-height: 150px; resize: vertical; line-height: 1.5; }
+.presupuestos .row { display: flex; gap: 10px; align-items: end; }
+.presupuestos .row > label { flex: 1; }
+.presupuestos .row--separada { margin-top: 14px; }
+
+.presupuestos__regenerar {
+    margin-left: auto;
+    padding: 6px 12px;
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-control);
+    background: var(--blanco);
+    color: var(--verde-accion);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.presupuestos__regenerar:hover { background: var(--verde-suave); }
+
+.presupuestos #go:disabled { opacity: 0.5; cursor: not-allowed; }
+.presupuestos .hint { margin: 8px 0 0; color: var(--texto-suave); font-size: 13px; }
+.presupuestos .msg { min-height: 1em; margin-top: 12px; font-size: 14px; font-weight: 600; }
+.presupuestos .msg.err { color: var(--rojo); }
+.presupuestos .msg.ok { color: var(--verde-accion); }
+
+/* Vista previa de la portada */
+.presupuestos .preview { position: sticky; top: 20px; }
+.presupuestos .frame {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 420px;
+    padding: 18px;
+    border-radius: var(--radio-control);
+    background: var(--fondo);
+}
+.presupuestos canvas { width: 100%; max-width: 640px; height: auto; background: var(--blanco); box-shadow: 0 2px 14px rgba(23, 36, 15, 0.15); }
+.presupuestos .empty { padding: 120px 20px; color: var(--texto-suave); text-align: center; }
+.presupuestos .meta { margin-top: 10px; color: var(--texto-suave); font-size: 13px; text-align: center; }
+
+@media (max-width: 1100px) {
+    .presupuestos__rejilla { grid-template-columns: 1fr; }
+    .presupuestos .preview { position: static; }
+}
+@media (max-width: 760px) {
+    .presupuestos .drops,
+    .presupuestos .grid { grid-template-columns: 1fr; }
+    .presupuestos .card { padding: 18px 16px; }
+}

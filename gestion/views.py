@@ -414,6 +414,15 @@ def consumo_eliminar(request, pk):
 
 
 # ---------------------------------------------------------------------------
+# Generador de presupuesto (Oficina) - versión futura, de prueba
+# ---------------------------------------------------------------------------
+@permission_required('gestion.change_material')
+def generador_presupuesto(request):
+    # Django solo sirve la página: el PDF se monta en el navegador con JavaScript (pdf-lib y pdf.js)
+    return render(request, 'gestion/presupuestos.html', {'seccion': 'presupuestos'})
+
+
+# ---------------------------------------------------------------------------
 # CRUD de materiales (Oficina)
 # ---------------------------------------------------------------------------
 @permission_required('gestion.change_material')

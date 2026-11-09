@@ -34,6 +34,10 @@
                 {% include "gestion/icono.html" with nombre="materiales" %}
                 <span>Materiales</span>
             </a>
+            <a class="menu__enlace{% if seccion == 'presupuestos' %} menu__enlace--activo{% endif %}" href="{% url 'generador_presupuesto' %}"{% if seccion == 'presupuestos' %} aria-current="page"{% endif %}>
+                {% include "gestion/icono.html" with nombre="presupuesto" %}
+                <span>Generador de presupuesto</span>
+            </a>
         {% endif %}
     </nav>
 
