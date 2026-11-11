@@ -1,0 +1,26 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}{{ titulo }} · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'lista_categorias' as url_lista %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_url=url_lista miga_texto="Familias" miga_actual=titulo %}
+    <h1 class="pagina__titulo">{{ titulo }}</h1>
+    <p class="pagina__texto">El código <strong>{{ categoria.codigo }}</strong> no cambia: así los enlaces y los materiales de esta familia siguen igual.</p>
+</header>
+
+<section class="panel panel--formulario">
+    <form method="post" action="{% url 'categoria_editar' categoria.pk %}" class="formulario" novalidate>
+        {% csrf_token %}
+        <div class="formulario__fila">
+            {% include "gestion/campo.html" with campo=formulario.nombre %}
+            {% include "gestion/campo_widget.html" with campo=formulario.orden %}
+        </div>
+        <div class="formulario__botones">
+            <button type="submit" class="boton">Guardar cambios</button>
+            <a class="boton boton--secundario" href="{{ url_lista }}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

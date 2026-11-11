@@ -1,0 +1,38 @@
+{# Formulario y lista de notas del proyecto. Se usa en la pestaña (Oficina) y en el apartado (operarios). #}
+{% if perms.gestion.add_nota %}
+    <form method="post" class="nota-nueva" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="apunte" value="nota">
+        <label class="campo__titulo" for="{{ formulario_nota.texto.id_for_label }}">{{ formulario_nota.texto.label }}</label>
+        <div class="entrada{% if formulario_nota.texto.errors %} entrada--error{% endif %}">{{ formulario_nota.texto }}</div>
+        {% for error in formulario_nota.texto.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+        <div class="nota-nueva__pie">
+            <span class="ayuda-campo">La verá todo el equipo, con tu nombre y la hora.</span>
+            <button type="submit" class="boton">{% include "gestion/icono.html" with nombre="mas" %}Añadir nota</button>
+        </div>
+    </form>
+{% endif %}
+<ul class="notas">
+    {% for nota in notas %}
+        <li class="nota">
+            <span class="avatar avatar--mini" aria-hidden="true">{% if nota.autor %}{{ nota.autor.first_name|default:nota.autor.username|slice:":1"|upper }}{% else %}?{% endif %}</span>
+            <div class="nota__cuerpo">
+                <p class="nota__cabecera">
+                    <strong>{% if nota.autor %}{{ nota.autor.get_full_name|default:nota.autor.username }}{% else %}Usuario eliminado{% endif %}</strong>
+                    <time datetime="{{ nota.fecha|date:'c' }}">{{ nota.fecha|date:"d/m/Y · H:i" }}</time>
+                </p>
+                <p class="nota__texto">{{ nota.texto|linebreaksbr }}</p>
+            </div>
+            {% if perms.gestion.delete_nota %}
+                {% if nota.autor == user or perms.gestion.change_proyecto %}
+                    <form method="post" action="{% url 'nota_eliminar' nota.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar nota" title="Eliminar" data-confirmar="Se borrará esta nota del proyecto.">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+        </li>
+    {% empty %}
+        <li class="vacio"><p>Todavía no hay notas. Úsalas para lo que deba saber el resto: acceso, llaves, lo que falta...</p></li>
+    {% endfor %}
+</ul>

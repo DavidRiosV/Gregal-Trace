@@ -34,6 +34,20 @@
                 {% include "gestion/icono.html" with nombre="materiales" %}
                 <span>Materiales</span>
             </a>
+        {% endif %}
+        {% if perms.gestion.change_proyecto %}
+            <a class="menu__enlace{% if seccion == 'calendario' %} menu__enlace--activo{% endif %}" href="{% url 'calendario' %}"{% if seccion == 'calendario' %} aria-current="page"{% endif %}>
+                {% include "gestion/icono.html" with nombre="cita" %}
+                <span>Calendario</span>
+            </a>
+        {% endif %}
+        {% if perms.gestion.change_albaran %}
+            <a class="menu__enlace{% if seccion == 'albaranes' %} menu__enlace--activo{% endif %}" href="{% url 'lista_albaranes' %}"{% if seccion == 'albaranes' %} aria-current="page"{% endif %}>
+                {% include "gestion/icono.html" with nombre="albaran" %}
+                <span>Albaranes</span>
+            </a>
+        {% endif %}
+        {% if perms.gestion.change_material %}
             <a class="menu__enlace{% if seccion == 'presupuestos' %} menu__enlace--activo{% endif %}" href="{% url 'generador_presupuesto' %}"{% if seccion == 'presupuestos' %} aria-current="page"{% endif %}>
                 {% include "gestion/icono.html" with nombre="presupuesto" %}
                 <span>Generador de presupuesto</span>

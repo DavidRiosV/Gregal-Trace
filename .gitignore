@@ -6,3 +6,9 @@ db.sqlite3
 /static/
 # Usuarios con contraseñas: no se suben a Git (Modelos, diapositiva 36)
 gestion/fixtures/usuarios.json
+
+db_antes_prueba.sqlite3
+# PDF de los albaranes subidos por los usuarios
+media/
+# Datos secretos (enlace del calendario de Outlook...)
+.env

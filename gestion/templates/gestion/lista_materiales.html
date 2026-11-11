@@ -13,6 +13,8 @@
         </div>
         {% if perms.gestion.add_material %}
             <div class="pagina__acciones">
+                <a class="boton boton--secundario" href="{% url 'lista_categorias' %}">Familias</a>
+                <a class="boton boton--secundario" href="{% url 'lista_tipos' %}{% if categoria_actual %}?categoria={{ categoria_actual }}{% endif %}">Tipos</a>
                 <a class="boton" href="{% url 'material_crear' %}{% if categoria_actual %}?categoria={{ categoria_actual }}{% if grupo_actual %}&grupo={{ grupo_actual|urlencode }}{% endif %}{% endif %}">{% include "gestion/icono.html" with nombre="mas" %}Nuevo material</a>
             </div>
         {% endif %}
@@ -25,20 +27,34 @@
         {% include "gestion/grupos.html" %}
     </div>
     <div class="barra-herramientas">
-        {% include "gestion/buscador.html" with texto_buscador="Buscar material por nombre" %}
-        <span class="barra-herramientas__total">{{ materiales|length }} materiales</span>
+        {% include "gestion/buscador.html" with texto_buscador="Buscar por nombre o proveedor" %}
+        {# Clase: material principal, accesorios o soportes (para las estadísticas) #}
+        <nav class="segmentos segmentos--desliza" aria-label="Filtrar por clase">
+            {% for boton in botones_clase %}
+                <a href="{{ boton.url }}" class="segmento{% if boton.activa %} segmento--activo{% endif %}"{% if boton.activa %} aria-current="true"{% endif %}>
+                    {% if boton.codigo %}<span class="punto-clase punto-clase--{{ boton.codigo }}" aria-hidden="true"></span>{% endif %}{{ boton.texto }} <span class="segmento__numero">{{ boton.n }}</span>
+                </a>
+            {% endfor %}
+        </nav>
     </div>
+    <p class="barra-herramientas__total barra-herramientas__total--fila">
+        {{ materiales|length }} material{{ materiales|length|pluralize:"es" }}
+        {% if orden_actual == 'nombre' %}· ordenados por nombre{% elif orden_actual == 'precio' %}· del más barato al más caro{% elif orden_actual == '-precio' %}· del más caro al más barato{% else %}· ordenados por familia y tipo{% endif %}
+    </p>
 
     {% if materiales %}
         <div class="tabla-contenedor">
             <table class="tabla tabla--materiales">
                 <thead>
                     <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Familia</th>
+                        {# Pulsar una cabecera ordena por esa columna #}
+                        <th scope="col"{% if orden_actual == 'nombre' %} aria-sort="ascending"{% endif %}><a class="ordenar{% if orden_actual == 'nombre' %} ordenar--activo{% endif %}" href="{{ url_orden_nombre }}">Nombre<span class="ordenar__flecha" aria-hidden="true">↑</span></a></th>
+                        <th scope="col"{% if orden_actual == 'familia' %} aria-sort="ascending"{% endif %}><a class="ordenar{% if orden_actual == 'familia' %} ordenar--activo{% endif %}" href="{{ url_orden_familia }}">Familia<span class="ordenar__flecha" aria-hidden="true">↑</span></a></th>
                         <th scope="col">Tipo</th>
+                        <th scope="col">Proveedor</th>
+                        <th scope="col">Clase</th>
                         <th scope="col">Unidad</th>
-                        <th scope="col" class="num">Precio</th>
+                        <th scope="col" class="num"{% if orden_actual == 'precio' %} aria-sort="ascending"{% elif orden_actual == '-precio' %} aria-sort="descending"{% endif %}><a class="ordenar{% if orden_actual == 'precio' or orden_actual == '-precio' %} ordenar--activo{% endif %}" href="{{ url_orden_precio }}" title="Pulsa otra vez para invertir el orden">Precio<span class="ordenar__flecha" aria-hidden="true">{% if orden_actual == '-precio' %}↓{% else %}↑{% endif %}</span></a></th>
                         <th scope="col" class="num"><span class="solo-lector">Acciones</span></th>
                     </tr>
                 </thead>
@@ -46,8 +62,10 @@
                     {% for material in materiales %}
                         <tr>
                             <td class="tabla__material">{{ material.nombre }}</td>
-                            <td>{{ material.get_categoria_display }}</td>
+                            <td>{{ material.categoria.nombre }}</td>
                             <td>{{ material.grupo|default:"—" }}</td>
+                            <td>{{ material.proveedor|default:"—" }}</td>
+                            <td>{% if material.clase %}<span class="clase clase--{{ material.clase }}">{{ material.get_clase_display }}</span>{% else %}<span class="tabla__nada">—</span>{% endif %}</td>
                             <td>{{ material.get_unidad_display }}</td>
                             <td class="num">{{ material.precio|floatformat:"2g" }} €/{{ material.abreviatura }}</td>
                             <td class="tabla__acciones">
@@ -57,7 +75,7 @@
                                 {% if perms.gestion.delete_material %}
                                     <form method="post" action="{% url 'material_eliminar' material.pk %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar {{ material.nombre }}" title="Eliminar" onclick="return eliminar_material();">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+                                        <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar {{ material.nombre }}" title="Eliminar" data-confirmar="Se borrará «{{ material.nombre }}» del catálogo.">{% include "gestion/icono.html" with nombre="borrar" %}</button>
                                     </form>
                                 {% endif %}
                             </td>
@@ -68,7 +86,10 @@
         </div>
     {% else %}
         <div class="vacio">
-            {% if busqueda %}
+            {% if clase_actual and not busqueda %}
+                <p>No hay materiales de esta clase con los filtros elegidos.</p>
+                <a href="?{% if categoria_actual %}categoria={{ categoria_actual }}{% endif %}">Ver todas las clases</a>
+            {% elif busqueda %}
                 <p>No hay materiales que coincidan con «{{ busqueda }}».</p>
                 <a href="{% url 'lista_materiales' %}{% if categoria_actual %}?categoria={{ categoria_actual }}{% endif %}">Quitar la búsqueda</a>
             {% else %}

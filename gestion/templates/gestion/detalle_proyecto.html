@@ -13,8 +13,10 @@
                 {% include "gestion/estado.html" %}
             </div>
             <dl class="datos">
+                {% if proyecto.cliente %}<div><dt>Cliente</dt><dd>{{ proyecto.cliente }}</dd></div>{% endif %}
                 <div><dt>Tipo</dt><dd>{{ proyecto.get_tipo_display }}{% if proyecto.tipo == 'URG' and proyecto.tipo_destino %}, pasará a {{ proyecto.get_tipo_destino_display|lower }}{% endif %}</dd></div>
                 <div><dt>Inicio</dt><dd>{{ proyecto.fecha_inicio|date:"d/m/Y" }}</dd></div>
+                {% with cita=citas_proximas.0 %}{% if cita %}<div><dt>Próxima cita</dt><dd><a href="#citas">{{ cita.fecha|date:"d/m/Y" }}{% if cita.hora %} a las {{ cita.hora|time:"H:i" }}{% endif %}</a> <span class="entrega{% if cita.es_cercana %} entrega--cerca{% endif %}">({{ cita.dias }})</span></dd></div>{% endif %}{% endwith %}
                 {% if proyecto.fecha_fin %}<div><dt>Fin</dt><dd>{{ proyecto.fecha_fin|date:"d/m/Y" }}</dd></div>{% endif %}
                 {% if proyecto.creado_por %}<div><dt>Abierto por</dt><dd>{{ proyecto.creado_por.get_full_name|default:proyecto.creado_por.username }}</dd></div>{% endif %}
             </dl>
@@ -40,7 +42,7 @@
                     {# Eliminar: formulario POST y confirmación en JavaScript (diapositivas 80-81) #}
                     <form method="post" action="{% url 'proyecto_eliminar' proyecto.pk %}">
                         {% csrf_token %}
-                        <button type="submit" class="boton boton--peligro" onclick="return eliminar();">Eliminar</button>
+                        <button type="submit" class="boton boton--peligro" data-confirmar="Se borrará «{{ proyecto.nombre }}» con todos sus apuntes, notas y albaranes. No se puede deshacer.">Eliminar</button>
                     </form>
                 {% endif %}
             </div>
@@ -66,6 +68,42 @@
     {% endif %}
 </div>
 
+{# Citas: Oficina las añade y las quita; los operarios las ven si hay alguna #}
+{% if perms.gestion.add_cita or citas_proximas or citas_pasadas %}
+<section class="panel panel--lista" id="citas">
+    <h2 class="panel__titulo panel__titulo--con-margen panel__titulo--icono">{% include "gestion/icono.html" with nombre="cita" %}Citas <span class="pestana-proyecto__numero">{{ citas_proximas|length }}</span></h2>
+    {% if perms.gestion.add_cita %}
+        <form method="post" class="cita-nueva" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="apunte" value="cita">
+            {% include "gestion/campo_widget.html" with campo=formulario_cita.fecha %}
+            {% include "gestion/campo_widget.html" with campo=formulario_cita.hora %}
+            {% include "gestion/campo_widget.html" with campo=formulario_cita.motivo %}
+            <button type="submit" class="boton">{% include "gestion/icono.html" with nombre="mas" %}Añadir cita</button>
+        </form>
+    {% endif %}
+    <ul class="citas">
+        {% for cita in citas_proximas %}
+            {% include "gestion/cita.html" %}
+        {% empty %}
+            <li class="vacio vacio--corto"><p>No hay citas pendientes.{% if perms.gestion.add_cita %} Añade la primera arriba.{% endif %}</p></li>
+        {% endfor %}
+    </ul>
+    {% if citas_pasadas %}
+        <details class="citas-pasadas">
+            <summary>Citas pasadas ({{ citas_pasadas|length }})</summary>
+            <ul class="citas">
+                {% for cita in citas_pasadas %}{% include "gestion/cita.html" %}{% endfor %}
+            </ul>
+        </details>
+    {% endif %}
+</section>
+{% endif %}
+
+{% if proyecto.esta_terminado %}
+    <p class="aviso aviso--info">Este proyecto está terminado, así que ya no admite apuntes nuevos.</p>
+{% endif %}
+
 {% if puede_apuntar %}
 <section class="panel" id="horas">
     <h2 class="panel__titulo">Horas de trabajo</h2>
@@ -73,10 +111,29 @@
         {% csrf_token %}
         <input type="hidden" name="apunte" value="horas">
         {% include "gestion/selector_horas.html" with formulario=formulario_horas %}
-        <button type="submit" class="boton">Apuntar horas</button>
+        <button type="submit" class="boton boton--ancho">Apuntar horas</button>
     </form>
 </section>
+{% endif %}
 
+{# Operarios: Notas y Albaranes son apartados propios, justo después de las horas #}
+{% if not es_oficina %}
+    {% if perms.gestion.view_nota %}
+    <section class="panel panel--lista" id="notas">
+        <h2 class="panel__titulo panel__titulo--con-margen panel__titulo--icono">{% include "gestion/icono.html" with nombre="nota" %}Notas <span class="pestana-proyecto__numero">{{ notas|length }}</span></h2>
+        {% include "gestion/bloque_notas.html" %}
+    </section>
+    {% endif %}
+    {% if perms.gestion.view_albaran %}
+    <section class="panel panel--lista" id="albaranes">
+        <h2 class="panel__titulo panel__titulo--con-margen panel__titulo--icono">{% include "gestion/icono.html" with nombre="albaran" %}Albaranes <span class="pestana-proyecto__numero">{{ albaranes|length }}</span></h2>
+        {% include "gestion/bloque_albaranes.html" %}
+    </section>
+    {% endif %}
+{% endif %}
+
+{# Material: solo Oficina. Los operarios apuntan horas, notas y albaranes #}
+{% if puede_apuntar_material %}
 <section class="panel" id="apuntar">
     <h2 class="panel__titulo">Material</h2>
     {% include "gestion/elegir_material.html" with ancla="apuntar" %}
@@ -90,62 +147,62 @@
         <div class="formulario--consumo">
             {% include "gestion/campo_cantidad.html" %}
             {% include "gestion/campo_widget.html" with campo=formulario.fecha %}
-            <button type="submit" class="boton formulario__enviar">Apuntar material</button>
         </div>
+        <button type="submit" class="boton boton--ancho">Apuntar material</button>
     </form>
 </section>
-{% elif proyecto.esta_terminado %}
-    <p class="aviso aviso--info">Este proyecto está terminado, así que ya no admite apuntes nuevos.</p>
 {% endif %}
 
-<section class="panel panel--lista">
-    <h2 class="panel__titulo panel__titulo--con-margen">Apuntes</h2>
-    {% if consumos %}
-        <div class="tabla-contenedor">
-            <table class="tabla">
-                <thead>
-                    <tr>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Material</th>
-                        <th scope="col" class="num">Cantidad</th>
-                        <th scope="col">Añadido por</th>
-                        {% if perms.gestion.change_material %}<th scope="col" class="num">Importe</th>{% endif %}
-                        {% if not proyecto.esta_terminado %}<th scope="col" class="num"><span class="solo-lector">Acciones</span></th>{% endif %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for consumo in consumos %}
-                        <tr>
-                            <td class="tabla__fecha">{{ consumo.fecha|date:"d/m/Y" }}</td>
-                            <td class="tabla__material">{{ consumo.material.nombre }}</td>
-                            <td class="num">{{ consumo.cantidad_texto }}</td>
-                            <td class="tabla__persona"><span class="avatar avatar--mini" aria-hidden="true">{{ consumo.trabajador.first_name|default:consumo.trabajador.username|slice:":1"|upper }}</span>{{ consumo.trabajador.get_full_name|default:consumo.trabajador.username }}</td>
-                            {% if perms.gestion.change_material %}<td class="num">{{ consumo.total|floatformat:"2g" }} €</td>{% endif %}
-                            {% if not proyecto.esta_terminado %}
-                                <td class="tabla__acciones">
-                                    {# Cada operario solo cambia sus apuntes; Oficina, todos #}
-                                    {% if consumo.trabajador == user or perms.gestion.change_proyecto %}
-                                        {% if perms.gestion.change_consumo %}
-                                            <a class="boton-tabla" href="{% url 'consumo_editar' consumo.pk %}" aria-label="Editar apunte" title="Editar">{% include "gestion/icono.html" with nombre="editar" %}</a>
-                                        {% endif %}
-                                        {% if perms.gestion.delete_consumo %}
-                                            <form method="post" action="{% url 'consumo_eliminar' consumo.pk %}">
-                                                {% csrf_token %}
-                                                <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar apunte" title="Eliminar" onclick="return eliminar_apunte();">{% include "gestion/icono.html" with nombre="borrar" %}</button>
-                                            </form>
-                                        {% endif %}
-                                    {% endif %}
-                                </td>
-                            {% endif %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    {% else %}
-        <div class="vacio"><p>Todavía no hay apuntes. El primero que añadas aparecerá aquí con tu nombre.</p></div>
+{% if es_oficina %}
+{# Abajo, en pestañas: Apuntes, Notas y Albaranes. Sin JavaScript se ven las tres seguidas. #}
+<section class="panel panel--lista pestanas-proyecto" data-pestanas data-pestana-inicial="{{ pestana }}">
+    <div class="pestanas-proyecto__barra" role="tablist" aria-label="Información del proyecto">
+        <a class="pestana-proyecto" href="#apuntes" role="tab" data-pestana="apuntes">
+            {% include "gestion/icono.html" with nombre="materiales" %}<span>Apuntes</span>
+            <span class="pestana-proyecto__numero">{{ consumos|length }}</span>
+        </a>
+        {% if perms.gestion.view_nota %}
+            <a class="pestana-proyecto" href="#notas" role="tab" data-pestana="notas">
+                {% include "gestion/icono.html" with nombre="nota" %}<span>Notas</span>
+                <span class="pestana-proyecto__numero">{{ notas|length }}</span>
+            </a>
+        {% endif %}
+        {% if perms.gestion.view_albaran %}
+            <a class="pestana-proyecto" href="#albaranes" role="tab" data-pestana="albaranes">
+                {% include "gestion/icono.html" with nombre="albaran" %}<span>Albaranes</span>
+                <span class="pestana-proyecto__numero">{{ albaranes|length }}</span>
+            </a>
+        {% endif %}
+    </div>
+
+    {# ---------- Apuntes ---------- #}
+    <div class="pestanas-proyecto__panel" id="apuntes" role="tabpanel">
+        <h2 class="panel__titulo panel__titulo--con-margen pestanas-proyecto__titulo">Apuntes</h2>
+        {% include "gestion/bloque_apuntes.html" %}
+    </div>
+
+    {# ---------- Notas: las escribe cualquiera; cada uno borra las suyas y Oficina, todas ---------- #}
+    {% if perms.gestion.view_nota %}
+    <div class="pestanas-proyecto__panel" id="notas" role="tabpanel">
+        <h2 class="panel__titulo panel__titulo--con-margen pestanas-proyecto__titulo">Notas</h2>
+        {% include "gestion/bloque_notas.html" %}
+    </div>
+    {% endif %}
+
+    {# ---------- Albaranes en PDF: los sube cualquiera; los borra Oficina ---------- #}
+    {% if perms.gestion.view_albaran %}
+    <div class="pestanas-proyecto__panel" id="albaranes" role="tabpanel">
+        <h2 class="panel__titulo panel__titulo--con-margen pestanas-proyecto__titulo">Albaranes</h2>
+        {% include "gestion/bloque_albaranes.html" %}
+    </div>
     {% endif %}
 </section>
+{% else %}
+<section class="panel panel--lista" id="apuntes">
+    <h2 class="panel__titulo panel__titulo--con-margen panel__titulo--icono">{% include "gestion/icono.html" with nombre="materiales" %}Apuntes <span class="pestana-proyecto__numero">{{ consumos|length }}</span></h2>
+    {% include "gestion/bloque_apuntes.html" %}
+</section>
+{% endif %}
 
 {% include "gestion/volver.html" with volver_url=url_lista volver_texto="Volver a "|add:texto_volver %}
 {% endblock %}

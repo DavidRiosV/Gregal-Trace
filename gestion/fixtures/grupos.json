@@ -15,6 +15,11 @@
                 "albaran"
             ],
             [
+                "view_cita",
+                "gestion",
+                "cita"
+            ],
+            [
                 "add_consumo",
                 "gestion",
                 "consumo"
@@ -38,6 +43,21 @@
                 "view_material",
                 "gestion",
                 "material"
+            ],
+            [
+                "add_nota",
+                "gestion",
+                "nota"
+            ],
+            [
+                "delete_nota",
+                "gestion",
+                "nota"
+            ],
+            [
+                "view_nota",
+                "gestion",
+                "nota"
             ],
             [
                 "add_proyecto",
@@ -78,6 +98,26 @@
                 "albaran"
             ],
             [
+                "add_cita",
+                "gestion",
+                "cita"
+            ],
+            [
+                "change_cita",
+                "gestion",
+                "cita"
+            ],
+            [
+                "delete_cita",
+                "gestion",
+                "cita"
+            ],
+            [
+                "view_cita",
+                "gestion",
+                "cita"
+            ],
+            [
                 "add_consumo",
                 "gestion",
                 "consumo"
@@ -116,6 +156,26 @@
                 "view_material",
                 "gestion",
                 "material"
+            ],
+            [
+                "add_nota",
+                "gestion",
+                "nota"
+            ],
+            [
+                "change_nota",
+                "gestion",
+                "nota"
+            ],
+            [
+                "delete_nota",
+                "gestion",
+                "nota"
+            ],
+            [
+                "view_nota",
+                "gestion",
+                "nota"
             ],
             [
                 "add_proyecto",

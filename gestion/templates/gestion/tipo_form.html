@@ -1,0 +1,35 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}{{ titulo }} · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'lista_tipos' as url_lista %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_url=url_lista miga_texto="Tipos" miga_actual=grupo %}
+    <h1 class="pagina__titulo">{{ titulo }}</h1>
+    <p class="pagina__texto">Los cambios se aplican a los {{ materiales|length }} materiales de este tipo. Si pones el nombre de otro tipo que ya existe en la familia elegida, los dos se unen en uno.</p>
+</header>
+
+<section class="panel panel--formulario">
+    <form method="post" action="{% url 'tipo_editar' %}?categoria={{ categoria.pk }}&grupo={{ grupo|urlencode }}" class="formulario" novalidate>
+        {% csrf_token %}
+        <div class="formulario__fila">
+            {% include "gestion/campo.html" with campo=formulario.nombre %}
+            {% include "gestion/campo_widget.html" with campo=formulario.categoria %}
+        </div>
+        <div class="formulario__botones">
+            <button type="submit" class="boton">Guardar cambios</button>
+            <a class="boton boton--secundario" href="{{ url_lista }}?categoria={{ categoria.pk }}">Cancelar</a>
+        </div>
+    </form>
+</section>
+
+<section class="panel panel--lista panel--separado panel--formulario">
+    <h2 class="panel__titulo panel__titulo--con-margen">Materiales de este tipo</h2>
+    <ul class="lista-simple">
+        {% for material in materiales %}
+            <li>{{ material.nombre }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

@@ -1,5 +1,77 @@
 [
 {
+    "model": "gestion.categoria",
+    "pk": "FON",
+    "fields": {
+        "nombre": "Fontanería y saneamiento",
+        "orden": 10
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "CAL",
+    "fields": {
+        "nombre": "Calefacción y ACS",
+        "orden": 20
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "CLI",
+    "fields": {
+        "nombre": "Climatización y ventilación",
+        "orden": 30
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "ELE",
+    "fields": {
+        "nombre": "Electricidad",
+        "orden": 40
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "SOL",
+    "fields": {
+        "nombre": "Solar fotovoltaica",
+        "orden": 50
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "DOM",
+    "fields": {
+        "nombre": "Domótica y control",
+        "orden": 60
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "PIS",
+    "fields": {
+        "nombre": "Piscina y tratamiento de agua",
+        "orden": 70
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "MOB",
+    "fields": {
+        "nombre": "Mano de obra y servicios",
+        "orden": 80
+    }
+},
+{
+    "model": "gestion.categoria",
+    "pk": "OTR",
+    "fields": {
+        "nombre": "Otros",
+        "orden": 90
+    }
+},
+{
     "model": "gestion.material",
     "pk": 1001,
     "fields": {
@@ -7,7 +79,9 @@
         "categoria": "MOB",
         "grupo": "Horas",
         "unidad": "H",
-        "precio": "32.00"
+        "precio": "32.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -18,7 +92,35 @@
         "categoria": "MOB",
         "grupo": "Horas",
         "unidad": "H",
-        "precio": "55.00"
+        "precio": "55.00",
+        "clase": "",
+        "proveedor": ""
+    }
+},
+{
+    "model": "gestion.material",
+    "pk": 1500,
+    "fields": {
+        "nombre": "Hora Peón",
+        "categoria": "MOB",
+        "grupo": "Horas",
+        "unidad": "H",
+        "precio": "25.00",
+        "clase": "",
+        "proveedor": ""
+    }
+},
+{
+    "model": "gestion.material",
+    "pk": 1501,
+    "fields": {
+        "nombre": "Hora Subcontrata",
+        "categoria": "MOB",
+        "grupo": "Horas",
+        "unidad": "H",
+        "precio": "30.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -29,7 +131,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "11195.57"
+        "precio": "11195.57",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -40,7 +144,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "46.83"
+        "precio": "46.83",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -51,7 +157,9 @@
         "categoria": "FON",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "115.38"
+        "precio": "115.38",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -62,7 +170,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "111.25"
+        "precio": "111.25",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -73,7 +183,9 @@
         "categoria": "FON",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "102.19"
+        "precio": "102.19",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -84,7 +196,9 @@
         "categoria": "CAL",
         "grupo": "Instrumentos de medida",
         "unidad": "UD",
-        "precio": "21.15"
+        "precio": "21.15",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -95,7 +209,9 @@
         "categoria": "CAL",
         "grupo": "Instrumentos de medida",
         "unidad": "UD",
-        "precio": "102.62"
+        "precio": "102.62",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -106,7 +222,9 @@
         "categoria": "CAL",
         "grupo": "Instrumentos de medida",
         "unidad": "UD",
-        "precio": "21.65"
+        "precio": "21.65",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -117,7 +235,9 @@
         "categoria": "CAL",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "105.10"
+        "precio": "105.10",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -128,7 +248,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "1659.83"
+        "precio": "1659.83",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -139,7 +261,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "39.98"
+        "precio": "39.98",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -150,7 +274,9 @@
         "categoria": "CAL",
         "grupo": "Vasos de expansión",
         "unidad": "UD",
-        "precio": "154.78"
+        "precio": "154.78",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -161,7 +287,9 @@
         "categoria": "CAL",
         "grupo": "Llenado y vaciado",
         "unidad": "UD",
-        "precio": "506.75"
+        "precio": "506.75",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -172,7 +300,9 @@
         "categoria": "CAL",
         "grupo": "Llenado y vaciado",
         "unidad": "UD",
-        "precio": "113.82"
+        "precio": "113.82",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -183,7 +313,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1496.88"
+        "precio": "1496.88",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -194,7 +326,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1944.00"
+        "precio": "1944.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -205,7 +339,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "158.78"
+        "precio": "158.78",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -216,7 +352,9 @@
         "categoria": "FON",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "121.82"
+        "precio": "121.82",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -227,7 +365,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "91.05"
+        "precio": "91.05",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -238,7 +378,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "106.46"
+        "precio": "106.46",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -249,7 +391,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "138.06"
+        "precio": "138.06",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -260,7 +404,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "59.00"
+        "precio": "59.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -271,7 +417,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "33.93"
+        "precio": "33.93",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -282,7 +430,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "25.06"
+        "precio": "25.06",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -293,7 +443,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "34.12"
+        "precio": "34.12",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -304,7 +456,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "1164.69"
+        "precio": "1164.69",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -315,7 +469,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "1249.59"
+        "precio": "1249.59",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -326,7 +482,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "M2",
-        "precio": "48.36"
+        "precio": "48.36",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -337,7 +495,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "353.07"
+        "precio": "353.07",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -348,7 +508,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "372.16"
+        "precio": "372.16",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -359,7 +521,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "307.82"
+        "precio": "307.82",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -370,7 +534,9 @@
         "categoria": "CAL",
         "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
-        "precio": "576.18"
+        "precio": "576.18",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -381,7 +547,9 @@
         "categoria": "CAL",
         "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
-        "precio": "462.57"
+        "precio": "462.57",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -392,7 +560,9 @@
         "categoria": "CAL",
         "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
-        "precio": "488.24"
+        "precio": "488.24",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -403,7 +573,9 @@
         "categoria": "CAL",
         "grupo": "Colectores y suelo radiante",
         "unidad": "M2",
-        "precio": "45.96"
+        "precio": "45.96",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -414,7 +586,9 @@
         "categoria": "CAL",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "39.72"
+        "precio": "39.72",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -425,7 +599,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "8003.09"
+        "precio": "8003.09",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -436,7 +612,9 @@
         "categoria": "CLI",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "546.46"
+        "precio": "546.46",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -447,7 +625,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "M",
-        "precio": "155.32"
+        "precio": "155.32",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -458,7 +638,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "229.88"
+        "precio": "229.88",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -469,7 +651,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "18.78"
+        "precio": "18.78",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -480,7 +664,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "404.93"
+        "precio": "404.93",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -491,7 +677,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "308.79"
+        "precio": "308.79",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -502,7 +690,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "459.25"
+        "precio": "459.25",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -513,7 +703,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "350.59"
+        "precio": "350.59",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -524,7 +716,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "M",
-        "precio": "27.78"
+        "precio": "27.78",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -535,7 +729,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "144.37"
+        "precio": "144.37",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -546,7 +742,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "110.74"
+        "precio": "110.74",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -557,7 +755,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "2954.06"
+        "precio": "2954.06",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -568,7 +768,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "33.23"
+        "precio": "33.23",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -579,7 +781,9 @@
         "categoria": "CAL",
         "grupo": "Vasos de expansión",
         "unidad": "UD",
-        "precio": "199.22"
+        "precio": "199.22",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -590,7 +794,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "83.35"
+        "precio": "83.35",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -601,7 +807,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "71.57"
+        "precio": "71.57",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -612,7 +820,9 @@
         "categoria": "CAL",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "267.12"
+        "precio": "267.12",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -623,7 +833,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "25.97"
+        "precio": "25.97",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -634,7 +846,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "43.26"
+        "precio": "43.26",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -645,7 +859,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "696.18"
+        "precio": "696.18",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -656,7 +872,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "54.26"
+        "precio": "54.26",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -667,7 +885,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "48.04"
+        "precio": "48.04",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -678,7 +898,9 @@
         "categoria": "FON",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "72.52"
+        "precio": "72.52",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -689,7 +911,9 @@
         "categoria": "CAL",
         "grupo": "Vasos de expansión",
         "unidad": "UD",
-        "precio": "109.24"
+        "precio": "109.24",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -700,7 +924,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "29.16"
+        "precio": "29.16",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -711,7 +937,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "30.48"
+        "precio": "30.48",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -722,7 +950,9 @@
         "categoria": "CAL",
         "grupo": "Instrumentos de medida",
         "unidad": "UD",
-        "precio": "325.98"
+        "precio": "325.98",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -733,7 +963,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "4.68"
+        "precio": "4.68",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -744,7 +976,9 @@
         "categoria": "PIS",
         "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
-        "precio": "1419.21"
+        "precio": "1419.21",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -755,7 +989,9 @@
         "categoria": "FON",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "92.75"
+        "precio": "92.75",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -766,7 +1002,9 @@
         "categoria": "PIS",
         "grupo": "Ósmosis y descalcificadores",
         "unidad": "KG",
-        "precio": "0.41"
+        "precio": "0.41",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -777,7 +1015,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "19.03"
+        "precio": "19.03",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -788,7 +1028,9 @@
         "categoria": "FON",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "1281.37"
+        "precio": "1281.37",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -799,7 +1041,9 @@
         "categoria": "FON",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "738.67"
+        "precio": "738.67",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -810,7 +1054,9 @@
         "categoria": "CAL",
         "grupo": "Llenado y vaciado",
         "unidad": "UD",
-        "precio": "595.42"
+        "precio": "595.42",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -821,7 +1067,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "28.59"
+        "precio": "28.59",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -832,7 +1080,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "44.76"
+        "precio": "44.76",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -843,7 +1093,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "343.20"
+        "precio": "343.20",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -854,7 +1106,9 @@
         "categoria": "PIS",
         "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
-        "precio": "112.95"
+        "precio": "112.95",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -865,7 +1119,9 @@
         "categoria": "PIS",
         "grupo": "Ósmosis y descalcificadores",
         "unidad": "KG",
-        "precio": "15.00"
+        "precio": "15.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -876,7 +1132,9 @@
         "categoria": "MOB",
         "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
-        "precio": "50.00"
+        "precio": "50.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -887,7 +1145,9 @@
         "categoria": "PIS",
         "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
-        "precio": "95.00"
+        "precio": "95.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -898,7 +1158,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "3521.61"
+        "precio": "3521.61",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -909,7 +1171,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "836.72"
+        "precio": "836.72",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -920,7 +1184,9 @@
         "categoria": "CLI",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "23.52"
+        "precio": "23.52",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -931,7 +1197,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "6.49"
+        "precio": "6.49",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -942,7 +1210,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "1868.42"
+        "precio": "1868.42",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -953,7 +1223,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "32.17"
+        "precio": "32.17",
+        "clase": "ACC",
+        "proveedor": "Comercial Mariano Juan"
     }
 },
 {
@@ -964,7 +1236,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "31.91"
+        "precio": "31.91",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -975,7 +1249,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "660.16"
+        "precio": "660.16",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -986,7 +1262,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "12.77"
+        "precio": "12.77",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -997,7 +1275,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "17.24"
+        "precio": "17.24",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1008,7 +1288,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "24.74"
+        "precio": "24.74",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1019,7 +1301,9 @@
         "categoria": "CLI",
         "grupo": "Soportes y fijaciones",
         "unidad": "UD",
-        "precio": "22.40"
+        "precio": "22.40",
+        "clase": "SOP",
+        "proveedor": "Massanella Mallorca"
     }
 },
 {
@@ -1030,7 +1314,9 @@
         "categoria": "CLI",
         "grupo": "Soportes y fijaciones",
         "unidad": "UD",
-        "precio": "2.83"
+        "precio": "2.83",
+        "clase": "SOP",
+        "proveedor": "Massanella Mallorca"
     }
 },
 {
@@ -1041,7 +1327,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "18.96"
+        "precio": "18.96",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1052,7 +1340,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "300.00"
+        "precio": "300.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1063,7 +1353,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "42.79"
+        "precio": "42.79",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1074,7 +1366,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "33.25"
+        "precio": "33.25",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1085,7 +1379,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "23.23"
+        "precio": "23.23",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1096,7 +1392,9 @@
         "categoria": "FON",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "49.95"
+        "precio": "49.95",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1107,7 +1405,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "950.00"
+        "precio": "950.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1118,7 +1418,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "222.75"
+        "precio": "222.75",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1129,7 +1431,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "55.00"
+        "precio": "55.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1140,7 +1444,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "1987.50"
+        "precio": "1987.50",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1151,7 +1457,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "525.00"
+        "precio": "525.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1162,7 +1470,9 @@
         "categoria": "DOM",
         "grupo": "Termostatos",
         "unidad": "UD",
-        "precio": "49.00"
+        "precio": "49.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1173,7 +1483,9 @@
         "categoria": "PIS",
         "grupo": "Cloración y electrólisis",
         "unidad": "UD",
-        "precio": "1804.16"
+        "precio": "1804.16",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1184,7 +1496,9 @@
         "categoria": "PIS",
         "grupo": "Cloración y electrólisis",
         "unidad": "UD",
-        "precio": "402.70"
+        "precio": "402.70",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1195,7 +1509,9 @@
         "categoria": "PIS",
         "grupo": "Cloración y electrólisis",
         "unidad": "UD",
-        "precio": "139.21"
+        "precio": "139.21",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1206,7 +1522,9 @@
         "categoria": "PIS",
         "grupo": "Cloración y electrólisis",
         "unidad": "UD",
-        "precio": "236.25"
+        "precio": "236.25",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1217,7 +1535,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "300.00"
+        "precio": "300.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1228,7 +1548,9 @@
         "categoria": "MOB",
         "grupo": "Desplazamientos",
         "unidad": "UD",
-        "precio": "40.00"
+        "precio": "40.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1239,7 +1561,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "590.00"
+        "precio": "590.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1250,7 +1574,9 @@
         "categoria": "CLI",
         "grupo": "Repuestos",
         "unidad": "UD",
-        "precio": "425.38"
+        "precio": "425.38",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1261,7 +1587,9 @@
         "categoria": "CLI",
         "grupo": "Repuestos",
         "unidad": "UD",
-        "precio": "438.59"
+        "precio": "438.59",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1272,7 +1600,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "1320.84"
+        "precio": "1320.84",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1283,7 +1613,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "378.92"
+        "precio": "378.92",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1294,7 +1626,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "308.19"
+        "precio": "308.19",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1305,7 +1639,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "1071.45"
+        "precio": "1071.45",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1316,7 +1652,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "6548.12"
+        "precio": "6548.12",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1327,7 +1665,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "3049.66"
+        "precio": "3049.66",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1338,7 +1678,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "5317.46"
+        "precio": "5317.46",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1349,7 +1691,9 @@
         "categoria": "MOB",
         "grupo": "Ajustes de presupuesto",
         "unidad": "UD",
-        "precio": "0.00"
+        "precio": "0.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1360,7 +1704,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "451.02"
+        "precio": "451.02",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1371,7 +1717,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "2025.00"
+        "precio": "2025.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1382,7 +1730,9 @@
         "categoria": "MOB",
         "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
-        "precio": "482.77"
+        "precio": "482.77",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1393,7 +1743,9 @@
         "categoria": "MOB",
         "grupo": "Reparaciones",
         "unidad": "UD",
-        "precio": "301.75"
+        "precio": "301.75",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1404,7 +1756,9 @@
         "categoria": "CLI",
         "grupo": "Repuestos",
         "unidad": "UD",
-        "precio": "535.00"
+        "precio": "535.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1415,7 +1769,9 @@
         "categoria": "PIS",
         "grupo": "Ósmosis y descalcificadores",
         "unidad": "UD",
-        "precio": "120.00"
+        "precio": "120.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1426,7 +1782,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "797.67"
+        "precio": "797.67",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1437,7 +1795,9 @@
         "categoria": "MOB",
         "grupo": "Reparaciones",
         "unidad": "UD",
-        "precio": "358.79"
+        "precio": "358.79",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1448,7 +1808,9 @@
         "categoria": "MOB",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "0.00"
+        "precio": "0.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1459,7 +1821,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "11.62"
+        "precio": "11.62",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1470,7 +1834,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "32.13"
+        "precio": "32.13",
+        "clase": "ACC",
+        "proveedor": "Antonio Cabot Fornés"
     }
 },
 {
@@ -1481,7 +1847,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "32.48"
+        "precio": "32.48",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1492,7 +1860,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "99.50"
+        "precio": "99.50",
+        "clase": "ACC",
+        "proveedor": "Electromat Balear"
     }
 },
 {
@@ -1503,7 +1873,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "100.00"
+        "precio": "100.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1514,7 +1886,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "10.17"
+        "precio": "10.17",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1525,7 +1899,9 @@
         "categoria": "SOL",
         "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
-        "precio": "177.68"
+        "precio": "177.68",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1536,7 +1912,9 @@
         "categoria": "SOL",
         "grupo": "Estructuras solares",
         "unidad": "UD",
-        "precio": "1186.65"
+        "precio": "1186.65",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -1547,7 +1925,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "1821.42"
+        "precio": "1821.42",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1558,7 +1938,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "5.42"
+        "precio": "5.42",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1569,7 +1951,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "329.40"
+        "precio": "329.40",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1580,7 +1964,9 @@
         "categoria": "MOB",
         "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
-        "precio": "646.65"
+        "precio": "646.65",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1591,7 +1977,9 @@
         "categoria": "MOB",
         "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
-        "precio": "564.03"
+        "precio": "564.03",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1602,7 +1990,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "800.00"
+        "precio": "800.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1613,7 +2003,9 @@
         "categoria": "CAL",
         "grupo": "Llenado y vaciado",
         "unidad": "UD",
-        "precio": "350.00"
+        "precio": "350.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1624,7 +2016,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "13320.00"
+        "precio": "13320.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1635,7 +2029,9 @@
         "categoria": "CAL",
         "grupo": "Soportes y fijaciones",
         "unidad": "UD",
-        "precio": "126.72"
+        "precio": "126.72",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -1646,7 +2042,9 @@
         "categoria": "CAL",
         "grupo": "Vasos de expansión",
         "unidad": "UD",
-        "precio": "116.40"
+        "precio": "116.40",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1657,7 +2055,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "985.00"
+        "precio": "985.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1668,7 +2068,9 @@
         "categoria": "CAL",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "794.20"
+        "precio": "794.20",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1679,7 +2081,9 @@
         "categoria": "CAL",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "927.00"
+        "precio": "927.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1690,7 +2094,9 @@
         "categoria": "CAL",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "1011.00"
+        "precio": "1011.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1701,7 +2107,9 @@
         "categoria": "CAL",
         "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
-        "precio": "419.16"
+        "precio": "419.16",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1712,7 +2120,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "2865.12"
+        "precio": "2865.12",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1723,7 +2133,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "403.85"
+        "precio": "403.85",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1734,7 +2146,9 @@
         "categoria": "CAL",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "454.30"
+        "precio": "454.30",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1745,7 +2159,9 @@
         "categoria": "CAL",
         "grupo": "Instrumentos de medida",
         "unidad": "UD",
-        "precio": "132.02"
+        "precio": "132.02",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1756,7 +2172,9 @@
         "categoria": "MOB",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "522.00"
+        "precio": "522.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1767,7 +2185,9 @@
         "categoria": "CAL",
         "grupo": "Llenado y vaciado",
         "unidad": "UD",
-        "precio": "155.26"
+        "precio": "155.26",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1778,7 +2198,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "800.00"
+        "precio": "800.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1789,7 +2211,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "725.00"
+        "precio": "725.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1800,7 +2224,9 @@
         "categoria": "ELE",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "650.00"
+        "precio": "650.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1811,7 +2237,9 @@
         "categoria": "CAL",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "218.00"
+        "precio": "218.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1822,7 +2250,9 @@
         "categoria": "FON",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "93.02"
+        "precio": "93.02",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1833,7 +2263,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "291.50"
+        "precio": "291.50",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1844,7 +2276,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "691.60"
+        "precio": "691.60",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1855,7 +2289,9 @@
         "categoria": "CAL",
         "grupo": "Vasos de expansión",
         "unidad": "UD",
-        "precio": "95.20"
+        "precio": "95.20",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1866,7 +2302,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "576.00"
+        "precio": "576.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1877,7 +2315,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "42.44"
+        "precio": "42.44",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1888,7 +2328,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "38.49"
+        "precio": "38.49",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1899,7 +2341,9 @@
         "categoria": "PIS",
         "grupo": "Cloración y electrólisis",
         "unidad": "UD",
-        "precio": "1385.00"
+        "precio": "1385.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1910,7 +2354,9 @@
         "categoria": "PIS",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "22.00"
+        "precio": "22.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1921,7 +2367,9 @@
         "categoria": "OTR",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "280.00"
+        "precio": "280.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -1932,7 +2380,9 @@
         "categoria": "MOB",
         "grupo": "Ajustes de presupuesto",
         "unidad": "UD",
-        "precio": "240.00"
+        "precio": "240.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1943,7 +2393,9 @@
         "categoria": "MOB",
         "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
-        "precio": "127.34"
+        "precio": "127.34",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1954,7 +2406,9 @@
         "categoria": "CAL",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "151.93"
+        "precio": "151.93",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -1965,7 +2419,9 @@
         "categoria": "MOB",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "588.00"
+        "precio": "588.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1976,7 +2432,9 @@
         "categoria": "MOB",
         "grupo": "Urgencias",
         "unidad": "UD",
-        "precio": "150.00"
+        "precio": "150.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1987,7 +2445,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "337.50"
+        "precio": "337.50",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -1998,7 +2458,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "81.00"
+        "precio": "81.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2009,7 +2471,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "432.00"
+        "precio": "432.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2020,7 +2484,9 @@
         "categoria": "SOL",
         "grupo": "Inversores",
         "unidad": "UD",
-        "precio": "1336.04"
+        "precio": "1336.04",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2031,7 +2497,9 @@
         "categoria": "SOL",
         "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
-        "precio": "1800.63"
+        "precio": "1800.63",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2042,7 +2510,9 @@
         "categoria": "SOL",
         "grupo": "Estructuras solares",
         "unidad": "UD",
-        "precio": "330.60"
+        "precio": "330.60",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -2053,7 +2523,9 @@
         "categoria": "SOL",
         "grupo": "Estructuras solares",
         "unidad": "UD",
-        "precio": "184.30"
+        "precio": "184.30",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -2064,7 +2536,9 @@
         "categoria": "SOL",
         "grupo": "Estructuras solares",
         "unidad": "UD",
-        "precio": "214.70"
+        "precio": "214.70",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -2075,7 +2549,9 @@
         "categoria": "SOL",
         "grupo": "Estructuras solares",
         "unidad": "UD",
-        "precio": "4.33"
+        "precio": "4.33",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -2086,7 +2562,9 @@
         "categoria": "SOL",
         "grupo": "Baterías",
         "unidad": "UD",
-        "precio": "4436.50"
+        "precio": "4436.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2097,7 +2575,9 @@
         "categoria": "SOL",
         "grupo": "Cables y líneas",
         "unidad": "UD",
-        "precio": "20.81"
+        "precio": "20.81",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2108,7 +2588,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "372.06"
+        "precio": "372.06",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2119,7 +2601,9 @@
         "categoria": "SOL",
         "grupo": "Cables y líneas",
         "unidad": "UD",
-        "precio": "125.40"
+        "precio": "125.40",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2130,7 +2614,9 @@
         "categoria": "SOL",
         "grupo": "Cables y líneas",
         "unidad": "UD",
-        "precio": "125.40"
+        "precio": "125.40",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2141,7 +2627,9 @@
         "categoria": "SOL",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "399.95"
+        "precio": "399.95",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2152,7 +2640,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "108.19"
+        "precio": "108.19",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2163,7 +2653,9 @@
         "categoria": "SOL",
         "grupo": "Otros",
         "unidad": "UD",
-        "precio": "1480.86"
+        "precio": "1480.86",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2174,7 +2666,9 @@
         "categoria": "PIS",
         "grupo": "Cloración y electrólisis",
         "unidad": "UD",
-        "precio": "1112.63"
+        "precio": "1112.63",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2185,7 +2679,9 @@
         "categoria": "FON",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1795.73"
+        "precio": "1795.73",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2196,7 +2692,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "828.00"
+        "precio": "828.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2207,7 +2705,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "16104.60"
+        "precio": "16104.60",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2218,7 +2718,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "398.48"
+        "precio": "398.48",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2229,7 +2731,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "2639.25"
+        "precio": "2639.25",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2240,7 +2744,9 @@
         "categoria": "CAL",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "771.08"
+        "precio": "771.08",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2251,7 +2757,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "1355.85"
+        "precio": "1355.85",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2262,7 +2770,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1966.50"
+        "precio": "1966.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2273,7 +2783,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "2028.60"
+        "precio": "2028.60",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2284,7 +2796,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "3275.78"
+        "precio": "3275.78",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2295,7 +2809,9 @@
         "categoria": "ELE",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "358.20"
+        "precio": "358.20",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2306,7 +2822,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "1407.60"
+        "precio": "1407.60",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2317,7 +2835,9 @@
         "categoria": "FON",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "1066.05"
+        "precio": "1066.05",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2328,7 +2848,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "2134.80"
+        "precio": "2134.80",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2339,7 +2861,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "346.50"
+        "precio": "346.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2350,7 +2874,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "265.50"
+        "precio": "265.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2361,7 +2887,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "58.50"
+        "precio": "58.50",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2372,7 +2900,9 @@
         "categoria": "MOB",
         "grupo": "Reparaciones",
         "unidad": "UD",
-        "precio": "40.50"
+        "precio": "40.50",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2383,7 +2913,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "445.50"
+        "precio": "445.50",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2394,7 +2926,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "17048.21"
+        "precio": "17048.21",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2405,7 +2939,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "302.40"
+        "precio": "302.40",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2416,7 +2952,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "302.40"
+        "precio": "302.40",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2427,7 +2965,9 @@
         "categoria": "DOM",
         "grupo": "Termostatos",
         "unidad": "UD",
-        "precio": "160.00"
+        "precio": "160.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2438,7 +2978,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "30.00"
+        "precio": "30.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2449,7 +2991,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "200.00"
+        "precio": "200.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2460,7 +3004,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "1250.00"
+        "precio": "1250.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2471,7 +3017,9 @@
         "categoria": "CAL",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "365.00"
+        "precio": "365.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2482,7 +3030,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "65.00"
+        "precio": "65.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2493,7 +3043,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "65.00"
+        "precio": "65.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2504,7 +3056,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "465.00"
+        "precio": "465.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2515,7 +3069,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "435.00"
+        "precio": "435.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2526,7 +3082,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "1735.00"
+        "precio": "1735.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2537,7 +3095,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "656.00"
+        "precio": "656.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2548,7 +3108,9 @@
         "categoria": "MOB",
         "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
-        "precio": "797.00"
+        "precio": "797.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2559,7 +3121,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "360.00"
+        "precio": "360.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2570,7 +3134,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "2880.00"
+        "precio": "2880.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2581,7 +3147,9 @@
         "categoria": "CLI",
         "grupo": "Tuberías",
         "unidad": "UD",
-        "precio": "729.00"
+        "precio": "729.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2592,7 +3160,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "99.00"
+        "precio": "99.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2603,7 +3173,9 @@
         "categoria": "CAL",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "220.50"
+        "precio": "220.50",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2614,7 +3186,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "300.00"
+        "precio": "300.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2625,7 +3199,9 @@
         "categoria": "CAL",
         "grupo": "Aislamientos",
         "unidad": "M",
-        "precio": "12.00"
+        "precio": "12.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2636,7 +3212,9 @@
         "categoria": "FON",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "8.00"
+        "precio": "8.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2647,7 +3225,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "L",
-        "precio": "4.00"
+        "precio": "4.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2658,7 +3238,9 @@
         "categoria": "MOB",
         "grupo": "Reparaciones",
         "unidad": "UD",
-        "precio": "115.00"
+        "precio": "115.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2669,7 +3251,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "11.00"
+        "precio": "11.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2680,7 +3264,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "240.00"
+        "precio": "240.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2691,7 +3277,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "218.00"
+        "precio": "218.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2702,7 +3290,9 @@
         "categoria": "MOB",
         "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
-        "precio": "400.00"
+        "precio": "400.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2713,7 +3303,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "450.00"
+        "precio": "450.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2724,7 +3316,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "100.00"
+        "precio": "100.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2735,7 +3329,9 @@
         "categoria": "MOB",
         "grupo": "Legalizaciones",
         "unidad": "UD",
-        "precio": "500.00"
+        "precio": "500.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2746,7 +3342,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "1706.00"
+        "precio": "1706.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2757,7 +3355,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1365.00"
+        "precio": "1365.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2768,7 +3368,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "685.00"
+        "precio": "685.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2779,7 +3381,9 @@
         "categoria": "MOB",
         "grupo": "Adecuaciones y modificaciones",
         "unidad": "UD",
-        "precio": "765.00"
+        "precio": "765.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2790,7 +3394,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "875.00"
+        "precio": "875.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2801,7 +3407,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "890.00"
+        "precio": "890.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2812,7 +3420,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "300.00"
+        "precio": "300.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2823,7 +3433,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "105.00"
+        "precio": "105.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2834,7 +3446,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "110.00"
+        "precio": "110.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2845,7 +3459,9 @@
         "categoria": "DOM",
         "grupo": "Termostatos",
         "unidad": "UD",
-        "precio": "1587.60"
+        "precio": "1587.60",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2856,7 +3472,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "495.00"
+        "precio": "495.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2867,7 +3485,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "40.50"
+        "precio": "40.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2878,7 +3498,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "121.50"
+        "precio": "121.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2889,7 +3511,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "355.50"
+        "precio": "355.50",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2900,7 +3524,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "97.20"
+        "precio": "97.20",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2911,7 +3537,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "135.00"
+        "precio": "135.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2922,7 +3550,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "103.50"
+        "precio": "103.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2933,7 +3563,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "395.00"
+        "precio": "395.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2944,7 +3576,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "270.00"
+        "precio": "270.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2955,7 +3589,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "585.00"
+        "precio": "585.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2966,7 +3602,9 @@
         "categoria": "MOB",
         "grupo": "Urgencias",
         "unidad": "UD",
-        "precio": "150.00"
+        "precio": "150.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -2977,7 +3615,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "650.00"
+        "precio": "650.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -2988,7 +3628,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "350.00"
+        "precio": "350.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -2999,7 +3641,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "217.00"
+        "precio": "217.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3010,7 +3654,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "75.00"
+        "precio": "75.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3021,7 +3667,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "275.00"
+        "precio": "275.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3032,7 +3680,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "13.50"
+        "precio": "13.50",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3043,7 +3693,9 @@
         "categoria": "MOB",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "1275.00"
+        "precio": "1275.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3054,7 +3706,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "25.80"
+        "precio": "25.80",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3065,7 +3719,9 @@
         "categoria": "MOB",
         "grupo": "Urgencias",
         "unidad": "UD",
-        "precio": "550.00"
+        "precio": "550.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3076,7 +3732,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "443.70"
+        "precio": "443.70",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3087,7 +3745,9 @@
         "categoria": "DOM",
         "grupo": "Actuadores y módulos KNX",
         "unidad": "UD",
-        "precio": "121.50"
+        "precio": "121.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3098,7 +3758,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "355.50"
+        "precio": "355.50",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3109,7 +3771,9 @@
         "categoria": "DOM",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "1620.00"
+        "precio": "1620.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3120,7 +3784,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "540.00"
+        "precio": "540.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3131,7 +3797,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "270.00"
+        "precio": "270.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3142,7 +3810,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "400.00"
+        "precio": "400.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3153,7 +3823,9 @@
         "categoria": "PIS",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "395.00"
+        "precio": "395.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3164,7 +3836,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "5425.00"
+        "precio": "5425.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3175,7 +3849,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "875.00"
+        "precio": "875.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3186,7 +3862,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "211.00"
+        "precio": "211.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3197,7 +3875,9 @@
         "categoria": "CAL",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "190.00"
+        "precio": "190.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3208,7 +3888,9 @@
         "categoria": "CAL",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "90.00"
+        "precio": "90.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3219,7 +3901,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1195.00"
+        "precio": "1195.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3230,7 +3914,9 @@
         "categoria": "DOM",
         "grupo": "Termostatos",
         "unidad": "UD",
-        "precio": "120.00"
+        "precio": "120.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3241,7 +3927,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "1900.00"
+        "precio": "1900.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3252,7 +3940,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1080.00"
+        "precio": "1080.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3263,7 +3953,9 @@
         "categoria": "CAL",
         "grupo": "Aislamientos",
         "unidad": "UD",
-        "precio": "61.20"
+        "precio": "61.20",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3274,7 +3966,9 @@
         "categoria": "FON",
         "grupo": "Aislamientos",
         "unidad": "UD",
-        "precio": "32.40"
+        "precio": "32.40",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3285,7 +3979,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "738.00"
+        "precio": "738.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3296,7 +3992,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "270.00"
+        "precio": "270.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3307,7 +4005,9 @@
         "categoria": "CAL",
         "grupo": "Vasos de expansión",
         "unidad": "UD",
-        "precio": "58.50"
+        "precio": "58.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3318,7 +4018,9 @@
         "categoria": "DOM",
         "grupo": "Termostatos",
         "unidad": "UD",
-        "precio": "180.00"
+        "precio": "180.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3329,7 +4031,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "495.00"
+        "precio": "495.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3340,7 +4044,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "180.00"
+        "precio": "180.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3351,7 +4057,9 @@
         "categoria": "CLI",
         "grupo": "Bombas de calor y aerotermia",
         "unidad": "UD",
-        "precio": "5059.75"
+        "precio": "5059.75",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3362,7 +4070,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "180.00"
+        "precio": "180.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3373,7 +4083,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "UD",
-        "precio": "562.50"
+        "precio": "562.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3384,7 +4096,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "162.00"
+        "precio": "162.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3395,7 +4109,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "171.00"
+        "precio": "171.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3406,7 +4122,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "130.50"
+        "precio": "130.50",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3417,7 +4135,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "117.00"
+        "precio": "117.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3428,7 +4148,9 @@
         "categoria": "FON",
         "grupo": "Desagües y saneamiento",
         "unidad": "UD",
-        "precio": "112.50"
+        "precio": "112.50",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3439,7 +4161,9 @@
         "categoria": "FON",
         "grupo": "Soportes y fijaciones",
         "unidad": "UD",
-        "precio": "171.00"
+        "precio": "171.00",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -3450,7 +4174,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "162.00"
+        "precio": "162.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3461,7 +4187,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "1497.60"
+        "precio": "1497.60",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3472,7 +4200,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "650.00"
+        "precio": "650.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3483,7 +4213,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "450.00"
+        "precio": "450.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3494,7 +4226,9 @@
         "categoria": "MOB",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "245.00"
+        "precio": "245.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3505,7 +4239,9 @@
         "categoria": "CAL",
         "grupo": "Calderas",
         "unidad": "UD",
-        "precio": "2438.00"
+        "precio": "2438.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3516,7 +4252,9 @@
         "categoria": "CAL",
         "grupo": "Accesorios hidráulicos",
         "unidad": "UD",
-        "precio": "1146.00"
+        "precio": "1146.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3527,7 +4265,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1349.00"
+        "precio": "1349.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3538,7 +4278,9 @@
         "categoria": "CAL",
         "grupo": "Válvulas",
         "unidad": "UD",
-        "precio": "675.00"
+        "precio": "675.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3549,7 +4291,9 @@
         "categoria": "CAL",
         "grupo": "Llenado y vaciado",
         "unidad": "UD",
-        "precio": "265.00"
+        "precio": "265.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3560,7 +4304,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "235.00"
+        "precio": "235.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3571,7 +4317,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "54.00"
+        "precio": "54.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3582,7 +4330,9 @@
         "categoria": "MOB",
         "grupo": "Limpiezas y mantenimiento",
         "unidad": "UD",
-        "precio": "1135.00"
+        "precio": "1135.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3593,7 +4343,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1598.40"
+        "precio": "1598.40",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3604,7 +4356,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "270.00"
+        "precio": "270.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3615,7 +4369,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "UD",
-        "precio": "277.50"
+        "precio": "277.50",
+        "clase": "PRI",
+        "proveedor": "Electromat Balear"
     }
 },
 {
@@ -3626,7 +4382,9 @@
         "categoria": "ELE",
         "grupo": "Enchufes",
         "unidad": "UD",
-        "precio": "18.50"
+        "precio": "18.50",
+        "clase": "ACC",
+        "proveedor": "Massanella Mallorca"
     }
 },
 {
@@ -3637,7 +4395,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "32.00"
+        "precio": "32.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3648,7 +4408,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "123.75"
+        "precio": "123.75",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3659,7 +4421,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "UD",
-        "precio": "290.25"
+        "precio": "290.25",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3670,7 +4434,9 @@
         "categoria": "ELE",
         "grupo": "Protecciones eléctricas",
         "unidad": "UD",
-        "precio": "18.00"
+        "precio": "18.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3681,7 +4447,9 @@
         "categoria": "DOM",
         "grupo": "Termostatos",
         "unidad": "UD",
-        "precio": "360.00"
+        "precio": "360.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3692,7 +4460,9 @@
         "categoria": "FON",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "250.00"
+        "precio": "250.00",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3703,7 +4473,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "200.00"
+        "precio": "200.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3714,7 +4486,9 @@
         "categoria": "CAL",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "230.00"
+        "precio": "230.00",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3725,7 +4499,9 @@
         "categoria": "MOB",
         "grupo": "Mano de obra",
         "unidad": "UD",
-        "precio": "300.00"
+        "precio": "300.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3736,7 +4512,9 @@
         "categoria": "ELE",
         "grupo": "Cargadores de vehículo eléctrico",
         "unidad": "UD",
-        "precio": "1367.67"
+        "precio": "1367.67",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3747,7 +4525,9 @@
         "categoria": "SOL",
         "grupo": "Medidores de energía",
         "unidad": "UD",
-        "precio": "707.23"
+        "precio": "707.23",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3758,7 +4538,9 @@
         "categoria": "SOL",
         "grupo": "Medidores de energía",
         "unidad": "UD",
-        "precio": "219.71"
+        "precio": "219.71",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3769,7 +4551,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "565.52"
+        "precio": "565.52",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3780,7 +4564,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "33.72"
+        "precio": "33.72",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3791,7 +4577,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "M",
-        "precio": "16.84"
+        "precio": "16.84",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3802,7 +4590,9 @@
         "categoria": "MOB",
         "grupo": "Legalizaciones",
         "unidad": "UD",
-        "precio": "650.00"
+        "precio": "650.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3813,7 +4603,9 @@
         "categoria": "SOL",
         "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
-        "precio": "137.99"
+        "precio": "137.99",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3824,7 +4616,9 @@
         "categoria": "SOL",
         "grupo": "Estructuras solares",
         "unidad": "UD",
-        "precio": "7840.68"
+        "precio": "7840.68",
+        "clase": "SOP",
+        "proveedor": ""
     }
 },
 {
@@ -3835,7 +4629,9 @@
         "categoria": "SOL",
         "grupo": "Inversores",
         "unidad": "UD",
-        "precio": "2042.86"
+        "precio": "2042.86",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3846,7 +4642,9 @@
         "categoria": "SOL",
         "grupo": "Medidores de energía",
         "unidad": "UD",
-        "precio": "314.37"
+        "precio": "314.37",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3857,7 +4655,9 @@
         "categoria": "SOL",
         "grupo": "Cables y líneas",
         "unidad": "UD",
-        "precio": "418.99"
+        "precio": "418.99",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3868,7 +4668,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "523.49"
+        "precio": "523.49",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3879,7 +4681,9 @@
         "categoria": "ELE",
         "grupo": "Cuadros eléctricos",
         "unidad": "UD",
-        "precio": "469.13"
+        "precio": "469.13",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3890,7 +4694,9 @@
         "categoria": "SOL",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "201.90"
+        "precio": "201.90",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3901,7 +4707,9 @@
         "categoria": "SOL",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "4.16"
+        "precio": "4.16",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3912,7 +4720,9 @@
         "categoria": "MOB",
         "grupo": "Programación y puesta en marcha",
         "unidad": "UD",
-        "precio": "300.02"
+        "precio": "300.02",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3923,7 +4733,9 @@
         "categoria": "MOB",
         "grupo": "Legalizaciones",
         "unidad": "UD",
-        "precio": "600.00"
+        "precio": "600.00",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3934,7 +4746,9 @@
         "categoria": "CLI",
         "grupo": "Fancoils",
         "unidad": "UD",
-        "precio": "1424.28"
+        "precio": "1424.28",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3945,7 +4759,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "36.96"
+        "precio": "36.96",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3956,7 +4772,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "371.67"
+        "precio": "371.67",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -3967,7 +4785,9 @@
         "categoria": "CAL",
         "grupo": "Colectores y suelo radiante",
         "unidad": "UD",
-        "precio": "571.36"
+        "precio": "571.36",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -3978,7 +4798,9 @@
         "categoria": "FON",
         "grupo": "Desagües y saneamiento",
         "unidad": "UD",
-        "precio": "334.56"
+        "precio": "334.56",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -3989,7 +4811,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "23.16"
+        "precio": "23.16",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4000,7 +4824,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "32.92"
+        "precio": "32.92",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4011,7 +4837,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "27.93"
+        "precio": "27.93",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4022,7 +4850,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "UD",
-        "precio": "121.71"
+        "precio": "121.71",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4033,7 +4863,9 @@
         "categoria": "FON",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "1930.50"
+        "precio": "1930.50",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4044,7 +4876,9 @@
         "categoria": "FON",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "23.68"
+        "precio": "23.68",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4055,7 +4889,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "130.91"
+        "precio": "130.91",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4066,7 +4902,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "95.25"
+        "precio": "95.25",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4077,7 +4915,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "167.75"
+        "precio": "167.75",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4088,7 +4928,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "147.98"
+        "precio": "147.98",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4099,7 +4941,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "126.19"
+        "precio": "126.19",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4110,7 +4954,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "66.11"
+        "precio": "66.11",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4121,7 +4967,9 @@
         "categoria": "FON",
         "grupo": "Sanitarios y grifería",
         "unidad": "UD",
-        "precio": "83.81"
+        "precio": "83.81",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4132,7 +4980,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "1026.72"
+        "precio": "1026.72",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -4143,7 +4993,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "1788.56"
+        "precio": "1788.56",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4154,7 +5006,9 @@
         "categoria": "MOB",
         "grupo": "Conexionados e interconexiones",
         "unidad": "UD",
-        "precio": "810.34"
+        "precio": "810.34",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -4165,7 +5019,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "1089.28"
+        "precio": "1089.28",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4176,7 +5032,9 @@
         "categoria": "CLI",
         "grupo": "Equipos de aire acondicionado",
         "unidad": "UD",
-        "precio": "1183.54"
+        "precio": "1183.54",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4187,7 +5045,9 @@
         "categoria": "CLI",
         "grupo": "Pantallas y mandos",
         "unidad": "UD",
-        "precio": "268.86"
+        "precio": "268.86",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -4198,7 +5058,9 @@
         "categoria": "CLI",
         "grupo": "Tuberías",
         "unidad": "M",
-        "precio": "39.73"
+        "precio": "39.73",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4209,7 +5071,9 @@
         "categoria": "MOB",
         "grupo": "Material vario",
         "unidad": "UD",
-        "precio": "9.86"
+        "precio": "9.86",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -4220,7 +5084,9 @@
         "categoria": "CLI",
         "grupo": "Soportes y fijaciones",
         "unidad": "UD",
-        "precio": "175.50"
+        "precio": "175.50",
+        "clase": "SOP",
+        "proveedor": "Massanella Mallorca"
     }
 },
 {
@@ -4231,7 +5097,9 @@
         "categoria": "CLI",
         "grupo": "Ventilación y conductos",
         "unidad": "UD",
-        "precio": "397.92"
+        "precio": "397.92",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4242,7 +5110,9 @@
         "categoria": "MOB",
         "grupo": "Desmontajes",
         "unidad": "UD",
-        "precio": "265.20"
+        "precio": "265.20",
+        "clase": "",
+        "proveedor": ""
     }
 },
 {
@@ -4253,7 +5123,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "1764.14"
+        "precio": "1764.14",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4264,7 +5136,9 @@
         "categoria": "CAL",
         "grupo": "Depósitos e interacumuladores",
         "unidad": "UD",
-        "precio": "933.72"
+        "precio": "933.72",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4275,7 +5149,9 @@
         "categoria": "CAL",
         "grupo": "Bombas",
         "unidad": "UD",
-        "precio": "572.21"
+        "precio": "572.21",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4286,7 +5162,9 @@
         "categoria": "CAL",
         "grupo": "Líquidos y tratamientos",
         "unidad": "UD",
-        "precio": "36.31"
+        "precio": "36.31",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -4297,7 +5175,9 @@
         "categoria": "CAL",
         "grupo": "Filtros y separadores de lodos",
         "unidad": "UD",
-        "precio": "290.87"
+        "precio": "290.87",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -4308,7 +5188,9 @@
         "categoria": "SOL",
         "grupo": "Módulos fotovoltaicos",
         "unidad": "UD",
-        "precio": "66.29"
+        "precio": "66.29",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4319,7 +5201,9 @@
         "categoria": "SOL",
         "grupo": "Inversores",
         "unidad": "UD",
-        "precio": "247.59"
+        "precio": "247.59",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4330,7 +5214,9 @@
         "categoria": "SOL",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "8.13"
+        "precio": "8.13",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {
@@ -4341,7 +5227,9 @@
         "categoria": "SOL",
         "grupo": "Medidores de energía",
         "unidad": "UD",
-        "precio": "413.76"
+        "precio": "413.76",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -4352,7 +5240,9 @@
         "categoria": "DOM",
         "grupo": "Pasarelas y comunicación",
         "unidad": "UD",
-        "precio": "218.74"
+        "precio": "218.74",
+        "clase": "ACC",
+        "proveedor": ""
     }
 },
 {
@@ -4363,7 +5253,9 @@
         "categoria": "ELE",
         "grupo": "Cables y líneas",
         "unidad": "M",
-        "precio": "6.34"
+        "precio": "6.34",
+        "clase": "PRI",
+        "proveedor": ""
     }
 },
 {

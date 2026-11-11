@@ -1,8 +1,12 @@
+import json
+import os
 import unicodedata
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
 from django.utils import timezone
 
 
@@ -43,6 +47,8 @@ class Proyecto(models.Model):
         ('MAN', 'Mantenimiento'),
     ]
     nombre = models.CharField(max_length=150)
+    # Cliente del trabajo. Texto libre: al escribirlo se sugieren los clientes que ya existen
+    cliente = models.CharField(max_length=150, blank=True)
     tipo = models.CharField(max_length=3, choices=TIPOS, default='OBR')
     descripcion = models.TextField(blank=True)
     fecha_inicio = models.DateField(default=timezone.now)
@@ -74,16 +80,44 @@ class Proyecto(models.Model):
         return f"{self.nombre} ({self.get_tipo_display()})"
 
 
+def dias_texto(fecha):
+    """Lo que falta (o lo que ha pasado) hasta una fecha, en palabras: «hoy», «mañana», «en 4 días», «hace 3 días»."""
+    dias = (fecha - timezone.now().date()).days
+    if dias == 0:
+        return 'hoy'
+    if dias == 1:
+        return 'mañana'
+    if dias == -1:
+        return 'ayer'
+    if dias > 0:
+        return f'en {dias} días'
+    return f'hace {-dias} días'
+
+
 def sin_tildes(texto):
     """«Válvula» -> «valvula». Para que el buscador encuentre igual con o sin tildes."""
     return ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn').lower()
 
 
+def codigo_categoria(nombre):
+    """Código de 3 letras libre para una familia nueva: «Electricidad» -> ELE; si ya existe, ELC, EL2..."""
+    letras = ''.join(c for c in sin_tildes(nombre).upper() if c.isalpha()) or 'FAM'
+    candidatos = [letras[:3]]
+    for i in range(1, len(letras) - 1):
+        candidatos.append(letras[0] + letras[i:i + 2])
+    for numero in range(2, 100):
+        candidatos.append(letras[:2] + str(numero))
+    for codigo in candidatos:
+        if len(codigo) == 3 and not Categoria.objects.filter(pk=codigo).exists():
+            return codigo
+    return None
+
+
 def buscar_materiales(materiales, texto):
-    """Materiales cuyo nombre contiene todas las palabras buscadas, sin importar tildes ni mayúsculas.
-    («valvula 1/2» encuentra «Válvula esfera 1/2"»)."""
+    """Materiales cuyo nombre o proveedor contiene todas las palabras buscadas, sin importar tildes
+    ni mayúsculas («valvula 1/2» encuentra «Válvula esfera 1/2"»; «saltoki» encuentra lo de Saltoki)."""
     palabras = sin_tildes(texto).split()
-    encontrados = [m.pk for m in materiales if all(p in sin_tildes(m.nombre) for p in palabras)]
+    encontrados = [m.pk for m in materiales if all(p in sin_tildes(f'{m.nombre} {m.proveedor}') for p in palabras)]
     return materiales.filter(pk__in=encontrados)
 
 
@@ -98,6 +132,22 @@ def horas_texto(horas):
     return f'{h} h'
 
 
+class Categoria(models.Model):
+    """Familia del catálogo (Fontanería, Climatización...). Es un modelo propio para que
+    Oficina pueda crear familias nuevas desde la web sin tocar el código."""
+    # El código corto (FON, CLI...) es la clave primaria: es lo que viaja en la URL (?categoria=FON)
+    codigo = models.CharField(max_length=3, primary_key=True)
+    nombre = models.CharField(max_length=60, unique=True)
+    # Posición en los botones de familias (de menor a mayor)
+    orden = models.PositiveSmallIntegerField(default=50)
+
+    class Meta:
+        ordering = ['orden', 'nombre']
+
+    def __str__(self):
+        return self.nombre
+
+
 class Material(models.Model):
     UNIDADES = [
         ('UD', 'Unidad'),
@@ -107,25 +157,25 @@ class Material(models.Model):
         ('L', 'Litro'),
         ('H', 'Hora'),
     ]
-    # Familias del catálogo: el operario elige primero la familia y luego el material
-    CATEGORIAS = [
-        ('FON', 'Fontanería y saneamiento'),
-        ('CAL', 'Calefacción y ACS'),
-        ('CLI', 'Climatización y ventilación'),
-        ('ELE', 'Electricidad'),
-        ('SOL', 'Solar fotovoltaica'),
-        ('DOM', 'Domótica y control'),
-        ('PIS', 'Piscina y tratamiento de agua'),
-        ('MOB', 'Mano de obra y servicios'),
-        ('OTR', 'Otros'),
-    ]
     nombre = models.CharField(max_length=100, unique=True)
-    categoria = models.CharField(max_length=3, choices=CATEGORIAS, default='OTR')
+    # Familia: el operario elige primero la familia y luego el material.
+    # PROTECT: no se puede borrar una familia que aún tiene materiales.
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, default='OTR', related_name='materiales')
     # Tipo de material dentro de la familia (Tuberías, Válvulas, Bombas...). Texto libre
     # para que Oficina pueda crear tipos nuevos sin tocar el código.
     grupo = models.CharField(max_length=60, blank=True)
     unidad = models.CharField(max_length=2, choices=UNIDADES, default='UD')
     precio = models.DecimalField(max_digits=10, decimal_places=2)
+    # Proveedor habitual (Saltoki, Salvador Escoda...). Texto libre con sugerencias de los que ya existen
+    proveedor = models.CharField(max_length=100, blank=True)
+    # Clase del material: separa lo principal de los accesorios y los soportes.
+    # Servirá para las gráficas y estadísticas. Vacía en mano de obra y servicios.
+    CLASES = [
+        ('PRI', 'Material principal'),
+        ('ACC', 'Accesorio'),
+        ('SOP', 'Soporte'),
+    ]
+    clase = models.CharField(max_length=3, choices=CLASES, blank=True, default='PRI')
 
     def abreviatura(self):
         """Unidad corta para mostrar junto a la cantidad: 2 h, 3 ud, 40 m."""
@@ -155,11 +205,141 @@ class Consumo(models.Model):
         return f"{self.cantidad} {self.material.nombre} - {self.proyecto.nombre}"
 
 
+def ruta_citas(proyecto_id):
+    """Copia de las citas de un proyecto: media/citas/proyecto_1104.json"""
+    return f'citas/proyecto_{proyecto_id}.json'
+
+
+def guardar_citas_de(proyecto_id):
+    """Escribe en el disco todas las citas del proyecto, para recuperarlas si se borra la base de datos
+    (python manage.py recuperar_citas). Si ya no tiene citas, borra el archivo."""
+    ruta = ruta_citas(proyecto_id)
+    if default_storage.exists(ruta):
+        default_storage.delete(ruta)
+    citas = Cita.objects.filter(proyecto_id=proyecto_id).select_related('creada_por')
+    if citas:
+        datos = [{
+            'fecha': cita.fecha.isoformat(),
+            'hora': cita.hora.strftime('%H:%M') if cita.hora else '',
+            'motivo': cita.motivo,
+            'creada_por': cita.creada_por.username if cita.creada_por else '',
+        } for cita in citas]
+        default_storage.save(ruta, ContentFile(json.dumps(datos, ensure_ascii=False, indent=2).encode('utf-8')))
+
+
+class Cita(models.Model):
+    """Cita de un proyecto (visita, entrega, revisión...). Un proyecto puede tener varias;
+    los listados se ordenan por la próxima."""
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, related_name='citas')
+    fecha = models.DateField()
+    # La hora es opcional: hay citas de «por la mañana» o de todo el día
+    hora = models.TimeField(blank=True, null=True)
+    motivo = models.CharField(max_length=120, blank=True)
+    creada_por = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='citas')
+
+    class Meta:
+        ordering = ['fecha', 'hora', 'id']
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        guardar_citas_de(self.proyecto_id)
+
+    def delete(self, *args, **kwargs):
+        proyecto_id = self.proyecto_id
+        resultado = super().delete(*args, **kwargs)
+        guardar_citas_de(proyecto_id)
+        return resultado
+
+    def dias(self):
+        return dias_texto(self.fecha)
+
+    def es_pasada(self):
+        return self.fecha < timezone.now().date()
+
+    def es_cercana(self):
+        """Hoy o mañana: se marca en ámbar para que no se pase."""
+        return 0 <= (self.fecha - timezone.now().date()).days <= 1
+
+    def __str__(self):
+        return f"Cita de {self.proyecto.nombre} el {self.fecha:%d/%m/%Y}"
+
+
+class Nota(models.Model):
+    """Nota de texto en un proyecto. La puede escribir cualquier usuario (operario u Oficina)."""
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, related_name='notas')
+    # SET_NULL: si algún día se borra el usuario, sus notas se quedan en el proyecto
+    autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='notas')
+    texto = models.TextField(max_length=2000)
+    fecha = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-fecha', '-id']
+
+    def __str__(self):
+        return f"Nota de {self.proyecto.nombre} ({self.fecha:%d/%m/%Y})"
+
+
+def ruta_albaran(albaran, nombre):
+    """Cada albarán se guarda en la carpeta de su proyecto: media/albaranes/proyecto_1104/factura.pdf.
+    Así, aunque se borre la base de datos, la carpeta sigue diciendo a qué obra pertenece."""
+    return f'albaranes/proyecto_{albaran.proyecto_id}/{nombre}'
+
+
 class Albaran(models.Model):
+    """Albarán en PDF de un proyecto. Lo puede subir cualquiera; borrarlo, solo Oficina."""
     proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, related_name='albaranes')
-    archivo = models.FileField(upload_to='albaranes/%Y/%m/')
+    archivo = models.FileField(upload_to=ruta_albaran)
+    # Proveedor o número de albarán, para reconocerlo sin abrirlo
+    descripcion = models.CharField(max_length=120, blank=True)
     subido_por = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='albaranes')
     fecha = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-fecha', '-id']
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        # Junto al PDF se guarda su «ficha» con los datos de la fila, para poder recuperarla
+        # si se borra la base de datos (python manage.py recuperar_albaranes)
+        self.guardar_ficha()
+
+    def ruta_ficha(self):
+        """factura.pdf -> factura.pdf.json, en la misma carpeta."""
+        return self.archivo.name + '.json'
+
+    def guardar_ficha(self):
+        datos = {
+            'proyecto': self.proyecto_id,
+            'proyecto_nombre': self.proyecto.nombre,
+            'descripcion': self.descripcion,
+            'subido_por': self.subido_por.username,
+            'fecha': self.fecha.isoformat(),
+        }
+        if default_storage.exists(self.ruta_ficha()):
+            default_storage.delete(self.ruta_ficha())
+        default_storage.save(self.ruta_ficha(), ContentFile(json.dumps(datos, ensure_ascii=False, indent=2).encode('utf-8')))
+
+    def borrar_archivos(self):
+        """Borra del disco el PDF y su ficha (antes de borrar la fila)."""
+        if self.archivo:
+            ficha = self.ruta_ficha()
+            self.archivo.delete(save=False)
+            if default_storage.exists(ficha):
+                default_storage.delete(ficha)
+
+    def nombre_archivo(self):
+        """Nombre del PDF sin la carpeta: «albaranes/2026/11/factura.pdf» -> «factura.pdf»."""
+        return os.path.basename(self.archivo.name)
+
+    def tamano_texto(self):
+        """Tamaño del PDF para mostrarlo: «240 KB», «1,3 MB». Vacío si el archivo ya no está."""
+        try:
+            tamano = self.archivo.size
+        except (OSError, ValueError):
+            return ''
+        if tamano < 1024 * 1024:
+            return f'{max(1, round(tamano / 1024))} KB'
+        return f'{tamano / (1024 * 1024):.1f} MB'.replace('.', ',')
 
     def __str__(self):
         return f"Albarán de {self.proyecto.nombre} ({self.fecha:%d/%m/%Y})"

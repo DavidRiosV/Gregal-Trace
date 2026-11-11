@@ -139,3 +139,13 @@
     .presupuestos .grid { grid-template-columns: 1fr; }
     .presupuestos .card { padding: 18px 16px; }
 }
+
+/* Modo oscuro (mismas variables que el resto de la web) */
+@media (prefers-color-scheme: dark) {
+    .presupuestos .drop { background: #141C11; border-color: #3A4A31; }
+    .presupuestos input[type=text],
+    .presupuestos input[type=date],
+    .presupuestos input[type=email],
+    .presupuestos select,
+    .presupuestos textarea { border-color: #3A4A31; }
+}

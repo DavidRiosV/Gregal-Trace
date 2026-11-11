@@ -32,6 +32,17 @@
             </div>
 
             <div class="campo">
+                <label for="{{ formulario.cliente.id_for_label }}">{{ formulario.cliente.label }} <span class="campo__opcional">(si lo sabes)</span></label>
+                <div class="entrada{% if formulario.cliente.errors %} entrada--error{% endif %}">
+                    <input type="text" name="{{ formulario.cliente.html_name }}" id="{{ formulario.cliente.id_for_label }}"
+                           value="{{ formulario.cliente.value|default_if_none:'' }}" maxlength="150"
+                           list="clientes" autocomplete="off" placeholder="Nombre del cliente">
+                </div>
+                {# Sugerencias para el campo Cliente: los clientes que ya existen #}
+                <datalist id="clientes">{% for cliente in clientes %}<option value="{{ cliente }}">{% endfor %}</datalist>
+            </div>
+
+            <div class="campo">
                 <label for="{{ formulario.tipo_destino.id_for_label }}">{{ formulario.tipo_destino.label }}</label>
                 <div class="entrada{% if formulario.tipo_destino.errors %} entrada--error{% endif %}">
                     {{ formulario.tipo_destino }}
@@ -60,7 +71,7 @@
                         <span class="fila__principal">
                             <span class="fila__titulo">{{ urgencia.nombre }}</span>
                             <span class="fila__meta">
-                                {{ urgencia.get_tipo_destino_display }}, abierta por
+                                {% if urgencia.cliente %}{{ urgencia.cliente }} · {% endif %}{{ urgencia.get_tipo_destino_display }}, abierta por
                                 {{ urgencia.creado_por.get_full_name|default:urgencia.creado_por.username|default:"un usuario eliminado" }}
                                 el {{ urgencia.fecha_inicio|date:"d/m/Y" }}
                             </span>

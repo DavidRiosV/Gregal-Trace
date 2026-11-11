@@ -53,6 +53,7 @@
 
                     {% for consumo in ejemplo_consumo %}
                         <tr><td>Editar un apunte</td><td><a href="{% url 'consumo_editar' consumo.id %}">{% url 'consumo_editar' consumo.id %}</a></td><td>Su autor u Oficina</td></tr>
+                        <tr><td>Repetir un apunte</td><td><code>{% url 'consumo_repetir' consumo.id %}</code> (solo POST, botón de la tabla)</td><td>Quien pueda apuntar</td></tr>
                         <tr><td>Eliminar un apunte</td><td><code>{% url 'consumo_eliminar' consumo.id %}</code> (solo POST, botón de la tabla)</td><td>Su autor u Oficina</td></tr>
                     {% endfor %}
                     <tr><td>Materiales</td><td><a href="{% url 'lista_materiales' %}">{% url 'lista_materiales' %}</a></td><td>Oficina</td></tr>

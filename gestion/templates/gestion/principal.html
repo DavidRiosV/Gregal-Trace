@@ -4,12 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1E3B14">
+    <meta name="theme-color" content="#1E3B14" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0F1C0A" media="(prefers-color-scheme: dark)">
+    {# App instalable: manifest, icono para iPhone y modo pantalla completa #}
+    <link rel="manifest" href="{% static 'pwa/manifest.webmanifest' %}">
+    <link rel="apple-touch-icon" href="{% static 'pwa/apple-touch-icon.png' %}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Gregal Trace">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>{% block titulo %}Gregal Trace{% endblock %}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}?v=14">
+    {# Fuente Manrope servida desde static/fonts (sin Google Fonts). Se precarga la parte latina, la que más se usa #}
+    <link rel="preload" href="{% static 'fonts/manrope-latin.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}?v=26">
     {% block estilos %}{% endblock %}
 </head>
 <body class="{% block clase_body %}{% endblock %}">
@@ -39,6 +46,6 @@
 
     {% include "gestion/menu_movil.html" %}
 {% endblock %}
-    <script src="{% static 'js/main.js' %}?v=14"></script>
+    <script src="{% static 'js/main.js' %}?v=20"></script>
 </body>
 </html>

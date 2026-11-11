@@ -11,19 +11,69 @@ document.querySelectorAll("[data-mostrar-contrasena]").forEach(function (boton) 
     });
 });
 
-// Pide confirmación antes de eliminar.
-// Si se pulsa Cancelar devuelve false y el formulario no se envía.
-function eliminar() {
-    return confirm("¿Seguro que quieres eliminar este proyecto? Se borrarán también todos sus apuntes.");
-}
+// Ventana de confirmación propia (en vez del confirm() del navegador).
+// Cualquier botón con data-confirmar="texto" la abre antes de enviar su formulario.
+// Usa la etiqueta <dialog> de HTML: showModal() la abre encima de la página y oscurece el fondo.
+var ventana = document.createElement("dialog");
+ventana.className = "confirmar";
+ventana.innerHTML =
+    '<h2 class="confirmar__titulo">¿Seguro que quieres eliminarlo?</h2>' +
+    '<p class="confirmar__texto"></p>' +
+    '<div class="confirmar__botones">' +
+    '<button type="button" class="boton boton--secundario" data-cancelar>Cancelar</button>' +
+    '<button type="button" class="boton boton--borrar" data-aceptar>Eliminar</button>' +
+    '</div>';
+document.body.appendChild(ventana);
+var formularioPendiente = null;
 
-function eliminar_apunte() {
-    return confirm("¿Seguro que quieres eliminar este apunte?");
-}
+document.querySelectorAll("[data-confirmar]").forEach(function (boton) {
+    boton.addEventListener("click", function (evento) {
+        evento.preventDefault();
+        formularioPendiente = boton.form;
+        ventana.querySelector(".confirmar__texto").textContent = boton.dataset.confirmar;
+        ventana.showModal();
+        ventana.querySelector("[data-cancelar]").focus();
+    });
+});
+ventana.querySelector("[data-cancelar]").addEventListener("click", function () {
+    ventana.close();
+});
+ventana.querySelector("[data-aceptar]").addEventListener("click", function () {
+    ventana.close();
+    if (formularioPendiente) {
+        formularioPendiente.submit();
+    }
+});
+// Pulsar fuera de la ventana también la cierra
+ventana.addEventListener("click", function (evento) {
+    if (evento.target === ventana) {
+        ventana.close();
+    }
+});
 
-function eliminar_material() {
-    return confirm("¿Seguro que quieres eliminar este material?");
-}
+// Avisos («Apuntado…», «Proyecto creado»...): se cierran solos a los 4 segundos.
+// Si el ratón está encima, esperan; la X los cierra al momento.
+document.querySelectorAll(".avisos .aviso").forEach(function (aviso) {
+    var cerrar = document.createElement("button");
+    cerrar.type = "button";
+    cerrar.className = "aviso__cerrar";
+    cerrar.setAttribute("aria-label", "Cerrar aviso");
+    cerrar.textContent = "×";
+    aviso.appendChild(cerrar);
+
+    var temporizador;
+    function ocultar() {
+        aviso.classList.add("aviso--saliendo");
+        setTimeout(function () { aviso.remove(); }, 300);
+    }
+    function programar() {
+        temporizador = setTimeout(ocultar, 4000);
+    }
+    cerrar.addEventListener("click", ocultar);
+    aviso.addEventListener("mouseenter", function () { clearTimeout(temporizador); });
+    aviso.addEventListener("mouseleave", programar);
+    programar();
+});
 
 // ---------------------------------------------------------------------------
 // Selector deslizable de horas y minutos.
@@ -124,9 +174,85 @@ document.querySelectorAll("[data-opciones-material]").forEach(function (formular
 
 // En el móvil los botones de familia y tipo van en una fila que se desliza:
 // se coloca la fila para que se vea el botón elegido.
-document.querySelectorAll(".familias").forEach(function (fila) {
-    var activo = fila.querySelector(".familia--activa");
+document.querySelectorAll(".familias, .segmentos--desliza").forEach(function (fila) {
+    var activo = fila.querySelector(".familia--activa, .segmento--activo");
     if (activo && fila.scrollWidth > fila.clientWidth) {
         fila.scrollLeft = activo.offsetLeft - fila.offsetLeft - 16;
     }
 });
+
+// Pestañas de abajo en el detalle del proyecto: Apuntes, Notas y Albaranes.
+// Sin JavaScript se ven las tres seguidas; con él, solo la elegida. La elegida se guarda
+// en la dirección (#notas) para que al recargar o volver de guardar siga abierta.
+document.querySelectorAll("[data-pestanas]").forEach(function (bloque) {
+    var botones = bloque.querySelectorAll("[data-pestana]");
+    var nombres = Array.prototype.map.call(botones, function (b) { return b.dataset.pestana; });
+    bloque.classList.add("pestanas-proyecto--activas");
+
+    function abrir(nombre, moverPantalla) {
+        botones.forEach(function (boton) {
+            var elegida = boton.dataset.pestana === nombre;
+            boton.classList.toggle("pestana-proyecto--activa", elegida);
+            boton.setAttribute("aria-selected", elegida ? "true" : "false");
+            document.getElementById(boton.dataset.pestana).hidden = !elegida;
+        });
+        if (moverPantalla) {
+            bloque.scrollIntoView({ block: "start" });
+        }
+    }
+
+    botones.forEach(function (boton) {
+        boton.addEventListener("click", function (evento) {
+            evento.preventDefault();
+            abrir(boton.dataset.pestana, false);
+            history.replaceState(null, "", "#" + boton.dataset.pestana);
+        });
+    });
+
+    // Pestaña inicial: la de la dirección (#albaranes), la que manda Django si hay errores, o Apuntes
+    var desdeDireccion = location.hash.slice(1);
+    if (nombres.indexOf(desdeDireccion) !== -1) {
+        abrir(desdeDireccion, true);
+    } else {
+        abrir(nombres.indexOf(bloque.dataset.pestanaInicial) !== -1 ? bloque.dataset.pestanaInicial : nombres[0],
+              bloque.dataset.pestanaInicial && bloque.dataset.pestanaInicial !== "apuntes");
+    }
+});
+
+// Subir albarán: muestra el nombre del PDF elegido y deja soltarlo arrastrándolo encima
+document.querySelectorAll("[data-zona-pdf]").forEach(function (zona) {
+    var entrada = zona.querySelector("input[type=file]");
+    var texto = zona.querySelector("[data-zona-pdf-nombre]");
+    var textoInicial = texto.textContent;
+
+    function mostrar() {
+        var archivo = entrada.files[0];
+        texto.textContent = archivo ? archivo.name : textoInicial;
+        zona.classList.toggle("zona-pdf--elegido", Boolean(archivo));
+    }
+    entrada.addEventListener("change", mostrar);
+
+    ["dragenter", "dragover"].forEach(function (tipo) {
+        zona.addEventListener(tipo, function (evento) {
+            evento.preventDefault();
+            zona.classList.add("zona-pdf--encima");
+        });
+    });
+    ["dragleave", "drop"].forEach(function (tipo) {
+        zona.addEventListener(tipo, function () { zona.classList.remove("zona-pdf--encima"); });
+    });
+    zona.addEventListener("drop", function (evento) {
+        evento.preventDefault();
+        if (evento.dataTransfer.files.length) {
+            entrada.files = evento.dataTransfer.files;
+            mostrar();
+        }
+    });
+});
+
+// App instalable: registra el service worker (/sw.js). Si el navegador no lo admite, no pasa nada.
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js");
+    });
+}

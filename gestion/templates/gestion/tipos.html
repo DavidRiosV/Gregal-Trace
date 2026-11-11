@@ -1,0 +1,50 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}Tipos de material · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'lista_materiales' as url_materiales %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_url=url_materiales miga_texto="Materiales" miga_actual="Tipos" %}
+    <h1 class="pagina__titulo">Tipos de material</h1>
+    <p class="pagina__texto">Dentro de cada familia, los tipos agrupan los materiales (Tuberías, Válvulas, Bombas...). Puedes renombrar un tipo o pasarlo a otra familia: el cambio se aplica a todos sus materiales. Para crear un tipo nuevo, escríbelo al crear o editar un material.</p>
+</header>
+
+<section class="panel panel--lista">
+    <div class="barra-herramientas barra-herramientas--familias">
+        {% include "gestion/familias.html" with con_todas=True %}
+    </div>
+
+    {% if tipos %}
+        <div class="tabla-contenedor">
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Familia</th>
+                        <th scope="col" class="num">Materiales</th>
+                        <th scope="col" class="num"><span class="solo-lector">Acciones</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tipo in tipos %}
+                        <tr>
+                            <td class="tabla__material"><a href="{% url 'lista_materiales' %}?categoria={{ tipo.categoria }}&grupo={{ tipo.grupo|urlencode }}">{{ tipo.grupo }}</a></td>
+                            <td>{{ tipo.categoria__nombre }}</td>
+                            <td class="num">{{ tipo.num_materiales }}</td>
+                            <td class="tabla__acciones">
+                                <a class="boton-tabla" href="{% url 'tipo_editar' %}?categoria={{ tipo.categoria }}&grupo={{ tipo.grupo|urlencode }}" aria-label="Editar {{ tipo.grupo }}" title="Editar">{% include "gestion/icono.html" with nombre="editar" %}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="vacio"><p>Todavía no hay tipos en esta familia.</p></div>
+    {% endif %}
+    {% if sin_tipo and not categoria_actual %}
+        <p class="pagina__texto panel__nota">Hay {{ sin_tipo }} materiales sin tipo. Se lo puedes poner editando cada material.</p>
+    {% endif %}
+</section>
+{% endblock %}

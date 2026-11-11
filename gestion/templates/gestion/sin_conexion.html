@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1E3B14">
+    <title>Sin conexión · Gregal Trace</title>
+    {# Página independiente y con estilos dentro: se guarda en el móvil para enseñarla sin cobertura #}
+    <style>
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; box-sizing: border-box;
+               background: #F4F6F1; color: #17240F; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; }
+        .caja { max-width: 360px; }
+        h1 { margin: 18px 0 8px; font-size: 22px; }
+        p { margin: 0 0 22px; color: #55624C; line-height: 1.5; }
+        button { width: 100%; min-height: 48px; border: 0; border-radius: 8px; background: #2F5E1E; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#2F5E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16.1a5 5 0 0 1 7 0"/><path d="M12 20h.01"/><path d="M3 3l18 18"/></svg>
+        <h1>Sin conexión</h1>
+        <p>No hay cobertura ahora mismo. Gregal Trace necesita internet para ver y apuntar: vuelve a intentarlo cuando tengas señal.</p>
+        <button type="button" onclick="location.reload()">Reintentar</button>
+    </div>
+</body>
+</html>

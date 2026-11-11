@@ -1,6 +1,10 @@
 <form class="buscador" method="get" role="search">
     {% if estado_actual %}<input type="hidden" name="estado" value="{{ estado_actual }}">{% endif %}
     {% if categoria_actual %}<input type="hidden" name="categoria" value="{{ categoria_actual }}">{% endif %}
+    {% if grupo_actual %}<input type="hidden" name="grupo" value="{{ grupo_actual }}">{% endif %}
+    {% if clase_actual %}<input type="hidden" name="clase" value="{{ clase_actual }}">{% endif %}
+    {% if orden_actual and orden_actual != 'familia' %}<input type="hidden" name="orden" value="{{ orden_actual }}">{% endif %}
+    {% if tipo_actual %}<input type="hidden" name="tipo" value="{{ tipo_actual }}">{% endif %}
     {% include "gestion/icono.html" with nombre="buscar" %}
     <input type="search" name="q" value="{{ busqueda }}" placeholder="{{ texto_buscador|default:'Buscar' }}" aria-label="{{ texto_buscador|default:'Buscar' }}">
     <button type="submit" class="buscador__boton">Buscar</button>

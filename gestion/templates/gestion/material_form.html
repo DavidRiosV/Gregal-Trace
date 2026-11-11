@@ -25,10 +25,28 @@
             {% for tipo in tipos %}<option value="{{ tipo }}">{% endfor %}
         </datalist>
 
+        {# Clase: botones de opción, igual que el tipo de hora #}
+        <div class="campo">
+            <span class="campo__titulo">{{ formulario.clase.label }}</span>
+            <div class="familias familias--formulario" role="radiogroup" aria-label="{{ formulario.clase.label }}">
+                {% for opcion in formulario.clase %}
+                    <label class="familia familia--opcion">{{ opcion.tag }}{% if opcion.data.value %}<span class="punto-clase punto-clase--{{ opcion.data.value }}" aria-hidden="true"></span>{% endif %}{{ opcion.choice_label }}</label>
+                {% endfor %}
+            </div>
+            {% if formulario.clase.help_text %}<div class="ayuda-campo">{{ formulario.clase.help_text }}</div>{% endif %}
+            {% for error in formulario.clase.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+        </div>
+
         <div class="formulario__fila">
             {% include "gestion/campo_widget.html" with campo=formulario.unidad %}
             {% include "gestion/campo_widget.html" with campo=formulario.precio %}
         </div>
+
+        {% include "gestion/campo_widget.html" with campo=formulario.proveedor %}
+        {# Sugerencias para el campo Proveedor: los que ya existen #}
+        <datalist id="proveedores">
+            {% for proveedor in proveedores %}<option value="{{ proveedor }}">{% endfor %}
+        </datalist>
 
         <div class="formulario__botones">
             <button type="submit" class="boton">{% if material %}Guardar cambios{% else %}Crear material{% endif %}</button>

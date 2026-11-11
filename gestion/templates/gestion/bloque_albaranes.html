@@ -1,0 +1,46 @@
+{# Subir albarán y lista de albaranes. Se usa en la pestaña (Oficina) y en el apartado (operarios). #}
+{% if perms.gestion.add_albaran %}
+    {# enctype multipart/form-data: obligatorio para enviar archivos (Formularios, diapositiva 4) #}
+    <form method="post" enctype="multipart/form-data" class="subir-albaran" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="apunte" value="albaran">
+        <label class="zona-pdf{% if formulario_albaran.archivo.errors %} zona-pdf--error{% endif %}" data-zona-pdf>
+            {{ formulario_albaran.archivo }}
+            <span class="zona-pdf__icono">{% include "gestion/icono.html" with nombre="subir" %}</span>
+            <span class="zona-pdf__texto">
+                <strong data-zona-pdf-nombre>Elige el PDF del albarán</strong>
+                <span><span class="solo-escritorio">o arrástralo aquí · </span>solo PDF, hasta 10 MB</span>
+            </span>
+        </label>
+        {% for error in formulario_albaran.archivo.errors %}<p class="error-campo">{{ error }}</p>{% endfor %}
+        <div class="subir-albaran__fila">
+            <div class="campo">
+                <label for="{{ formulario_albaran.descripcion.id_for_label }}">{{ formulario_albaran.descripcion.label }} <span class="campo__opcional">(opcional)</span></label>
+                <div class="entrada"><input type="text" name="{{ formulario_albaran.descripcion.html_name }}" id="{{ formulario_albaran.descripcion.id_for_label }}" value="{{ formulario_albaran.descripcion.value|default_if_none:'' }}" maxlength="120" placeholder="Ej.: Saltoki 4512"></div>
+            </div>
+            <button type="submit" class="boton">{% include "gestion/icono.html" with nombre="subir" %}Subir albarán</button>
+        </div>
+    </form>
+{% endif %}
+<ul class="albaranes">
+    {% for albaran in albaranes %}
+        <li class="albaran">
+            <a class="albaran__abrir" href="{% url 'albaran_ver' albaran.pk %}" target="_blank" rel="noopener">
+                <span class="albaran__icono" aria-hidden="true">PDF</span>
+                <span class="albaran__datos">
+                    <span class="albaran__titulo">{{ albaran.descripcion|default:albaran.nombre_archivo }}</span>
+                    <span class="albaran__meta">{% if albaran.descripcion %}{{ albaran.nombre_archivo }} · {% endif %}{% with tamano=albaran.tamano_texto %}{% if tamano %}{{ tamano }} · {% endif %}{% endwith %}{{ albaran.subido_por.get_full_name|default:albaran.subido_por.username }}, {{ albaran.fecha|date:"d/m/Y H:i" }}</span>
+                </span>
+                <span class="albaran__ver">{% include "gestion/icono.html" with nombre="abrir" %}<span>Ver</span></span>
+            </a>
+            {% if perms.gestion.delete_albaran %}
+                <form method="post" action="{% url 'albaran_eliminar' albaran.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar albarán" title="Eliminar" data-confirmar="Se borrará el albarán «{{ albaran.descripcion|default:albaran.nombre_archivo }}» y su PDF.">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+                </form>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li class="vacio"><p>Todavía no hay albaranes en este proyecto.</p></li>
+    {% endfor %}
+</ul>

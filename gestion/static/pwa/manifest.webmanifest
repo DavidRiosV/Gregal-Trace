@@ -1,0 +1,17 @@
+{
+    "name": "Gregal Trace",
+    "short_name": "Gregal Trace",
+    "description": "Material y horas de cada obra, intervención y mantenimiento de Instalaciones Gregal.",
+    "lang": "es",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#F4F6F1",
+    "theme_color": "#1E3B14",
+    "icons": [
+        {"src": "/static/pwa/icono-192.png", "sizes": "192x192", "type": "image/png"},
+        {"src": "/static/pwa/icono-512.png", "sizes": "512x512", "type": "image/png"},
+        {"src": "/static/pwa/icono-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    ]
+}

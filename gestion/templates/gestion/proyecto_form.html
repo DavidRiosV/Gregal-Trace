@@ -20,6 +20,9 @@
         {% endfor %}
 
         {% include "gestion/campo.html" with campo=formulario.nombre %}
+        {% include "gestion/campo_widget.html" with campo=formulario.cliente %}
+        {# Sugerencias para el campo Cliente: los clientes que ya existen #}
+        <datalist id="clientes">{% for cliente in clientes %}<option value="{{ cliente }}">{% endfor %}</datalist>
 
         <div class="formulario__fila">
             {% include "gestion/campo_widget.html" with campo=formulario.tipo %}
@@ -30,6 +33,7 @@
             {% include "gestion/campo_widget.html" with campo=formulario.fecha_inicio %}
             {% include "gestion/campo_widget.html" with campo=formulario.fecha_fin %}
         </div>
+        <p class="ayuda-campo">Las citas (visitas, entregas, revisiones...) se añaden desde el proyecto, una vez creado.</p>
 
         {% include "gestion/campo_widget.html" with campo=formulario.descripcion %}
 

@@ -1,0 +1,53 @@
+{# Tabla de apuntes del proyecto (material y horas). #}
+{% if consumos %}
+    <div class="tabla-contenedor">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Material</th>
+                    <th scope="col" class="num">Cantidad</th>
+                    <th scope="col">Añadido por</th>
+                    {% if perms.gestion.change_material %}<th scope="col" class="num">Importe</th>{% endif %}
+                    {% if not proyecto.esta_terminado %}<th scope="col" class="num"><span class="solo-lector">Acciones</span></th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for consumo in consumos %}
+                    <tr>
+                        <td class="tabla__fecha">{{ consumo.fecha|date:"d/m/Y" }}</td>
+                        <td class="tabla__material">{{ consumo.material.nombre }}</td>
+                        <td class="num">{{ consumo.cantidad_texto }}</td>
+                        <td class="tabla__persona"><span class="avatar avatar--mini" aria-hidden="true">{{ consumo.trabajador.first_name|default:consumo.trabajador.username|slice:":1"|upper }}</span>{{ consumo.trabajador.get_full_name|default:consumo.trabajador.username }}</td>
+                        {% if perms.gestion.change_material %}<td class="num">{{ consumo.total|floatformat:"2g" }} €</td>{% endif %}
+                        {% if not proyecto.esta_terminado %}
+                            <td class="tabla__acciones">
+                                {# Repetir: apunta lo mismo con fecha de hoy. Oficina, cualquiera; operarios, solo horas #}
+                                {% if puede_apuntar and es_oficina or puede_apuntar and consumo.material.unidad == 'H' %}
+                                    <form method="post" action="{% url 'consumo_repetir' consumo.pk %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="boton-tabla" aria-label="Repetir apunte con fecha de hoy" title="Repetir hoy">{% include "gestion/icono.html" with nombre="repetir" %}</button>
+                                    </form>
+                                {% endif %}
+                                {# Cada operario solo cambia sus apuntes de horas; Oficina, todos #}
+                                {% if es_oficina or consumo.trabajador == user and consumo.material.unidad == 'H' %}
+                                    {% if perms.gestion.change_consumo %}
+                                        <a class="boton-tabla" href="{% url 'consumo_editar' consumo.pk %}" aria-label="Editar apunte" title="Editar">{% include "gestion/icono.html" with nombre="editar" %}</a>
+                                    {% endif %}
+                                    {% if perms.gestion.delete_consumo %}
+                                        <form method="post" action="{% url 'consumo_eliminar' consumo.pk %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar apunte" title="Eliminar" data-confirmar="Se borrará el apunte de {{ consumo.cantidad_texto }} de {{ consumo.material.nombre }}.">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+                                        </form>
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <div class="vacio"><p>Todavía no hay apuntes. El primero que añadas aparecerá aquí con tu nombre.</p></div>
+{% endif %}

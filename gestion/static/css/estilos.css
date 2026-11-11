@@ -5,7 +5,26 @@
    con la paleta verde y blanca de Instalaciones Gregal.
    ========================================================== */
 
+/* Fuente Manrope (variable, pesos 400-800) servida desde nuestro servidor. Licencia SIL Open Font License. */
+@font-face {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url("../fonts/manrope-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url("../fonts/manrope-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
+    color-scheme: light dark;   /* calendarios, desplegables y barras de scroll siguen el tema */
     /* Colores de marca */
     --verde-noche: #1E3B14;      /* menú lateral */
     --verde-marca: #689B41;      /* logotipo, detalles */
@@ -13,6 +32,7 @@
     --verde-suave: #E4EFDA;      /* selección, filas al pasar */
     --fondo: #F4F7F1;            /* fondo de la aplicación */
     --blanco: #FFFFFF;           /* superficies */
+    --sobre-color: #FFFFFF;      /* texto sobre botones y fondos de color */
 
     /* Colores con función */
     --ambar: #D99A00;            /* en proceso y urgencias */
@@ -110,7 +130,7 @@ img { display: block; max-width: 100%; }
     align-items: center;
     gap: 10px;
     padding: 4px 8px;
-    color: var(--blanco);
+    color: var(--sobre-color);
     font-size: 17px;
     font-weight: 800;
     letter-spacing: -0.01em;
@@ -153,12 +173,12 @@ img { display: block; max-width: 100%; }
     text-decoration: none;
 }
 
-.menu__enlace:hover { background: rgba(255, 255, 255, 0.07); color: var(--blanco); }
+.menu__enlace:hover { background: rgba(255, 255, 255, 0.07); color: var(--sobre-color); }
 
 .menu__enlace--activo,
 .menu__enlace--activo:hover {
     background: var(--verde-marca);
-    color: var(--blanco);
+    color: var(--sobre-color);
 }
 
 .menu__contador {
@@ -167,7 +187,7 @@ img { display: block; max-width: 100%; }
     padding: 1px 8px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.14);
-    color: var(--blanco);
+    color: var(--sobre-color);
     font-size: 12px;
     font-weight: 700;
     text-align: center;
@@ -192,7 +212,7 @@ img { display: block; max-width: 100%; }
     line-height: 1.3;
 }
 
-.menu__persona strong { color: var(--blanco); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menu__persona strong { color: var(--sobre-color); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .menu__persona span { color: #A9C29A; }
 .menu__usuario form { margin-left: auto; }
 
@@ -205,7 +225,7 @@ img { display: block; max-width: 100%; }
     height: 34px;
     border-radius: 50%;
     background: var(--verde-marca);
-    color: var(--blanco);
+    color: var(--sobre-color);
     font-size: 14px;
     font-weight: 800;
 }
@@ -226,7 +246,7 @@ img { display: block; max-width: 100%; }
     cursor: pointer;
 }
 
-.boton-icono:hover { background: rgba(255, 255, 255, 0.1); color: var(--blanco); }
+.boton-icono:hover { background: rgba(255, 255, 255, 0.1); color: var(--sobre-color); }
 
 /* Barra superior y pestañas: solo en móvil */
 .barra-superior,
@@ -466,7 +486,7 @@ img { display: block; max-width: 100%; }
 
 .segmento:hover { color: var(--texto); background: var(--fondo); }
 .segmento--activo,
-.segmento--activo:hover { background: var(--verde-accion); color: var(--blanco); }
+.segmento--activo:hover { background: var(--verde-accion); color: var(--sobre-color); }
 
 /* ---------- Listados en filas ---------- */
 .filas { margin: 0; padding: 0; list-style: none; }
@@ -643,7 +663,7 @@ img { display: block; max-width: 100%; }
     border: 1px solid var(--verde-accion);
     border-radius: var(--radio-control);
     background: var(--verde-accion);
-    color: var(--blanco);
+    color: var(--sobre-color);
     font: inherit;
     font-weight: 700;
     text-decoration: none;
@@ -811,7 +831,7 @@ img { display: block; max-width: 100%; }
 /* Tipo de hora (Oficial / Pareja) como botones */
 .familia--opcion { display: inline-flex; align-items: center; cursor: pointer; }
 .familia--opcion input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.familia--opcion:has(input:checked) { background: var(--verde-accion); border-color: var(--verde-accion); color: var(--blanco); }
+.familia--opcion:has(input:checked) { background: var(--verde-accion); border-color: var(--verde-accion); color: var(--sobre-color); }
 .familia--opcion:has(input:focus-visible) { box-shadow: var(--foco); }
 .formulario__fila--horas { align-items: end; }
 
@@ -902,7 +922,7 @@ img { display: block; max-width: 100%; }
 .familia:hover { color: var(--texto); border-color: var(--verde-marca); }
 .familia:focus-visible { outline: none; box-shadow: var(--foco); }
 .familia--activa,
-.familia--activa:hover { background: var(--verde-accion); border-color: var(--verde-accion); color: var(--blanco); }
+.familia--activa:hover { background: var(--verde-accion); border-color: var(--verde-accion); color: var(--sobre-color); }
 
 .barra-herramientas--familias .familias { margin: 0; }
 .campo__titulo { font-size: 14px; font-weight: 600; }
@@ -979,7 +999,7 @@ img { display: block; max-width: 100%; }
 .acceso__marca img { border-radius: 50%; background: var(--blanco); }
 
 .acceso__marca h1 {
-    color: var(--blanco);
+    color: var(--sobre-color);
     font-size: 44px;
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -1029,7 +1049,7 @@ img { display: block; max-width: 100%; }
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    color: var(--blanco);
+    color: var(--sobre-color);
     font-size: 20px;
     font-weight: 800;
     text-decoration: none;
@@ -1127,7 +1147,7 @@ img { display: block; max-width: 100%; }
         display: flex;
         align-items: center;
         gap: 10px;
-        color: var(--blanco);
+        color: var(--sobre-color);
         font-weight: 800;
         text-decoration: none;
     }
@@ -1244,3 +1264,580 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Familias de material (Materiales > Familias) */
+.panel__titulo--formulario { margin: 0 0 16px; }
+.panel--separado { margin-top: 24px; }
+.panel__nota { margin: 0; padding: 14px 24px; font-size: 13px; }
+.lista-simple { margin: 0; padding: 12px 24px 16px 42px; color: var(--texto); font-size: 14px; line-height: 1.7; }
+
+/* Avisos que se cierran solos (main.js) */
+.avisos .aviso { position: relative; padding-right: 44px; transition: opacity 0.3s, transform 0.3s; }
+.aviso--saliendo { opacity: 0; transform: translateY(-6px); }
+.aviso__cerrar {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    border: 0;
+    border-radius: var(--radio-control);
+    background: transparent;
+    color: var(--texto-suave);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+.aviso__cerrar:hover { background: var(--fondo); color: var(--texto); }
+
+/* Ventana de confirmación propia (main.js) */
+.confirmar {
+    width: min(420px, calc(100% - 32px));
+    padding: 24px;
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-panel);
+    background: var(--blanco);
+    color: var(--texto);
+    box-shadow: 0 18px 50px rgba(23, 36, 15, 0.25);
+}
+.confirmar::backdrop { background: rgba(23, 36, 15, 0.45); }
+.confirmar__titulo { margin: 0 0 8px; font-size: 18px; font-weight: 800; }
+.confirmar__texto { margin: 0 0 22px; color: var(--texto-suave); line-height: 1.5; }
+.confirmar__botones { display: flex; justify-content: flex-end; gap: 8px; }
+.boton--borrar { border-color: var(--rojo); background: var(--rojo); color: var(--sobre-color); }
+.boton--borrar:hover { background: #912018; border-color: #912018; }
+@media (max-width: 760px) {
+    .confirmar__botones .boton { flex: 1; }
+}
+
+/* Fecha de entrega en los listados (junto al estado) */
+.entrega { flex-shrink: 0; color: var(--texto-suave); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.entrega--cerca { color: #7A5600; }
+.entrega--vencido { color: var(--rojo); }
+@media (max-width: 760px) {
+    .fila { flex-wrap: wrap; row-gap: 6px; }
+    .fila__principal { flex-basis: calc(100% - 40px); }
+    .fila .entrega { order: 3; font-size: 12px; }
+    .fila .estado { order: 4; }
+    .fila .fila__flecha { order: 2; }
+}
+
+/* Días que faltan para la entrega */
+.entrega__dias { font-weight: 500; }
+
+/* ==========================================================
+   Modo oscuro automático: se activa si el móvil u ordenador lo tiene puesto.
+   Solo cambian las variables de color y unos pocos colores fijos.
+   ========================================================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --verde-noche: #0F1C0A;
+        --verde-marca: #7DB352;
+        --verde-accion: #4F8C30;
+        --verde-suave: #22331A;
+        --fondo: #0E130C;
+        --blanco: #172013;
+        --ambar-suave: #3A2F10;
+        --rojo: #F0705F;
+        --rojo-suave: #3A1A16;
+        --texto: #E6EDE1;
+        --texto-suave: #A7B59D;
+        --linea: #2C3A25;
+        --sombra-panel: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+    a { color: #8CC566; }
+    .fila:hover, .tabla tbody tr:hover td, .opcion-material:hover { background: #1C2717; }
+    .barra-herramientas, .tabla th, .lista-materiales__grupo { background: #141C11; }
+    .entrada { border-color: #3A4A31; }
+    .entrada input::placeholder, .entrada textarea::placeholder { color: #7D8B74; }
+    .estado--proceso, .entrega--cerca { color: #E8C062; }
+    .estado--terminado { color: #A6D485; }
+    .tipo--urgencia { border-color: #6B5520; }
+    .tipo--urgencia .tipo__icono { color: #E8C062; }
+    .buscador__boton:hover { background: #2B3F22; }
+    .boton:hover { background: #5E9E3B; }
+    .fila__flecha { color: #6D7F63; }
+    .tipo__foto { filter: brightness(0.88); }
+    .avatar--claro { background: #E6EDE1; color: #0F1C0A; }
+    .confirmar::backdrop { background: rgba(0, 0, 0, 0.6); }
+}
+
+/* ==========================================================
+   Tamaño táctil: en el móvil todo lo que se pulsa mide al menos 44 px
+   (lo recomendado para dedos, también con guantes)
+   ========================================================== */
+@media (max-width: 760px) {
+    .boton-tabla { width: 44px; height: 44px; }
+    .boton-icono { width: 44px; height: 44px; }
+    .entrada__ojo { min-width: 44px; min-height: 44px; }
+    .aviso__cerrar { width: 44px; height: 44px; margin-top: -22px; right: 2px; }
+    .segmento { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+    .familia { min-height: 44px; display: inline-flex; align-items: center; }
+    .boton, .buscador__boton { min-height: 44px; }
+    .migas { align-items: center; margin-top: -10px; margin-bottom: 0; }
+    .migas a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* ==========================================================
+   Materiales: clase (principal, accesorio, soporte) y orden
+   ========================================================== */
+:root {
+    --clase-pri: var(--verde-accion);
+    --clase-pri-suave: var(--verde-suave);
+    --clase-acc: #2F6FA3;
+    --clase-acc-suave: #E3EEF8;
+    --clase-sop: #8A6436;
+    --clase-sop-suave: #F3EADD;
+}
+
+.segmento { display: inline-flex; align-items: center; gap: 6px; }
+.segmento__numero { font-size: 12px; font-weight: 700; opacity: 0.65; }
+.segmento--activo .segmento__numero { opacity: 0.85; }
+
+/* Puntito de color que identifica cada clase (en los botones y en el formulario) */
+.punto-clase { width: 8px; height: 8px; flex: none; border-radius: 50%; }
+.punto-clase--PRI { background: var(--clase-pri); }
+.punto-clase--ACC { background: var(--clase-acc); }
+.punto-clase--SOP { background: var(--clase-sop); }
+.segmento--activo .punto-clase,
+.familia--opcion:has(input:checked) .punto-clase { box-shadow: 0 0 0 2px var(--sobre-color); }
+.familia--opcion .punto-clase { margin-right: 8px; }
+
+/* Etiqueta de la clase en la tabla */
+.clase {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.clase--PRI { background: var(--clase-pri-suave); color: var(--clase-pri); }
+.clase--ACC { background: var(--clase-acc-suave); color: var(--clase-acc); }
+.clase--SOP { background: var(--clase-sop-suave); color: var(--clase-sop); }
+.tabla__nada { color: var(--texto-suave); }
+
+/* Cabeceras de la tabla que ordenan al pulsarlas */
+.ordenar {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: inherit;
+    text-decoration: none;
+}
+.ordenar:hover { color: var(--verde-accion); }
+.ordenar__flecha { opacity: 0; font-size: 12px; transition: opacity 0.15s; }
+.ordenar:hover .ordenar__flecha { opacity: 0.5; }
+.ordenar--activo { color: var(--verde-accion); font-weight: 700; }
+.ordenar--activo .ordenar__flecha,
+.ordenar--activo:hover .ordenar__flecha { opacity: 1; }
+
+.barra-herramientas__total--fila {
+    margin: 0;
+    padding: 10px 24px;
+    border-bottom: 1px solid var(--linea);
+    font-size: 13px;
+}
+
+.familias--formulario { margin: 0; }
+.campo__opcional { color: var(--texto-suave); font-weight: 500; }
+
+/* ==========================================================
+   Detalle del proyecto: pestañas Apuntes · Notas · Albaranes
+   ========================================================== */
+.pestanas-proyecto__barra {
+    display: flex;
+    gap: 4px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--linea);
+    background: #FAFCF8;
+    overflow-x: auto;
+}
+
+.pestana-proyecto {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 54px;
+    padding: 0 14px;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    color: var(--texto-suave);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.pestana-proyecto:hover { color: var(--texto); }
+.pestana-proyecto--activa,
+.pestana-proyecto--activa:hover { color: var(--verde-accion); border-bottom-color: var(--verde-accion); }
+
+.pestana-proyecto__numero {
+    min-width: 22px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--fondo);
+    color: var(--texto-suave);
+    font-size: 12px;
+    text-align: center;
+}
+.pestana-proyecto--activa .pestana-proyecto__numero { background: var(--verde-suave); color: var(--verde-accion); }
+
+/* Sin JavaScript los tres bloques se ven seguidos, cada uno con su título.
+   Con pestañas el título sobra (ya está en la pestaña), pero se deja para lectores de pantalla. */
+.pestanas-proyecto--activas .pestanas-proyecto__titulo {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+.pestanas-proyecto__panel[hidden] { display: none; }
+.pestanas-proyecto:not(.pestanas-proyecto--activas) .pestanas-proyecto__panel + .pestanas-proyecto__panel { border-top: 1px solid var(--linea); }
+
+/* ---------- Notas ---------- */
+.nota-nueva {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--linea);
+    background: #FAFCF8;
+}
+.nota-nueva .entrada { align-items: stretch; }
+.nota-nueva__pie { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+.notas,
+.albaranes { margin: 0; padding: 0; list-style: none; }
+.notas li + li,
+.albaranes li + li { border-top: 1px solid var(--linea); }
+
+.nota {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 16px 24px;
+}
+.nota .avatar--mini { flex: none; width: 32px; height: 32px; margin-right: 10px; font-size: 13px; }
+.nota__cuerpo { flex: 1; min-width: 0; }
+.nota__cabecera { display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; font-size: 14px; }
+.nota__cabecera time { color: var(--texto-suave); font-size: 13px; }
+.nota__texto { margin-top: 4px; overflow-wrap: anywhere; line-height: 1.55; }
+
+/* ---------- Subir albarán ---------- */
+.subir-albaran {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--linea);
+    background: #FAFCF8;
+}
+
+.zona-pdf {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border: 2px dashed #B9C9AC;
+    border-radius: var(--radio-panel);
+    background: var(--blanco);
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+/* El campo de archivo real queda invisible encima de toda la zona: así se puede pulsar en cualquier sitio */
+.zona-pdf input[type=file] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.zona-pdf:hover,
+.zona-pdf--encima { border-color: var(--verde-marca); background: var(--verde-suave); }
+.zona-pdf:focus-within { border-color: var(--verde-marca); box-shadow: var(--foco); }
+.zona-pdf--elegido { border-style: solid; border-color: var(--verde-marca); }
+.zona-pdf--error { border-color: var(--rojo); }
+
+.zona-pdf__icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--verde-suave);
+    color: var(--verde-accion);
+}
+.zona-pdf__texto { display: flex; flex-direction: column; min-width: 0; }
+.zona-pdf__texto strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.zona-pdf__texto span { color: var(--texto-suave); font-size: 13px; }
+
+.subir-albaran__fila { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 12px; }
+.subir-albaran__fila .boton { min-height: 46px; }
+
+/* ---------- Lista de albaranes del proyecto ---------- */
+.albaran { display: flex; align-items: center; gap: 8px; padding-right: 20px; }
+.albaran__abrir {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+    padding: 14px 8px 14px 24px;
+    color: var(--texto);
+    text-decoration: none;
+}
+.albaran__abrir:hover .albaran__titulo { color: var(--verde-accion); }
+.albaran:hover { background: #F7FAF4; }
+
+.albaran__icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 40px;
+    height: 48px;
+    border-radius: 6px;
+    background: var(--rojo-suave);
+    color: var(--rojo);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+.albaran__datos { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.albaran__titulo { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Al abrir una pestaña desde la dirección (#albaranes) no queda tapada por la barra de arriba */
+.pestanas-proyecto { scroll-margin-top: 16px; }
+.albaran__meta { color: var(--texto-suave); font-size: 13px; }
+.albaran__ver { display: inline-flex; align-items: center; gap: 6px; color: var(--verde-accion); font-size: 14px; font-weight: 700; }
+
+/* ---------- Apartado Albaranes (Oficina) ---------- */
+.fila__icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--verde-suave);
+    color: var(--verde-accion);
+}
+.contador-albaranes {
+    flex: none;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--fondo);
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clase-pri: #A6D485;
+        --clase-acc: #8DBCE6;
+        --clase-acc-suave: #1A2A38;
+        --clase-sop: #D9B98C;
+        --clase-sop-suave: #33291C;
+    }
+    .pestanas-proyecto__barra, .nota-nueva, .subir-albaran { background: #141C11; }
+    .albaran:hover { background: #1C2717; }
+    .zona-pdf { border-color: #3A4A31; }
+    .ordenar:hover, .ordenar--activo, .pestana-proyecto--activa, .pestana-proyecto--activa:hover { color: #A6D485; }
+    .pestana-proyecto--activa { border-bottom-color: #7DB352; }
+    .pestana-proyecto--activa .pestana-proyecto__numero { color: #A6D485; }
+    .albaran__ver, .zona-pdf__icono, .fila__icono { color: #A6D485; }
+}
+
+@media (max-width: 760px) {
+    /* Los botones de clase y de apartado se deslizan en una fila */
+    .segmentos--desliza { max-width: 100%; overflow-x: auto; }
+    .segmentos--desliza .segmento { flex: none; }
+    .barra-herramientas__total--fila { padding: 10px 16px; }
+
+    .pestanas-proyecto__barra { padding: 0 4px; }
+    .pestana-proyecto { flex: 1; justify-content: center; padding: 0 8px; gap: 6px; }
+    .pestana-proyecto .icono { display: none; }
+
+    .nota-nueva, .subir-albaran { padding: 16px; }
+    .nota-nueva__pie .boton { width: 100%; }
+    .nota { padding: 14px 16px; }
+
+    .subir-albaran__fila { grid-template-columns: 1fr; }
+    .albaran { padding-right: 12px; }
+    .albaran__abrir { padding-left: 16px; gap: 12px; }
+    .albaran__ver span { display: none; }
+    .albaran__ver { min-width: 44px; min-height: 44px; justify-content: center; }
+    .albaran__titulo { white-space: normal; overflow-wrap: anywhere; }
+    .pestanas-proyecto { scroll-margin-top: 84px; }
+    .solo-escritorio { display: none; }
+
+    .fila .contador-albaranes { order: 3; font-size: 12px; }
+    .fila .fila__icono { display: none; }
+}
+
+/* Título de apartado con icono y contador (Notas, Albaranes y Apuntes de los operarios) */
+.panel__titulo--icono { display: flex; align-items: center; gap: 10px; }
+.panel__titulo--icono .icono { color: var(--verde-accion); }
+@media (prefers-color-scheme: dark) {
+    .panel__titulo--icono .icono { color: #A6D485; }
+}
+@media (max-width: 760px) {
+    .panel__titulo--icono { padding: 16px; }
+}
+
+/* Cliente en los listados de proyectos */
+.fila__cliente { color: var(--texto); font-weight: 600; }
+
+/* ==========================================================
+   Citas del proyecto
+   ========================================================== */
+.cita-nueva {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr) minmax(0, 2fr) auto;
+    align-items: end;
+    gap: 12px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--linea);
+    background: #FAFCF8;
+}
+.cita-nueva .boton { min-height: 46px; }
+
+.citas { margin: 0; padding: 0; list-style: none; }
+.citas li + li { border-top: 1px solid var(--linea); }
+
+.cita { display: flex; align-items: center; gap: 14px; padding: 12px 24px; }
+.cita__dia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 48px;
+    height: 52px;
+    border-radius: 10px;
+    background: var(--verde-suave);
+    color: var(--verde-accion);
+    line-height: 1.1;
+}
+.cita__numero { font-size: 19px; font-weight: 800; }
+.cita__mes { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.cita__datos { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.cita__titulo { font-weight: 700; }
+.cita__meta { color: var(--texto-suave); font-size: 13px; }
+.cita__meta strong { color: var(--texto); font-weight: 600; }
+
+.cita--cercana .cita__dia { background: var(--ambar-suave); color: #7A5600; }
+.cita--cercana .cita__meta strong { color: #7A5600; }
+.cita--pasada { opacity: 0.6; }
+.cita--pasada .cita__dia { background: var(--fondo); color: var(--texto-suave); }
+
+.citas-pasadas { border-top: 1px solid var(--linea); }
+.citas-pasadas summary {
+    padding: 12px 24px;
+    color: var(--texto-suave);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.citas-pasadas summary:hover { color: var(--texto); }
+.vacio--corto { padding: 20px 24px; }
+
+/* Icono de la cita en los listados */
+.entrega { display: inline-flex; align-items: center; gap: 5px; }
+.entrega .icono { width: 15px; height: 15px; }
+
+@media (prefers-color-scheme: dark) {
+    .cita-nueva { background: #141C11; }
+    .cita__dia { color: #A6D485; }
+    .cita--cercana .cita__dia, .cita--cercana .cita__meta strong { color: #E8C062; }
+}
+
+@media (max-width: 760px) {
+    .cita-nueva { grid-template-columns: 1fr 1fr; padding: 16px; }
+    .cita-nueva .campo:nth-of-type(3), .cita-nueva .boton { grid-column: 1 / -1; }
+    .cita { padding: 12px 16px; }
+    .citas-pasadas summary { padding: 12px 16px; min-height: 44px; }
+}
+.cita__meta strong { white-space: nowrap; }
+
+/* ==========================================================
+   Calendario (Oficina): agenda de Outlook + citas de los proyectos
+   ========================================================== */
+:root { --agenda-outlook: #0F6CBD; --agenda-outlook-suave: #E3EEF8; }
+
+.calendario-nav { display: flex; align-items: center; gap: 8px; }
+.calendario-nav__rango { min-width: 150px; font-weight: 700; text-align: center; }
+.calendario-nav__hoy { display: inline-flex; align-items: center; text-decoration: none; }
+
+.punto-agenda { width: 8px; height: 8px; border-radius: 50%; }
+.punto-agenda--outlook { background: var(--agenda-outlook); }
+.punto-agenda--cita { background: var(--verde-marca); }
+.segmento--activo .punto-agenda { box-shadow: 0 0 0 2px var(--sobre-color); }
+
+.agenda-dia { display: grid; grid-template-columns: 170px minmax(0, 1fr); border-top: 1px solid var(--linea); }
+.agenda-dia:first-of-type { border-top: 0; }
+.agenda-dia--hoy { background: #FAFCF8; }
+
+.agenda-dia__fecha {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.agenda-dia__numero { font-size: 26px; font-weight: 800; line-height: 1; }
+.agenda-dia__texto { display: flex; flex-direction: column; line-height: 1.2; }
+.agenda-dia__texto span { color: var(--texto-suave); font-size: 13px; font-weight: 500; }
+.agenda-dia__hoy { padding: 2px 8px; border-radius: 999px; background: var(--verde-accion); color: var(--sobre-color); font-size: 11px; }
+.agenda-dia--hoy .agenda-dia__numero { color: var(--verde-accion); }
+
+.agenda { margin: 0; padding: 8px 24px 8px 0; list-style: none; }
+.agenda__elemento {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    margin: 6px 0;
+    border-radius: var(--radio-control);
+    border-left: 4px solid var(--agenda-outlook);
+    background: var(--agenda-outlook-suave);
+}
+.agenda__elemento--cita { border-left-color: var(--verde-marca); background: var(--verde-suave); }
+
+.agenda__hora {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: none;
+    width: 78px;
+    padding: 10px 0 10px 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.agenda__hora span { color: var(--texto-suave); font-size: 12px; font-weight: 500; }
+.agenda__cuerpo { display: flex; flex-direction: column; justify-content: center; flex: 1; min-width: 0; padding: 10px 0; color: var(--texto); text-decoration: none; }
+a.agenda__cuerpo:hover .agenda__titulo { color: var(--verde-accion); text-decoration: underline; }
+.agenda__titulo { font-weight: 700; overflow-wrap: anywhere; }
+.agenda__meta { color: var(--texto-suave); font-size: 13px; }
+.agenda__fuente { align-self: center; flex: none; padding-right: 12px; color: var(--texto-suave); font-size: 12px; font-weight: 600; }
+.agenda__vacio { padding: 14px 0; color: var(--texto-suave); }
+
+@media (prefers-color-scheme: dark) {
+    :root { --agenda-outlook: #6CB4F0; --agenda-outlook-suave: #16263A; }
+    .agenda-dia--hoy { background: #141C11; }
+    .agenda-dia--hoy .agenda-dia__numero { color: #A6D485; }
+}
+
+@media (max-width: 760px) {
+    .agenda-dia { grid-template-columns: 1fr; }
+    .agenda-dia__fecha { padding: 14px 16px 4px; }
+    .agenda { padding: 0 16px 10px; }
+    .agenda__fuente { display: none; }
+    .calendario-nav { width: 100%; justify-content: space-between; }
+    .calendario-nav .boton-tabla { width: 44px; height: 44px; }
+}
+.agenda-dia__hoy { align-self: flex-start; margin-top: 6px; font-style: normal; }
+.agenda__dia-completo { font-size: 12px; font-style: normal; white-space: nowrap; }

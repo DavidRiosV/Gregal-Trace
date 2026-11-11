@@ -1,0 +1,62 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}Familias de material · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'lista_materiales' as url_materiales %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_url=url_materiales miga_texto="Materiales" miga_actual="Familias" %}
+    <h1 class="pagina__titulo">Familias de material</h1>
+    <p class="pagina__texto">Las familias agrupan el catálogo. Los operarios eligen primero la familia y luego el material.</p>
+</header>
+
+<section class="panel panel--formulario">
+    <h2 class="panel__titulo panel__titulo--formulario">Nueva familia</h2>
+    <form method="post" action="{% url 'lista_categorias' %}" class="formulario" novalidate>
+        {% csrf_token %}
+        <div class="formulario__fila">
+            {% include "gestion/campo.html" with campo=formulario.nombre %}
+            {% include "gestion/campo_widget.html" with campo=formulario.orden %}
+        </div>
+        <div class="formulario__botones">
+            <button type="submit" class="boton">{% include "gestion/icono.html" with nombre="mas" %}Crear familia</button>
+        </div>
+    </form>
+</section>
+
+<section class="panel panel--lista panel--separado">
+    <div class="tabla-contenedor">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th scope="col">Familia</th>
+                    <th scope="col">Código</th>
+                    <th scope="col" class="num">Posición</th>
+                    <th scope="col" class="num">Materiales</th>
+                    <th scope="col" class="num"><span class="solo-lector">Acciones</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td class="tabla__material"><a href="{% url 'lista_materiales' %}?categoria={{ categoria.codigo }}">{{ categoria.nombre }}</a></td>
+                        <td>{{ categoria.codigo }}</td>
+                        <td class="num">{{ categoria.orden }}</td>
+                        <td class="num">{{ categoria.num_materiales }}</td>
+                        <td class="tabla__acciones">
+                            <a class="boton-tabla" href="{% url 'categoria_editar' categoria.pk %}" aria-label="Editar {{ categoria.nombre }}" title="Editar">{% include "gestion/icono.html" with nombre="editar" %}</a>
+                            {% if not categoria.num_materiales %}
+                                <form method="post" action="{% url 'categoria_eliminar' categoria.pk %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar {{ categoria.nombre }}" title="Eliminar" data-confirmar="Se borrará la familia «{{ categoria.nombre }}».">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <p class="pagina__texto panel__nota">Solo se pueden eliminar las familias sin materiales.</p>
+</section>
+{% endblock %}

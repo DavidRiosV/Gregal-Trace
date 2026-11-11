@@ -1,0 +1,69 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}Albaranes · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'index' as url_inicio %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_actual="Albaranes" %}
+    <div class="pagina__fila">
+        <div>
+            <h1 class="pagina__titulo">Albaranes</h1>
+            <p class="pagina__texto">Los PDF que operarios y Oficina suben en cada trabajo. Entra en uno para verlos, añadir o borrar.</p>
+        </div>
+    </div>
+</header>
+
+<div class="cifras">
+    <div class="cifra">
+        <span class="cifra__valor">{{ total_albaranes }}</span>
+        <span class="cifra__nombre">Albaranes en total</span>
+    </div>
+    <div class="cifra">
+        <span class="cifra__valor">{{ albaranes_mes }}</span>
+        <span class="cifra__nombre">Subidos este mes</span>
+    </div>
+</div>
+
+<section class="panel panel--lista">
+    <div class="barra-herramientas">
+        {% include "gestion/buscador.html" with texto_buscador="Buscar por trabajo o cliente" %}
+        <nav class="segmentos segmentos--desliza" aria-label="Apartado">
+            {% for pestana in pestanas %}
+                <a href="?tipo={{ pestana.slug }}{% if busqueda %}&q={{ busqueda|urlencode }}{% endif %}"
+                   class="segmento{% if pestana.slug == tipo_actual %} segmento--activo{% endif %}"{% if pestana.slug == tipo_actual %} aria-current="true"{% endif %}>
+                    {{ pestana.titulo }} <span class="segmento__numero">{{ pestana.n }}</span>
+                </a>
+            {% endfor %}
+        </nav>
+    </div>
+
+    <ul class="filas">
+        {% for proyecto in proyectos %}
+            <li>
+                <a class="fila" href="{% url 'detalle_proyecto' proyecto.pk %}#albaranes">
+                    <span class="fila__icono fila__icono--pdf" aria-hidden="true">{% include "gestion/icono.html" with nombre="albaran" %}</span>
+                    <span class="fila__principal">
+                        <span class="fila__titulo">{{ proyecto.nombre }}</span>
+                        <span class="fila__meta">{% if proyecto.cliente %}<span class="fila__cliente">{{ proyecto.cliente }}</span> · {% endif %}Último subido el {{ proyecto.ultimo_albaran|date:"d/m/Y" }} a las {{ proyecto.ultimo_albaran|date:"H:i" }}</span>
+                    </span>
+                    <span class="contador-albaranes">{{ proyecto.num_albaranes }} albarán{{ proyecto.num_albaranes|pluralize:"es" }}</span>
+                    {% include "gestion/estado.html" %}
+                    <span class="fila__flecha">{% include "gestion/icono.html" with nombre="siguiente" %}</span>
+                </a>
+            </li>
+        {% empty %}
+            <li class="vacio">
+                {% if busqueda %}
+                    <p>No hay {{ titulo_tipo|lower }} con albaranes que coincidan con «{{ busqueda }}».</p>
+                    <a href="?tipo={{ tipo_actual }}">Quitar la búsqueda</a>
+                {% else %}
+                    <p>Todavía no hay albaranes en {{ titulo_tipo|lower }}. Se suben desde la pestaña «Albaranes» de cada trabajo.</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% include "gestion/volver.html" with volver_url=url_inicio volver_texto="Volver al inicio" %}
+{% endblock %}

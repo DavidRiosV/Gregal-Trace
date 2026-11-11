@@ -3,13 +3,13 @@
 
 {% block titulo %}Generador de presupuesto · Gregal Trace{% endblock %}
 
-{% block estilos %}<link rel="stylesheet" href="{% static 'presupuestos/presupuestos.css' %}?v=1">{% endblock %}
+{% block estilos %}<link rel="stylesheet" href="{% static 'presupuestos/presupuestos.css' %}?v=2">{% endblock %}
 
 {% block contenido %}
 <header class="pagina">
     {% include "gestion/migas.html" with miga_actual="Generador de presupuesto" %}
     <h1 class="pagina__titulo">Generador de presupuesto</h1>
-    <p class="pagina__texto">Monta el PDF final: portada de Gregal + resumen + notas, delante del presupuesto de Presto. Todo se hace en tu navegador: los PDF no se suben al servidor.</p>
+    <p class="pagina__texto">Los PDF no se suben al servidor.</p>
 </header>
 
 {% comment %}

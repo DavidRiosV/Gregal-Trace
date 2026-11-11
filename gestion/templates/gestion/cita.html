@@ -1,0 +1,20 @@
+{# Una cita en la lista del proyecto: el día en grande, la hora, el motivo y cuánto falta #}
+<li class="cita{% if cita.es_pasada %} cita--pasada{% elif cita.es_cercana %} cita--cercana{% endif %}">
+    <span class="cita__dia" aria-hidden="true">
+        <span class="cita__numero">{{ cita.fecha|date:"j" }}</span>
+        <span class="cita__mes">{{ cita.fecha|date:"M" }}</span>
+    </span>
+    <span class="cita__datos">
+        <span class="cita__titulo">{{ cita.motivo|default:"Cita" }}</span>
+        <span class="cita__meta">
+            {{ cita.fecha|date:"l, d/m/Y"|capfirst }}{% if cita.hora %} · {{ cita.hora|time:"H:i" }}{% else %} · sin hora{% endif %}
+            · <strong>{{ cita.dias }}</strong>
+        </span>
+    </span>
+    {% if perms.gestion.delete_cita %}
+        <form method="post" action="{% url 'cita_eliminar' cita.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="boton-tabla boton-tabla--peligro" aria-label="Eliminar cita" title="Eliminar" data-confirmar="Se borrará la cita del {{ cita.fecha|date:'d/m/Y' }}{% if cita.motivo %} ({{ cita.motivo }}){% endif %}.">{% include "gestion/icono.html" with nombre="borrar" %}</button>
+        </form>
+    {% endif %}
+</li>

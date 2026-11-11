@@ -10,10 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Datos secretos en el archivo .env, que no se sube a Git (Despliegue, diapositivas 14-16)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -118,6 +125,14 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+# Archivos que suben los usuarios (los PDF de los albaranes). No se sirven con una URL pública:
+# se abren con la vista albaran_ver, que exige haber iniciado sesión.
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Enlace .ics del calendario de Outlook publicado (apartado Calendario de Oficina).
+# Quien tenga el enlace ve el calendario, por eso va en el .env y no aquí.
+OUTLOOK_ICS_URL = env('OUTLOOK_ICS_URL', default='')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

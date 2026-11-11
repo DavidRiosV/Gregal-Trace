@@ -18,7 +18,7 @@
 
 <section class="panel panel--lista">
     <div class="barra-herramientas">
-        {% include "gestion/buscador.html" with texto_buscador="Buscar por nombre o descripción" %}
+        {% include "gestion/buscador.html" with texto_buscador="Buscar por nombre, cliente o descripción" %}
 
         <nav class="segmentos" aria-label="Filtrar por estado">
             <a href="?estado=PRO{% if busqueda %}&q={{ busqueda|urlencode }}{% endif %}"
@@ -37,9 +37,18 @@
                     <span class="fila__principal">
                         <span class="fila__titulo">{{ proyecto.nombre }}</span>
                         <span class="fila__meta">
-                            Inicio {{ proyecto.fecha_inicio|date:"d/m/Y" }}{% if proyecto.fecha_fin %}, fin {{ proyecto.fecha_fin|date:"d/m/Y" }}{% endif %}
+                            {% if proyecto.cliente %}<span class="fila__cliente">{{ proyecto.cliente }}</span> · {% endif %}Inicio {{ proyecto.fecha_inicio|date:"d/m/Y" }}{% if proyecto.fecha_fin %}, fin {{ proyecto.fecha_fin|date:"d/m/Y" }}{% endif %}
                         </span>
                     </span>
+                    {# Próxima cita junto al estado (en ámbar si es hoy o mañana). Los proyectos van ordenados por ella #}
+                    {% with cita=proyecto.siguiente_cita %}
+                        {% if cita and not proyecto.esta_terminado %}
+                            <span class="entrega{% if cita.es_cercana %} entrega--cerca{% endif %}" title="Próxima cita{% if cita.motivo %}: {{ cita.motivo }}{% endif %}">
+                                {% include "gestion/icono.html" with nombre="cita" %}{{ cita.fecha|date:"d/m/Y" }}{% if cita.hora %} · {{ cita.hora|time:"H:i" }}{% endif %}
+                                <span class="entrega__dias">· {{ cita.dias }}</span>
+                            </span>
+                        {% endif %}
+                    {% endwith %}
                     {% include "gestion/estado.html" %}
                     <span class="fila__flecha">{% include "gestion/icono.html" with nombre="siguiente" %}</span>
                 </a>

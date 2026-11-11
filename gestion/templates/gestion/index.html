@@ -8,7 +8,7 @@
     <div class="pagina__fila">
         <div>
             <h1 class="pagina__titulo">Hola, {{ user.first_name|default:user.username }}</h1>
-            <p class="pagina__texto">Elige dónde vas a apuntar hoy el material y las horas.</p>
+            <p class="pagina__texto">{% if perms.gestion.change_proyecto %}Elige dónde vas a apuntar hoy el material y las horas.{% else %}Elige el trabajo donde vas a apuntar hoy las horas, las notas y los albaranes.{% endif %}</p>
             {# Último proyecto abierto, guardado en la sesión desde detalle_proyecto #}
             {% if request.session.ultimo_proyecto %}
                 <p class="pagina__texto">
@@ -23,7 +23,7 @@
 <div class="tipos">
     {% for slug, tipo in nav_tipos.items %}
         <a class="tipo" href="{% url 'lista_proyectos' slug %}">
-            <img class="tipo__foto" src="{% static tipo.imagen %}" alt="" loading="lazy">
+            <img class="tipo__foto" src="{% static tipo.imagen %}" alt="" width="1200" height="500" loading="lazy">
             <span class="tipo__cuerpo">
                 <span class="tipo__icono">{% include "gestion/icono.html" with nombre=slug %}</span>
                 <span class="tipo__titulo">{{ tipo.titulo }}</span>
@@ -36,7 +36,7 @@
     {% endfor %}
 
     <a class="tipo tipo--urgencia" href="{% url 'urgencias' %}">
-        <img class="tipo__foto" src="{% static 'img/categorias/urgencias.jpg' %}" alt="" loading="lazy">
+        <img class="tipo__foto" src="{% static 'img/procesos/urgencias.webp' %}" alt="" width="1200" height="500" loading="lazy">
         <span class="tipo__cuerpo">
             <span class="tipo__icono">{% include "gestion/icono.html" with nombre="urgencias" %}</span>
             <span class="tipo__titulo">Urgencias</span>
@@ -52,10 +52,12 @@
     <section class="panel panel--oficina">
         <div>
             <h2 class="panel__titulo">Oficina</h2>
-            <p class="pagina__texto">Gestiona el catálogo de materiales y horas con sus precios, y monta presupuestos en PDF.</p>
+            <p class="pagina__texto">Gestiona el catálogo de materiales y horas con sus precios, consulta el calendario, revisa los albaranes de cada trabajo y monta presupuestos en PDF.</p>
         </div>
         <div class="pagina__acciones">
             <a class="boton boton--secundario" href="{% url 'lista_materiales' %}">{% include "gestion/icono.html" with nombre="materiales" %}Materiales</a>
+            <a class="boton boton--secundario" href="{% url 'calendario' %}">{% include "gestion/icono.html" with nombre="cita" %}Calendario</a>
+            {% if perms.gestion.change_albaran %}<a class="boton boton--secundario" href="{% url 'lista_albaranes' %}">{% include "gestion/icono.html" with nombre="albaran" %}Albaranes</a>{% endif %}
             <a class="boton boton--secundario" href="{% url 'generador_presupuesto' %}">{% include "gestion/icono.html" with nombre="presupuesto" %}Generador de presupuesto</a>
         </div>
     </section>

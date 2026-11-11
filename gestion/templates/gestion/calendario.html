@@ -1,0 +1,76 @@
+{% extends "gestion/principal.html" %}
+
+{% block titulo %}Calendario · Gregal Trace{% endblock %}
+
+{% block contenido %}
+{% url 'index' as url_inicio %}
+<header class="pagina">
+    {% include "gestion/migas.html" with miga_actual="Calendario" %}
+    <div class="pagina__fila">
+        <div>
+            <h1 class="pagina__titulo">Calendario</h1>
+            <p class="pagina__texto">El calendario de Outlook de la empresa junto a las citas de los proyectos.</p>
+        </div>
+        {% if url_outlook %}
+            <div class="pagina__acciones">
+                <a class="boton boton--secundario" href="{{ url_outlook }}" target="_blank" rel="noopener">{% include "gestion/icono.html" with nombre="abrir" %}Abrir en Outlook</a>
+            </div>
+        {% endif %}
+    </div>
+</header>
+
+{% if error %}<p class="aviso aviso--info">{{ error }}</p>{% endif %}
+
+<section class="panel panel--lista">
+    <div class="barra-herramientas">
+        {# Navegar de 14 en 14 días #}
+        <div class="calendario-nav">
+            <a class="boton-tabla" href="{{ url_anterior }}" aria-label="Dos semanas antes" title="Dos semanas antes">{% include "gestion/icono.html" with nombre="volver" %}</a>
+            <span class="calendario-nav__rango">{{ desde|date:"j M" }} – {{ hasta|date:"j M Y" }}</span>
+            <a class="boton-tabla" href="{{ url_siguiente }}" aria-label="Dos semanas después" title="Dos semanas después">{% include "gestion/icono.html" with nombre="siguiente" %}</a>
+            {% if not es_desde_hoy %}<a class="buscador__boton calendario-nav__hoy" href="{{ url_hoy }}">Hoy</a>{% endif %}
+        </div>
+        <nav class="segmentos" aria-label="Qué ver">
+            <a href="?desde={{ desde|date:'Y-m-d' }}" class="segmento{% if ver_actual == 'todo' %} segmento--activo{% endif %}">Todo</a>
+            <a href="?desde={{ desde|date:'Y-m-d' }}&ver=outlook" class="segmento{% if ver_actual == 'outlook' %} segmento--activo{% endif %}"><span class="punto-agenda punto-agenda--outlook" aria-hidden="true"></span>Outlook</a>
+            <a href="?desde={{ desde|date:'Y-m-d' }}&ver=citas" class="segmento{% if ver_actual == 'citas' %} segmento--activo{% endif %}"><span class="punto-agenda punto-agenda--cita" aria-hidden="true"></span>Citas</a>
+        </nav>
+    </div>
+
+    {% for dia in dias %}
+        <div class="agenda-dia{% if dia.es_hoy %} agenda-dia--hoy{% endif %}">
+            <h2 class="agenda-dia__fecha">
+                <span class="agenda-dia__numero">{{ dia.fecha|date:"j" }}</span>
+                <span class="agenda-dia__texto">{{ dia.fecha|date:"l"|capfirst }}<span>{{ dia.fecha|date:"F" }}</span>{% if dia.es_hoy %}<em class="agenda-dia__hoy">Hoy</em>{% endif %}</span>
+            </h2>
+            <ul class="agenda">
+                {% for elemento in dia.elementos %}
+                    <li class="agenda__elemento agenda__elemento--{{ elemento.fuente }}">
+                        <span class="agenda__hora">
+                            {% if elemento.inicio %}{{ elemento.inicio|time:"H:i" }}{% if elemento.fin %}<span>{{ elemento.fin|time:"H:i" }}</span>{% endif %}{% else %}<em class="agenda__dia-completo">Todo el día</em>{% endif %}
+                        </span>
+                        {% if elemento.fuente == 'cita' %}
+                            <a class="agenda__cuerpo" href="{% url 'detalle_proyecto' elemento.proyecto.pk %}#citas">
+                                <span class="agenda__titulo">{{ elemento.titulo }}</span>
+                                <span class="agenda__meta">{{ elemento.proyecto.nombre }}{% if elemento.proyecto.cliente %} · {{ elemento.proyecto.cliente }}{% endif %}</span>
+                            </a>
+                        {% else %}
+                            <span class="agenda__cuerpo">
+                                <span class="agenda__titulo">{{ elemento.titulo }}</span>
+                                {% if elemento.lugar or elemento.varios_dias %}<span class="agenda__meta">{{ elemento.lugar }}{% if elemento.lugar and elemento.varios_dias %} · {% endif %}{{ elemento.varios_dias }}</span>{% endif %}
+                            </span>
+                        {% endif %}
+                        <span class="agenda__fuente">{% if elemento.fuente == 'cita' %}Cita{% else %}Outlook{% endif %}</span>
+                    </li>
+                {% empty %}
+                    <li class="agenda__vacio">Nada para hoy.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% empty %}
+        <div class="vacio"><p>No hay nada en el calendario entre el {{ desde|date:"d/m" }} y el {{ hasta|date:"d/m/Y" }}.</p></div>
+    {% endfor %}
+</section>
+
+{% include "gestion/volver.html" with volver_url=url_inicio volver_texto="Volver al inicio" %}
+{% endblock %}
